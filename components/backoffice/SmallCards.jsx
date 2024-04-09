@@ -6,7 +6,7 @@ export default function SmallCards() {
     const orderStatus=[{
         title: "Total Orders",
         number: 100,
-        iconColor: "bg-teal-600",
+        iconColor: "bg-cyan-600",
         icon: ShoppingCart
     },
     {

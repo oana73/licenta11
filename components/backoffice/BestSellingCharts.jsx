@@ -42,7 +42,7 @@ export default function BestSellingCharts() {
       };
   return (
     <div className='dark:bg-neutral-600 bg-slate-50 p-8 rounded-lg shadow-xl'>
-        <h2 className='text-xl font-bold mb-4 text-neutral-600 dark:text-slate-50'>Best Selling Charts</h2>
+        <h2 className='text-xl font-bold mb-4 text-neutral-600 dark:text-neutral-50'>Best Selling Charts</h2>
         {/* Chart */}
         <div className='p-4'>
             <Pie data={data} options={options}/>

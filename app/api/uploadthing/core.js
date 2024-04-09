@@ -29,4 +29,10 @@ export const ourFileRouter = {
     console.log("file url", file.url, metadata);
     return { uploadedBy: "ceva" };
   }),
+  supplierProfileUploader: f({ image: { maxFileSize: "2MB" } })
+  // Set permissions and file types for this FileRoute
+  .onUploadComplete(async ({ metadata, file }) => {
+    console.log("file url", file.url, metadata);
+    return { uploadedBy: "ceva" };
+  }),
 };

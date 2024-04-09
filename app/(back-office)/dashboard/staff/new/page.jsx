@@ -27,58 +27,63 @@ export default function newStaff() {
               name="name"
               register={register}
               errors={errors}/>
-             <TextInput
+            <TextInput
               label="Phone number"
               name="phone"
               type='tel'
               register={register}
               errors={errors}
               className='w-full'
-              />
-             <TextInput
+            />
+            <TextInput
               label="Email address"
               name="email"
               type='email'
               register={register}
               errors={errors}
-              className='w-full'/>
-              <TextInput
+              className='w-full'
+            />
+            <TextInput
               label="Password"
               name='password'
               type='password'
               register={register}
               errors={errors}
-              className='w-full'/>
-              <TextInput
+              className='w-full'
+            />
+            <TextInput
               label="ID number"
               name='nin'
               register={register}
               errors={errors}
-              className='w-full'/>
-              <TextInput
+              className='w-full'
+            />
+            <TextInput
               label="Date of Birth"
               name='dob'
               type='date'
               register={register}
               errors={errors}
-              className='w-full'/>
-              <TextInput
+              className='w-full'
+            />
+            <TextInput
               label="Staff address"
               name="address"
               register={register}
               errors={errors}
-              className='w-full'/>
+              className='w-full'
+            />
             <TextArea
               label="Notes"
               name="notes"
               register={register}
               errors={errors}
               isRequired = {false}/>
-            </div>
-            <SubmitButton 
-              isLoading = {loading} 
-              buttonTitle="Create Staff" 
-              loadingButton="Creating..."/> 
+          </div>
+          <SubmitButton 
+            isLoading = {loading} 
+            buttonTitle="Create Staff" 
+            loadingButton="Creating..."/> 
       </form>
            
     </div>

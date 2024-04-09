@@ -101,10 +101,10 @@ export default function SalesCharts() {
     const[chartTodDisplay, setChatToDisplay]= useState(tabs[0].type)
   return (
     <div className='dark:bg-neutral-600 bg-slate-50 p-8 rounded-lg shadow-xl'>
-      <h2 className='text-xl font-bold mb-4 text-neutral-600 dark:text-slate-50'>Best Selling Products</h2>
+      <h2 className='text-xl font-bold mb-4 text-neutral-700 dark:text-neutral-50'>Best Selling Products</h2>
       <div className="p-4">
         {/* Tabs */}
-        <div className="text-sm font-medium text-center text-gray-200 border-b border-gray-100 dark:text-gray-400 dark:border-gray-700">
+        <div className="text-sm font-medium text-center border-b border-neutral-300 dark:border-neutral-500">
           <ul className="flex flex-wrap -mb-px">
             {
                 tabs.map((tab,i)=>{
@@ -113,8 +113,8 @@ export default function SalesCharts() {
                        <button 
                        onClick={()=>setChatToDisplay(tab.type)} 
                        className={chartTodDisplay==tab.type? 
-                       "inline-block p-4 text-teal-700 border-b-2 border-teal-600 rounded-t-lg active dark:text-teal-500 dark:border-teal-500"
-                       :"inline-block p-4 border-b-2 border-transparent rounded-t-lg text-neutral-500 hover:text-neutral-700 hover:border-neutral-500 dark:hover:text-gray-300"}>{tab.title}</button> 
+                       "inline-block p-4 text-cyan-500 border-b-2 border-cyan-500 rounded-t-lg active "
+                       :"inline-block p-4 border-b-2 border-transparent rounded-t-lg text-neutral-500 hover:text-neutral-600 hover:border-neutral-600 dark:text-neutral-300 dark:hover:text-neutral-100 dark:hover:border-neutral-100"}>{tab.title}</button> 
                     </li>
                    ) 
                 })

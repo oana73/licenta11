@@ -8,8 +8,10 @@ import React from 'react'
 export default function page() {
   return (
     <div>
-      <PageHeader heading="Staff" href="/dashboard/staff/new"
-       linkTitle="Add Staff"
+      <PageHeader 
+        heading="Staff" 
+        href="/dashboard/staff/new"
+        linkTitle="Add Staff"
       />
       {/* Table Actions */}
       {/* Export Search Delete */}

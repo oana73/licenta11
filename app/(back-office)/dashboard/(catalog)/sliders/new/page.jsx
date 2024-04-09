@@ -6,6 +6,7 @@ import TextInput from '@/components/Form/TextInput'
 import HeaderForm from '@/components/backoffice/HeaderForm'
 import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -13,10 +14,14 @@ export default function newSlider() {
   const [imageUrl, setImageUrl] = useState("")
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const router = useRouter()
+  function redirect(){
+     router.push("/dashboard/sliders")
+   }
   async function onSubmit(data){
     data.imageUrl=imageUrl;
     console.log(data)
-    makePostRequest(setLoading, 'api/sliders', data, "Slider", reset);
+    makePostRequest(setLoading, 'api/sliders', data, "Slider", reset, redirect);
     setImageUrl("");
   }
   
@@ -29,24 +34,27 @@ export default function newSlider() {
               label="Title"
               name="title"
               register={register}
-              errors={errors}/>
-             <TextInput
-              label="Link"
-              name="link"
-              type='url'
-              register={register}
               errors={errors}
-              />
-             <ImageInput
-              label="Image"
-              imageUrl={imageUrl}
-              setImageUrl={ setImageUrl}
-              endpoint='sliderImageUploader'/>
-            </div>
-            <SubmitButton 
-              isLoading = {loading} 
-              buttonTitle="Create Slider" 
-              loadingButton="Creating..."/> 
+            />
+            <TextInput
+            label="Link"
+            name="link"
+            type='url'
+            register={register}
+            errors={errors}
+            />
+            <ImageInput
+            label="Image"
+            imageUrl={imageUrl}
+            setImageUrl={ setImageUrl}
+            endpoint='sliderImageUploader'
+            />
+          </div>
+          <SubmitButton 
+            isLoading = {loading} 
+            buttonTitle="Create Slider" 
+            loadingButton="Creating..."
+          /> 
       </form>
            
     </div>

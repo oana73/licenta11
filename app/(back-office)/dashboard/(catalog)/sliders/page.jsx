@@ -8,8 +8,10 @@ import React from 'react'
 export default function page() {
   return (
     <div>
-      <PageHeader heading="Sliders" href="/dashboard/sliders/new"
-       linkTitle="Add Slider"
+      <PageHeader 
+        heading="Sliders" 
+        href="/dashboard/sliders/new"
+        linkTitle="Add Slider"
       />
       {/* Table Actions */}
       {/* Export Search Delete */}

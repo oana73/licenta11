@@ -100,7 +100,7 @@ export default function CustomData() {
                                    onClick={()=>setCurrentPage(index+1)}
                                    disabled={currentPage == index+1}
                                    className={currentPage == index+1
-                                   ? "flex items-center justify-center px-3 h-8 leading-tight text-gray-100 bg-teal-500 border border-teal-100 dark:bg-teal-600 dark:border-teal-700 dark:text-gray-200 "
+                                   ? "flex items-center justify-center px-3 h-8 leading-tight text-gray-100 bg-cyan-500 border border-cyan-100 dark:bg-cyan-600 dark:border-cyan-700 dark:text-gray-200 "
                                    :"flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}>{index+1}</button>
                                 </li>
                             )

@@ -10,7 +10,7 @@ export default function Providers({children}) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
         <NextSSRPlugin
-        routerConfig={extractRouterConfig(ourFileRouter)}
+          routerConfig={extractRouterConfig(ourFileRouter)}
         />
       <Toaster 
       position="top-center"

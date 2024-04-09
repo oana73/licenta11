@@ -61,19 +61,13 @@ export default function newProduct() {
     data.imageUrl=imageUrl;
     data.tags = tags;
     console.log(data);
-    makePostRequest(
-      setLoading,
-      'api/products',
-      data,
-      "Product",
-      reset
-    );
+    makePostRequest(setLoading, 'api/products', data, "Product", reset);
     setImageUrl("")
   }
   return (
     <div>
       <HeaderForm title="New Product" />
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-neutral-600 dark:border-gray-700 mx-auto my-3 mt-7">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-ful p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-neutral-600 dark:border-gray-700 mx-auto my-3 mt-7">
           <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
             <TextInput
               label="Product Title"
@@ -108,7 +102,7 @@ export default function newProduct() {
               className='w-full'/>
             <MultipleChoiceMarkets
               label="Select Category"
-              name="categoryID"
+              name="categoryId"
               options={categories}
               multiple={false}
               register={register}
@@ -116,7 +110,7 @@ export default function newProduct() {
               className='w-full'/>
             <MultipleChoiceMarkets
               label="Select Supplier"
-              name="supplierID"
+              name="supplierId"
               options={suppliers}
               multiple={false}
               register={register}
@@ -135,7 +129,8 @@ export default function newProduct() {
               label="Produc Image"
               imageUrl={imageUrl}
               setImageUrl={setImageUrl} 
-              endpoint="productImageUploader"/>
+              endpoint="productImageUploader"
+              />
             <div className="w-full ">
               <label className="relative inline-flex items-center cursor-pointer">
                 <input

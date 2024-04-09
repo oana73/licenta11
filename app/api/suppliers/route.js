@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request){
 try{
-    const{name, phone, email,address, paymentTerms, notes} = await request.json();
-    const newSupplier = { name, phone, email,address, paymentTerms, notes }
+    const{name,slug, phone, email,address, paymentTerms, notes, profileImage} = await request.json();
+    const newSupplier = { name,slug, phone, email,address, paymentTerms, notes,profileImage }
     console.log(newSupplier);
     return NextResponse.json(newSupplier)
 } catch(error){

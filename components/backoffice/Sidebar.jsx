@@ -10,7 +10,7 @@ import {
  } from "@/components/ui/collapsible"
 import Link from 'next/link'
  
-export default function Sidebar({showSidebar}) {
+export default function Sidebar({showSidebar,setSidebar}) {
    const catalogLinks=[
       {
          title:"Products",
@@ -19,7 +19,7 @@ export default function Sidebar({showSidebar}) {
       {
          title:"Categories",
          href: "/dashboard/categories"
-      },,
+      },
       {
          title:"Coupons",
          href: "/dashboard/coupons"
@@ -73,8 +73,8 @@ export default function Sidebar({showSidebar}) {
   ];
   const pathName = usePathname()
   return (
-    <div className= {showSidebar?"sm:block mt-20 sm:mt-0 bg-slate-50 dark:bg-neutral-800 text-neutral-700 space-y-6 w-60 h-screen dark:text-slate-300 fixed left-0 top-0 shadow-md"
-   :" mt-20 hidden sm:block sm:mt-0 bg-slate-50 dark:bg-neutral-800 space-y-6 w-60 h-screen dark:text-slate-300 fixed left-0 top-0 shadow-md"} >
+    <div className= {showSidebar?"sm:block mt-14 sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
+   :" mt-20 hidden sm:block sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
         <a className='mb-6 ' href="/dashboard">
           <Image src="/logo.png"
           alt="logo"
@@ -87,28 +87,28 @@ export default function Sidebar({showSidebar}) {
             <Link onClick={() => setSidebar(false)}
             href="/dashboard" 
             className={pathName==='/dashboard'
-               ?"flex items-center space-x-3 px-6 py-2 border-l-2 border-teal-500 rounded text-teal-500"
-               :"flex items-center space-x-3 px-6 py-2"}>
-              <LayoutGrid/>
+               ?"flex items-center space-x-3 px-6 py-0.5 border-l-2 border-cyan-500  text-cyan-500"
+               :"flex items-center space-x-3 px-6 py-0.5 hover-cyan-500 hover:text-black dark:hover:text-white"}>
+              <LayoutGrid className='w-5 h-5'/>
               <span>Dashboard</span>
             </Link>
-            <Collapsible className='px-6 py-2'>
+            <Collapsible className='px-6'>
             <CollapsibleTrigger className='' >
-               <div className='flex items-center space-x-3 py-2'>
+               <div className='flex items-center space-x-3 py-0.5 hover:text-black dark:hover:text-white'>
                      <div className='flex items-center space-x-3'>
-                        <Layers />
+                        <Layers className='w-5 h-5'/>
                         <span>Catalog</span>
                      </div>
                </div>
             </CollapsibleTrigger>
-            <CollapsibleContent className='pl-6 py-3 bg-neutral-300 text-neutral-800 dark:bg-neutral-900 dark:text-slate-300 rounded-xl'>
+            <CollapsibleContent className='pl-8 py-3 text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 rounded-xl'>
                {
                   catalogLinks.map((item,i)=>{
                      return(
                         <Link href={item.href} 
                         className={pathName===item.href
-                        ?"flex items-center space-x-3 py-1 text-teal-500 text-sm"
-                        :"flex items-center space-x-3 py-1 text-sm"}>
+                        ?"flex items-center space-x-3 py-1 text-cyan-500 text-sm"
+                        :"flex items-center space-x-3 py-1 text-sm hover:text-black dark:hover:text-white"}>
                         <span>{item.title}</span>
                      </Link>
                      );
@@ -126,9 +126,9 @@ export default function Sidebar({showSidebar}) {
                      key={i}
                      href={item.href}
                      className={item.href==pathName
-                        ?"flex items-center space-x-3 px-6 py-2 border-l-2 border-teal-500 rounded text-teal-500"
-                        :"flex items-center space-x-3 px-6 py-2 "}>
-                        <Icon/>   
+                        ?"flex items-center space-x-3 px-6 py-0.5 border-l-2 border-cyan-500 text-cyan-500"
+                        :"flex items-center space-x-3 px-6 py-0.5 hover:text-black dark:hover:text-white "}>
+                        <Icon className='w-5 h-5'/>   
                         <span>{item.title}</span>                 
                      </Link>
                   );

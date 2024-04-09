@@ -6,15 +6,25 @@ import TextInput from '@/components/Form/TextInput'
 import HeaderForm from '@/components/backoffice/HeaderForm'
 import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function newSupplier() {
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const router = useRouter()
+  function redirect(){
+     router.push("/dashboard/suppliers")
+   }
   async function onSubmit(data){
+    
+    const slug = generateSlug(data.title)
+    data.slug = slug;
+    data.imageUrl=imageUrl;
     console.log(data)
-    makePostRequest(setLoading, "api/suppliers", data, "Coupon", reset)
+    makePostRequest(setLoading, "api/suppliers", data, "Coupon", reset, redirect)
+    setImageUrl("");
   }
   
   return (
@@ -28,7 +38,7 @@ export default function newSupplier() {
               register={register}
               errors={errors}
               className='w-full'/>
-             <TextInput
+            <TextInput
               label="Phone number"
               name="phone"
               type='tel'
@@ -36,14 +46,14 @@ export default function newSupplier() {
               errors={errors}
               className='w-full'
               />
-             <TextInput
+            <TextInput
               label="Email address"
               name="email"
               type='email'
               register={register}
               errors={errors}
               className='w-full'/>
-              <TextInput
+            <TextInput
               label="Supplier address"
               name="address"
               register={register}
@@ -60,11 +70,16 @@ export default function newSupplier() {
               register={register}
               errors={errors}
               isRequired = {false}/>
-            </div>
-            <SubmitButton 
-              isLoading = {loading} 
-              buttonTitle="Create Suppliers" 
-              loadingButton="Creating..."/> 
+          </div>
+          <ImageInput
+            label="Supplier Profile Image"
+            imageUrl={imageUrl}
+            setImageUrl={ setImageUrl}
+            endpoint='supplierProfileUploader'/>
+          <SubmitButton 
+            isLoading = {loading} 
+            buttonTitle="Create Suppliers" 
+            loadingButton="Creating..."/> 
       </form>
            
     </div>

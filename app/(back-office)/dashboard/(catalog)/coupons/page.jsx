@@ -8,7 +8,9 @@ import React from 'react'
 export default function page() {
   return (
     <div>
-      <PageHeader heading="Coupons" href="/dashboard/coupons/new"
+      <PageHeader 
+        heading="Coupons" 
+        href="/dashboard/coupons/new"
        linkTitle="Add Coupon"
       />
       {/* Table Actions */}

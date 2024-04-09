@@ -6,15 +6,23 @@ import TextInput from '@/components/Form/TextInput'
 import HeaderForm from '@/components/backoffice/HeaderForm'
 import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
+import { isoDate } from '@/lib/isoDate'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function newCoupon() {
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const router = useRouter()
+  function redirect(){
+    router.push("/dashboard/coupons")
+  }
   async function onSubmit(data){
+    const isoFormatDate = isoDate(data.valability)
+    data.valability = isoFormatDate;
     console.log(data)
-    makePostRequest(setLoading, "api/coupons", data, "Coupon", reset)
+    makePostRequest(setLoading, "api/coupons", data, "Coupon", reset, redirect)
   }
   
   return (
@@ -27,26 +35,27 @@ export default function newCoupon() {
               name="title"
               register={register}
               errors={errors}/>
-             <TextInput
+            <TextInput
               label="Code"
               name="code"
               register={register}
               errors={errors}
               className='w-full'
-              />
-             <TextInput
+            />
+            <TextInput
               label="Expiration date"
               name="valability"
               type='date'
               register={register}
               errors={errors}
-              className='w-full'/>
-              
-            </div>
+              className='w-full'
+            />
+          </div>
             <SubmitButton 
               isLoading = {loading} 
               buttonTitle="Create Coupon" 
-              loadingButton="Creating..."/> 
+              loadingButton="Creating..."
+              /> 
       </form>
            
     </div>

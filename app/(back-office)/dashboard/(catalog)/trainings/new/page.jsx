@@ -16,6 +16,8 @@ export default function newTraining() {
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
   async function onSubmit(data){
+    const slug = generateSlug(data.title)
+    data.slug = slug;
     data.content = content;
     console.log(data);
     makePostRequest(
@@ -38,16 +40,19 @@ export default function newTraining() {
               label="Training Title"
               name="title"
               register={register}
-              errors={errors}/>
+              errors={errors}
+            />
             <BlogInput
               label='Content'
               value={content}
-              onChange={setContent} />
+              onChange={setContent} 
+            />
           </div>
           <SubmitButton 
             isLoading = {loading} 
             buttonTitle="Create Training" 
-            loadingButton="Creating..."/> 
+            loadingButton="Creating..."
+          /> 
       </form>
            
     </div>

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, SunDim } from "lucide-react";
+import { Moon, Sun, SunDim } from "lucide-react";
 export default function ThemeSwitcher() {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
@@ -14,10 +14,10 @@ export default function ThemeSwitcher() {
     }
     return (
       <button
-        className={`dark: text-neutral-600`}
+        className={`dark: text-neutral-500 hover:text-cyan-600`}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-    {theme === "light" ? <Moon /> : <SunDim />}
+    {theme === "light" ? <Moon className="w-6 h-5" /> : <Sun className="w-6 h-5"/>}
     </button>
     );
 }

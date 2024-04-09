@@ -9,41 +9,41 @@ import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 
 export default function newCategory() {
-  const markets=[
-    { 
-      id:1,
-      title:"Magazin1"
-    },
-    { 
-      id:2,
-      title:"Magazin2"
-    },
-    { 
-      id:3,
-      title:"Magazin3"
-    },
-    { 
-      id:4,
-      title:"Magazin4"
-    },
-  ]
+  //const markets[]
+  // const markets=[
+  //   { 
+  //     id:1,
+  //     title:"Magazin1"
+  //   },
+  //   { 
+  //     id:2,
+  //     title:"Magazin2"
+  //   },
+  //   { 
+  //     id:3,
+  //     title:"Magazin3"
+  //   },
+  //   { 
+  //     id:4,
+  //     title:"Magazin4"
+  //   },
+  // ]
   const [imageUrl, setImageUrl] = useState("")
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const router = useRouter()
+  function redirect(){
+     router.push("/dashboard/categories")
+   }
   async function onSubmit(data){
     const slug = generateSlug(data.title)
     data.slug = slug;
     data.imageUrl=imageUrl;
     console.log(data);
-    makePostRequest(
-      setLoading,
-      'api/categories',
-      data,
-      "Category",
-      reset
-    );
+    makePostRequest(setLoading, 'api/categories', data, "Category", reset, redirect);
     setImageUrl("")
   }
   return (
@@ -56,15 +56,15 @@ export default function newCategory() {
               name="title"
               register={register}
               errors={errors}
-              className='w-full'/>
-            <MultipleChoiceMarkets
+            />
+            {/* <MultipleChoiceMarkets
               label="Select markets"
               name="marketID"
               options={markets}
               multiple={false}
               register={register}
               errors={errors}
-              className='w-full'/>
+              className='w-full'/> */}
             <TextArea
               label="Category Description"
               name="description"
@@ -75,14 +75,15 @@ export default function newCategory() {
               label="Image"
               imageUrl={imageUrl}
               setImageUrl={setImageUrl} 
-              endpoint="categoryImageUploader"/>
+              endpoint="categoryImageUploader"
+            />
           </div>
           <SubmitButton 
             isLoading = {loading} 
             buttonTitle="Create Category" 
-            loadingButton="Creating..."/> 
+            loadingButton="Creating..."
+          /> 
       </form>
-           
     </div>
   )
 }

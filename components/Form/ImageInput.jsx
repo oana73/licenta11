@@ -16,7 +16,7 @@ export default function ImageInput({
       <div className="flex justify-between items-center mb-4">
         <label
           htmlFor="course-image"
-          className="block text-sm font-medium leading-6 text-gray-900"
+          className="block text-sm font-medium leading-6 text-neutral-600 dark:text-neutral-300 mb-2"
         >
           {label}
         </label>
@@ -40,17 +40,15 @@ export default function ImageInput({
           className="w-full h-64 object-contain"
         />
       ) : (
-        <UploadDropzone
+        <UploadDropzone className="border dark:border-neutral-400"
           endpoint={endpoint}
           onClientUploadComplete={(res) => {
             setImageUrl(res[0].url);
-            // Do something with the response
             toast.success("Image uploaded")
             console.log("Files: ", res);
             console.log("Upload Completed");
           }}
           onUploadError={(error) => {
-            // Do something with the error.
             toast.error("Image upload failed")
             console.log(`ERROR! ${error.message}`,error);
           }}

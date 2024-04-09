@@ -8,11 +8,26 @@ import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import MultipleChoiceMarkets from '@/components/Form/MultipleChoiceMarkets'
 
 export default function newSlider() {
   const [imageUrl, setImageUrl] = useState("")
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const categories = [
+    {
+      id:1,
+      title: "Cat1",
+    },
+    {
+      id:2,
+      title: "Cat2",
+    },
+    {
+      id:3,
+      title: "Cat3",
+    },
+  ]
   async function onSubmit(data){
     const slug = generateSlug(data.title)
     data.slug = slug;
@@ -32,7 +47,16 @@ export default function newSlider() {
               name="title"
               register={register}
               errors={errors}/>
-              <TextArea
+            <MultipleChoiceMarkets
+              label="Select Categories"
+              name="categoryIds"
+              options={categories}
+              multiple={false}
+              register={register}
+              errors={errors}
+              className='w-full'
+            />
+            <TextArea
               label="Market Description"
               name="description"
               register={register}
@@ -43,13 +67,15 @@ export default function newSlider() {
               label="Market Logo"
               imageUrl={imageUrl}
               setImageUrl={ setImageUrl}
-              endpoint='marketImageUploader'/>
+              endpoint='marketImageUploader'
+            />
             </div>
 
             <SubmitButton 
               isLoading = {loading} 
               buttonTitle="Create Market" 
-              loadingButton="Creating..."/> 
+              loadingButton="Creating..."
+              /> 
       </form>
            
     </div>

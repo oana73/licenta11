@@ -7,7 +7,7 @@ import CustomData from '@/components/backoffice/CustomData'
 export default function page() {
   return (
     <div>
-      <Heading title="Dashboard Overwiew"/>
+      <Heading className='py-4' title="Dashboard Overview"/>
       {/* Large Cards */}
       <LargeCards/>
       {/* Smal Cards */}
@@ -15,7 +15,7 @@ export default function page() {
       {/* Charts */}
       <Charts/>
       {/* Recent Orders  */}
-      <CustomData/>
+      {/* <CustomData/> */}
     </div>
   )
 }

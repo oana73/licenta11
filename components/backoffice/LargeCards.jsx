@@ -5,7 +5,7 @@ export default function LargeCards() {
     const orderStats=[{
         period: "Today Orders",
         sales: 10000,
-        color: "bg-teal-600"
+        color: "bg-cyan-600"
     },
     {
         period: "Yesterday Orders",
