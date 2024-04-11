@@ -99,7 +99,7 @@ model SupplierProfile{
   
   
   user   User @relation(fields: [userId], references: [id])
-  userId String @unique
+  userId String @db.ObjectId @unique
 
   createdAt  DateTime  @default(now())
   updatedAt  DateTime? @updatedAt
@@ -117,11 +117,11 @@ enum Gender{
 //user => admin, supplier, customer
 model User {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
+  name          String
+  email         String   @unique
+  password      String
   emailVerified DateTime?
   supplierProfile   SupplierProfile?
-  image         String?
   products  Product[]
   role          UserRole  @default(USER)
   createdAt     DateTime  @default(now())
