@@ -1,5 +1,8 @@
 import { Bell, SunDim, User , ChevronLeft,Airplay, UserCog, LogOut, X, AlignJustify} from 'lucide-react'
+import { FiUser } from "react-icons/fi";
+import { IoIosNotificationsOutline } from "react-icons/io";
 import React from 'react'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,7 +28,7 @@ export default function Navbar({setSidebar,showSidebar}) {
             <DropdownMenu >
               <DropdownMenuTrigger>
               <div className="relative inline-flex items-center p-3 text-sm text-center text-neutral-100 rounded-lg ">
-                  <Bell className='text-neutral-500 w-6 h-5 hover:text-cyan-600' />
+                  <IoIosNotificationsOutline className='text-neutral-500 w-6 h-5 hover:text-cyan-600' />
                   <span className="sr-only">Notifications</span>
                   <div className="absolute inline-flex items-center justify-center w-5 h-5 text-xs text-neutral-300 bg-red-500 rounded-full top-0 end-1 dark:border-gray-900">2</div>
               </div>
@@ -81,7 +84,7 @@ export default function Navbar({setSidebar,showSidebar}) {
             </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger>
-                <User className='text-neutral-500 w-6 h-5 hover:text-cyan-600'/>
+                <FiUser className='text-neutral-500 hover:text-cyan-600'/>
               </DropdownMenuTrigger>
               <DropdownMenuContent className='py-2 px-4 pr-8 text-neutral-700 dark:text-neutral-300 dark:bg-neutral-900'>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>

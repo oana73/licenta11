@@ -63,7 +63,7 @@ export default function RegisterForm({role = "USER"}) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <TextInput 
         label=""
         name="role"

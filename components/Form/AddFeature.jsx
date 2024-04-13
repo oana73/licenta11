@@ -24,7 +24,7 @@ export default function AddFeature({setFeatures, features}) {
       <div class="flex items-center mx-auto">   
       <label for="voice-search" class="sr-only">Search</label>
       <div class=" w-full">
-          <input value={feature} onChange={e=>setFeature(e.target.value)} type="text" id="voice-search" class="bg-transparent border border-neutral-400 text-neutral-600 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full ps-10 p-2.5 dark:border-neutral-300 dark:placeholder-gray-400 dark:text-neutral-300 " placeholder="Create Tag..." />
+          <input value={feature} onChange={e=>setFeature(e.target.value)} type="text" id="voice-search" class="bg-transparent border border-neutral-400 text-neutral-600 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 dark:border-neutral-300 dark:placeholder-gray-400 dark:text-neutral-300 " placeholder="Create Tag..." />
       </div>
       <button onClick={addFeature} type="button" class="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-medium text-white bg-cyan-700 rounded-lg border border-cyan-700 hover:bg-cyan-800 dark:bg-cyan-600 dark:hover:bg-cyan-700">
         <Plus className='w-4 h-4 me-2'/>

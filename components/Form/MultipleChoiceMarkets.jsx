@@ -20,7 +20,7 @@ export default function SelectInput({
           {...register(`${name}`)}
           id={name}
           name={name}
-          multiple= {false}
+          multiple= {true}
           className="block w-full rounded-md border-0 py-2 dark:bg-neutral-600 dark:text-neutral-300 text-neutral-600 shadow-sm ring-1 ring-inset ring-neutral-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600  sm:text-sm sm:leading-6"
         >
           {options.map((option, i) => {

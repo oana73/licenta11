@@ -9,24 +9,29 @@ import { makePostRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import BlogInput from '@/components/Form/BlogInput'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/navigation'
+const BlogInput = dynamic(
+  () => import("@/components/Form/BlogInput"),
+  {
+    ssr: false,
+  }
+)
 
 
-export default function newTraining() {
+export default function NewTrainingForm() {
   const[loading, setLoading] = useState(false)
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const router = useRouter()
+  function redirect(){
+    router.push("/dashboard/trainings")
+  }
   async function onSubmit(data){
     const slug = generateSlug(data.title)
     data.slug = slug;
     data.content = content;
     console.log(data);
-    makePostRequest(
-      setLoading,
-      'api/trainings',
-      data,
-      "Trainings",
-      reset
-    );
+    makePostRequest(setLoading, 'api/trainings', data, "Trainings", reset, redirect);
     setContent("");
   }
 //Custom Tool Bar
