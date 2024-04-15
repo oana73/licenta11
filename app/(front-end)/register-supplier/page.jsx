@@ -1,19 +1,27 @@
-import RegisterForm from '@/components/frontend/RegisterForm'
-import React from 'react'
+import RegisterForm from "@/components/frontend/RegisterForm";
+import Image from "next/image";
+import photo1 from "../../../public/photo1.jpg"
+
+
 
 export default function page() {
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div className="w-full bg-white rounded-lg shadow-2xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
-            Create a new account
-          </h1>
-          <RegisterForm role="SUPPLIER"/>
+    <section className=" dark:bg-black">
+      <div className="min-h-screen flex justify-center items-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className=" bg-white flex rounded-lg shadow-2xl dark:border max-w-4xl dark:bg-neutral-800 dark:border-neutral-700">
+          <div className="w-1/2 sm:block hidden">
+            <Image src={photo1} alt="Photo 1" className="rounded-l-lg object-cover h-full"/>
+            <div className="absolute top-1/2 transform -translate-y-1/2 pl-8 text-white">
+              <h1 className=" text-5xl font-medium">Welcome!</h1>
+              <p>Create your account.</p>
+            </div>
+            </div>  
+            <div className="sm:w-1/2 p-16">
+            <div className="text-xl font-bold mb-2 text-neutral-600 dark:text-neutral-200">Sign up</div>
+            <RegisterForm role="SUPPLIER" className="flex flex-col"/>
+            </div>
         </div>
       </div>
-    </div>
     </section>
-  )
+  );
 }

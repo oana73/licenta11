@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import SubmitButton from "../Form/SubmitButon";
 import TextInput from "../Form/TextInput";
 
-export default function RegisterForm({role = "USER"}) {
+export default function LoginForm() {
   const router = useRouter();
   const {
     register,
@@ -65,29 +65,12 @@ export default function RegisterForm({role = "USER"}) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
       <TextInput 
-        label=""
-        name="role"
-        register={register}
-        errors={errors}
-        type="hidden"
-        defaultValue={role}
-        className="sm:col-span-2 mb-3"
-      />
-      <TextInput 
-        label="Name"
-        name="name"
-        register={register}
-        errors={errors}
-        type="text"
-        className="sm:col-span-2 mb-3"
-      />
-      <TextInput 
         label="Email"
         name="email"
         register={register}
         errors={errors}
         type="email"
-        className="sm:col-span-2 mb-3"
+        className="sm:col-span-2 mb-3 mt-8"
       />
       {emailErr && <small className="text-red-600">{emailErr}</small>}
       <TextInput 
@@ -100,15 +83,15 @@ export default function RegisterForm({role = "USER"}) {
       />
       <SubmitButton 
         isLoading={loading}
-        buttonTitle="Register"
+        buttonTitle="Login"
         loadingButton="Please Wait"
         customClass="py-2 mb-3 bg-black bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 w-full  text-white rounded-md"
       />
 
       <p className="text-sm font-light text-gray-500 dark:text-gray-400 mt-2">
-        Already have an account?{" "}
+        Don't have an accout?{" "}
         <Link
-          href="/login"
+          href="/register"
           className="font-medium text-cyan-500 hover:underline "
         >
           Login

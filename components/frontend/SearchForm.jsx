@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { CiSearch } from "react-icons/ci";
+import { LuSearch } from "react-icons/lu";
 
 export default function SearchForm() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,10 +10,10 @@ export default function SearchForm() {
   };
 
   return (
-    <form className="relative">   
+    <form className="flex items-center">   
         <label htmlFor="voice-search" className="sr-only">Search</label>
         <button type="button" onClick={toggleSearch} className="mr-2 text-neutral-500 hover:text-cyan-600">
-            <CiSearch />
+            <LuSearch />
         </button>
         {isOpen && (
           <div className="w-full">

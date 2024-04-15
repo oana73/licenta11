@@ -11,7 +11,7 @@ export default function TextArea({
     <div className={className}>
       <label
         htmlFor={name}
-        className="block text-sm font-medium leading-6 text-gray-900 dark:text-neutral-300 mb-2 "
+        className="block text-sm font-medium leading-6 text-neutral-600 dark:text-neutral-300 mb-2 "
       >
         {label}
       </label>

@@ -11,7 +11,7 @@ import ThemeSwitcher from '../ThemeSwitcher'
 export default function Navbar() {
   return (
     <div className='dark:bg-neutral-900'>
-        <div className=" flex items-center justify-between py-1 mx-auto px-8 gap-8">
+        <div className=" flex items-center justify-between py-1 mx-auto max-w-screen-2xl ">
         <Link className="flex items-center" href="/">
           <Image src={logo} alt="logo" className="w-8" />
           <span className='text-neutral-700 font-semibold'>PlayModeOn</span>
@@ -26,20 +26,17 @@ export default function Navbar() {
         <Link href="#" className='text-neutral-500 hover:text-cyan-600 text-sm'>
             Sales
         </Link>
-        
-        {/* SEARCH */}
-        <div className="">
-          <SearchForm />
+        <SearchForm />
+      
         </div>
-        </div>
-        <div className='flex gap-6'>
+        <div className='flex gap-8'>
             <ThemeSwitcher/>
             <Link href="/login" className='flex items-center text-neutral-500 hover:text-cyan-600'>
                 <FiUser />
             </Link>
-            <Link  href="/cart" className='flex items-center space-x-1 text-neutral-500 hover:text-cyan-600'>
+            <Link  href="/cart" className='flex items-center space-x-1 text-neutral-500 hover:text-cyan-600 '>
                 <IoBagOutline/>
-                <span>Cart</span>
+                <span className='text-sm'>Cart</span>
             </Link>
         </div>
         </div>

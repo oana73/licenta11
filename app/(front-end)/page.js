@@ -1,9 +1,13 @@
+import Hero from "@/components/frontend/Hero";
+import MarketList from "@/components/frontend/MarketList";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center flex-col min-h-screen">
+    <div className="min-h-screen ">
+    <Hero/>
+    <MarketList/>
       <h2 className=" text-4xl ">
         Welcome
       </h2>
