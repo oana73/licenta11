@@ -33,7 +33,11 @@ export async function GET(request) {
         const categories = await db.category.findMany({
             orderBy:{
                 createdAt:"desc",
-            }})
+            },
+            include:{
+                products: true
+            }
+        })
         return NextResponse.json(categories)
     } catch (error) {
         console.log(error)

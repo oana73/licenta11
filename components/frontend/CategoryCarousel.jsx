@@ -5,12 +5,12 @@ import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-export default function MarketsCarousel({markets}) {
+export default function CategoryCarousel({products}) {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 5,
-        slidesToSlide: 5// optional, default to 1.
+        items: 4,
+        slidesToSlide: 4// optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
@@ -23,6 +23,7 @@ const responsive = {
         slidesToSlide: 1 // optional, default to 1.
     }
     };
+
   return (
     <Carousel
   swipeable={false}
@@ -39,15 +40,23 @@ const responsive = {
   removeArrowOnDeviceType={["tablet", "mobile"]}
   //deviceType={}
   dotListClass="custom-dot-list-style"
-  itemClass="carousel-item-padding-40-px"
+  itemClass="px-2"
 >
 
-  {markets.map((market,i)=> {
+  {products.map((product,i)=> {
     return( 
-      <Link key={i} href='#' className=''>
-        <Image src={market.imageUrl} alt={market.title} width={375} height={480} className='w-full px-1'/>
-        <h2 className='text-center'>{market.title}</h2>
-      </Link>
+      <div key={i} className='mr-3 border border-gray-400 overflow-hidden'>
+        <Link href='#'>
+          <Image src={product.imageUrl} alt={product.title} width={375} height={480} className='w-full h-56 object-cover'/>
+        </Link>
+        <Link href='#'>
+          <h2 className='text-center'>{product.title}</h2>
+        </Link>
+        <div className=" my-2 text-center">
+          <p >ugx {product.discount}</p>
+          
+        </div>
+      </div>
     )
   })}
 </Carousel>

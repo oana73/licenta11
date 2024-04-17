@@ -21,6 +21,7 @@ const BlogInput = dynamic(
 
 export default function NewTrainingForm() {
   const[loading, setLoading] = useState(false)
+  const [imageUrl, setImageUrl] = useState("")
   const {register, reset, handleSubmit, formState:{errors}} = useForm();
   const router = useRouter()
   function redirect(){
@@ -30,9 +31,11 @@ export default function NewTrainingForm() {
     const slug = generateSlug(data.title)
     data.slug = slug;
     data.content = content;
+    data.imageUrl=imageUrl;
     console.log(data);
     makePostRequest(setLoading, 'api/trainings', data, "Trainings", reset, redirect);
     setContent("");
+    setImageUrl("")
   }
 //Custom Tool Bar
   const [content, setContent] = useState("");
@@ -47,6 +50,18 @@ export default function NewTrainingForm() {
               register={register}
               errors={errors}
             />
+            <TextInput
+              label="Author Name"
+              name="name"
+              register={register}
+              errors={errors}
+            />
+            <ImageInput
+              label="Produc Image"
+              imageUrl={imageUrl}
+              setImageUrl={setImageUrl} 
+              endpoint="trainingImageUploader"
+              />
             <BlogInput
               label='Content'
               value={content}

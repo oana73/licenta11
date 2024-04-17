@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request){
 try{
-    const{title, content, slug} = await request.json();
+    const{title, name, content, slug, imageUrl} = await request.json();
     const existingTraining = await db.training.findUnique({
         where: {
             slug
@@ -17,7 +17,7 @@ try{
         )
     }
     const newTraining = await db.training.create({
-        data:{ title, content, slug}
+        data:{ title, name, content, slug, imageUrl}
     })
     console.log(newTraining);
     return NextResponse.json(newTraining)

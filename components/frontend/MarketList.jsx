@@ -1,14 +1,16 @@
 import React from 'react'
 import MarketsCarousel from './MarketsCarousel'
+import { getData } from '@/lib/getData'
 
-export default function MarketList() {
+export default async function MarketList() {
+  const markets = await getData("markets")
   return (
-    <div className=''>
+    <div className='py-12'>
       <div className=''>
         <h2>MarketList</h2>
       </div>
-      <div className='mb-20'>
-        <MarketsCarousel />
+      <div className=''>
+        <MarketsCarousel markets={markets}/>
       </div>
     </div>
   )
