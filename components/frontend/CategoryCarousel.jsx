@@ -46,10 +46,10 @@ const responsive = {
   {products.map((product,i)=> {
     return( 
       <div key={i} className='mr-3 border border-gray-400 overflow-hidden'>
-        <Link href='#'>
+        <Link href={`/products/${product.slug}`}>
           <Image src={product.imageUrl} alt={product.title} width={375} height={480} className='w-full h-56 object-cover'/>
         </Link>
-        <Link href='#'>
+        <Link href={`/products/${product.slug}`}>
           <h2 className='text-center'>{product.title}</h2>
         </Link>
         <div className=" my-2 text-center">
