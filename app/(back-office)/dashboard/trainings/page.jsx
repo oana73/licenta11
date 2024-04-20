@@ -4,8 +4,12 @@ import TableActions from '@/components/backoffice/TableActions'
 import { ArrowDownToLine, Plus, Search, Trash } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import { columns } from './columns'
+import { getData } from '@/lib/getData'
+import DataTable from '@/components/data-table-components/DataTable'
 
-export default function page() {
+export default async function page() {
+  const trainings = await getData('trainings')
   return (
     <div>
       <PageHeader 
@@ -13,11 +17,8 @@ export default function page() {
         href="/dashboard/trainings/new"
         linkTitle="Add Training"
       />
-      {/* Table Actions */}
-      {/* Export Search Delete */}
-      <TableActions/>
       <div className='py-8'>
-        <h2>Table</h2>
+        <DataTable data={trainings} columns={columns}/>
       </div>
     </div>
   )

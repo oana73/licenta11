@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request,{params:{id}}) {
     try {
-        const category = await db.category.findUnique({
+        const coupon = await db.coupon.findUnique({
             where:{
                 id
             },
@@ -11,41 +11,41 @@ export async function GET(request,{params:{id}}) {
                 products: true
             }
         })
-        return NextResponse.json(category)
+        return NextResponse.json(coupon)
     } catch (error) {
         console.log(error)
         return NextResponse.json({
-            message: "Faild to fetch category",
+            message: "Faild to fetch coupon",
     },{status:500})
     }
 }
 
 export async function DELETE(request,{params:{id}}) {
     try {
-        const existingCategory = await db.category.findUnique({
+        const existingCoupon = await db.coupon.findUnique({
             where:{
                 id
             },
         })
-        if(!existingCategory){
+        if(!existingCoupon){
             return NextResponse.json({
                 data: null,
-                message:'Category not found',
+                message:'Coupon not found',
             },
             {status:404}
 
             )
         }
-        const deletedCategory = await db.category.delete({
+        const deletedCoupon = await db.coupon.delete({
             where:{
                 id
             } 
         })
-        return NextResponse.json(deletedCategory)
+        return NextResponse.json(deletedCoupon)
     } catch (error) {
         console.log(error)
         return NextResponse.json({
-            message: "Faild to delete category",
+            message: "Faild to delete coupon",
     },{status:500})
     }
 }

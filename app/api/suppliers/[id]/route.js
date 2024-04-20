@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request,{params:{id}}) {
     try {
-        const category = await db.category.findUnique({
+        const supplier = await db.supplierProfile.findUnique({
             where:{
                 id
             },
@@ -11,41 +11,41 @@ export async function GET(request,{params:{id}}) {
                 products: true
             }
         })
-        return NextResponse.json(category)
+        return NextResponse.json(supplier)
     } catch (error) {
         console.log(error)
         return NextResponse.json({
-            message: "Faild to fetch category",
+            message: "Faild to fetch supplier",
     },{status:500})
     }
 }
 
 export async function DELETE(request,{params:{id}}) {
     try {
-        const existingCategory = await db.category.findUnique({
+        const existingSupplier = await db.supplierProfile.findUnique({
             where:{
                 id
             },
         })
-        if(!existingCategory){
+        if(!existingSupplier){
             return NextResponse.json({
                 data: null,
-                message:'Category not found',
+                message:'Supplier not found',
             },
             {status:404}
 
             )
         }
-        const deletedCategory = await db.category.delete({
+        const deletedSupplier = await db.supplierProfile.delete({
             where:{
                 id
             } 
         })
-        return NextResponse.json(deletedCategory)
+        return NextResponse.json(deletedSupplier)
     } catch (error) {
         console.log(error)
         return NextResponse.json({
-            message: "Faild to delete category",
+            message: "Faild to delete supplier",
     },{status:500})
     }
 }
