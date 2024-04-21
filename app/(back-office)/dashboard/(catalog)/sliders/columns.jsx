@@ -62,7 +62,7 @@ export const columns = [
     id: "actions",
     cell: ({ row }) => {
       const slider = row.original
-      return (<ActionColumn row = {row} title="Slider" endpoint={`sliders/${slider.id}`}/> )
+      return (<ActionColumn row = {row} title="Slider" editEndpoint={`sliders/update/${slider.id}`} endpoint={`sliders/${slider.id}`}/> )
     }
 },
 ] 

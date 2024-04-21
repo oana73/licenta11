@@ -12,19 +12,19 @@ export default function SmallCards() {
     {
         title: "Orders Pending",
         number: 100,
-        iconColor: "bg-bc5090",
+        iconColor: "bg-[#bc5090]",
         icon: Loader 
     },
     {
         title: "Orders Processing",
         number: 300,
-        iconColor: "bg-ff6361",
+        iconColor: "bg-[#ff6361]",
         icon: ArrowUpDown
     },
     {
         title: "Orders deliverd",
         number: 500,
-        iconColor: "bg-ffa600",
+        iconColor: "bg-[#ffa600]",
         icon: SquareCheckBigIcon
     },
 ]

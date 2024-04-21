@@ -78,8 +78,8 @@ export default function SalesCharts() {
                   {
                     label: 'Sales',
                     data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-                    borderColor: 'rgb(72, 201, 176)',
-                    backgroundColor: 'rgba(72, 201, 176, 0.5)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    backgroundColor: 'rgba(0, 188, 212,0.5)'
                   },
                 ],}
         },
@@ -92,8 +92,8 @@ export default function SalesCharts() {
                   {
                     label: 'Orders',
                     data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-                    borderColor: 'rgb(72, 201, 176)',
-                    backgroundColor: 'rgba(72, 201, 176, 0.5)',
+                    borderColor: 'rgb(0, 188, 212)',
+                    backgroundColor: 'rgba(0, 188, 212,0.5)',
                   },
                 ],}
         },

@@ -3,12 +3,12 @@ import { NextResponse } from "next/server"
 
 export async function GET(request,{params:{id}}) {
     try {
-        const supplier = await db.supplierProfile.findUnique({
+        const supplier = await db.user.findUnique({
             where:{
                 id
             },
             include:{
-                products: true
+                supplierProfile: true,
             }
         })
         return NextResponse.json(supplier)
@@ -22,7 +22,7 @@ export async function GET(request,{params:{id}}) {
 
 export async function DELETE(request,{params:{id}}) {
     try {
-        const existingSupplier = await db.supplierProfile.findUnique({
+        const existingSupplier = await db.user.findUnique({
             where:{
                 id
             },
@@ -36,7 +36,7 @@ export async function DELETE(request,{params:{id}}) {
 
             )
         }
-        const deletedSupplier = await db.supplierProfile.delete({
+        const deletedSupplier = await db.user.delete({
             where:{
                 id
             } 

@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import "@uploadthing/react/styles.css";
 import "../styles/main.scss";
 import Providers from "@/context/Providers";
 

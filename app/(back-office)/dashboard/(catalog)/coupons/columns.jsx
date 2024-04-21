@@ -50,7 +50,7 @@ export const columns = [
     id: "actions",
     cell: ({ row }) => {
       const coupon = row.original
-      return (<ActionColumn row = {row} title="Coupon" endpoint={`coupons/${coupon.id}`}/> )
+      return (<ActionColumn row = {row} title="Coupon" editEndpoint={`coupons/update/${coupon.id}`} endpoint={`coupons/${coupon.id}`}/> )
     }
 },
 ] 

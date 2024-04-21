@@ -54,7 +54,7 @@ export const columns = [
     id: "actions",
     cell: ({ row }) => {
       const training = row.original
-      return (<ActionColumn row = {row} title="Training" endpoint={`trainings/${training.id}`}/> )
+      return (<ActionColumn row = {row} title="Training" editEndpoint={`trainings/update/${training.id}`} endpoint={`trainings/${training.id}`}/> )
     }
 },
 ] 

@@ -1,3 +1,4 @@
+import HeaderForm from '@/components/backoffice/HeaderForm'
 import NewProductForm from '@/components/backoffice/NewProductForm'
 import { getData } from '@/lib/getData'
 import React from 'react'
@@ -24,7 +25,10 @@ export default async function NewProduct() {
   console.log(categories)
   console.log(suppliers)
   return (
+    <div>
+      <HeaderForm title="New Product" />
+      <NewProductForm categories={categories} suppliers={suppliers}/>
+    </div>
 
-    <NewProductForm categories={categories} suppliers={suppliers}/>
   )
 }

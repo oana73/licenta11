@@ -70,7 +70,7 @@ export const columns = [
     id: "actions",
     cell: ({ row }) => {
       const category = row.original
-      return (<ActionColumn row = {row} title="Category" endpoint={`categories/${category.id}`}/> )
+      return (<ActionColumn row = {row} title="Category" editEndpoint={`categories/update/${category.id}`} endpoint={`categories/${category.id}`}/> )
     }
 },
 ] 

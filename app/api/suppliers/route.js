@@ -30,11 +30,17 @@ try{
 
 export async function GET(request) {
     try {
-        const profiles = await db.supplierProfile.findMany({
+        const suppliers = await db.user.findMany({
             orderBy:{
                 createdAt:"desc",
-            }})
-        return NextResponse.json(profiles)
+            },
+        where:{
+            role:'SUPPLIER'
+        },
+        include:{
+            supplierProfile: true,
+        }})
+        return NextResponse.json(suppliers)
     } catch (error) {
         console.log(error)
         return NextResponse.json({

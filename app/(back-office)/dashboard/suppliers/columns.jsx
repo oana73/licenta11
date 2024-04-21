@@ -35,11 +35,11 @@ export const columns = [
     accessorKey: "name",
     header: ({ column }) =>(<SortColumn column={column} title = "Name" />)
   },
-  {
-    accessorKey: "imageUrl",
-    header: "Category Image",
-    cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl"/>)
-  },
+  // {
+  //   accessorKey: "imageUrl",
+  //   header: "Category Image",
+  //   cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl"/>)
+  // },
   {
     accessorKey: "email",
     header: ({ column }) =>(<SortColumn column={column} title = "Email" />)

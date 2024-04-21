@@ -49,3 +49,31 @@ export async function DELETE(request,{params:{id}}) {
     },{status:500})
     }
 }
+
+export async function PUT(request,{params:{id}}) {
+
+    try{
+        const{title, slug, imageUrl, description} = await request.json();
+        const existingCategory = await db.category.findUnique({
+            where: {
+                id,
+            }}
+        )
+        if(!existingCategory){
+            return NextResponse.json({
+                data:null,
+                message: "Category not found",
+            },{status:404}
+            )
+        }
+        const updatedCategory = await db.category.update({
+            where:{id},
+            data: {title, slug, imageUrl, description},
+        }) 
+        return NextResponse.json(updatedCategory)
+    } catch(error){
+        console.log(error)
+        return NextResponse.json({
+            message: "Updating Category failed",
+        },{status:500})
+    }}

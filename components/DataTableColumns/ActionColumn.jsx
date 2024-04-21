@@ -10,9 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import DeleteBtn from '../Actions/DeleteBtn'
+import EditBtn from '../Actions/EditBtn'
 
-export default function ActionColumn({row, title, endpoint}) {
-    const payment = row.original
+export default function ActionColumn({row, title, endpoint, editEndpoint}) {
     //const title = row.title
     return (
     <DropdownMenu>
@@ -25,8 +25,9 @@ export default function ActionColumn({row, title, endpoint}) {
         <DropdownMenuContent align="end">
         <DropdownMenuLabel>Actions</DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem><EditBtn title={title} editEndpoint={editEndpoint} /></DropdownMenuItem>
         <DropdownMenuItem><DeleteBtn title={title} endpoint={endpoint} /></DropdownMenuItem>
-        <DropdownMenuItem>Edit {title}</DropdownMenuItem>
+
         </DropdownMenuContent>
     </DropdownMenu>
     )
