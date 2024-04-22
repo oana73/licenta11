@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function updateSupplier() {
+export default async function updateSupplier({params:{id}}) {
+  const supplier = await getData(`suppliers/${id}`)
   return (
     <div>
-        <h2>Update Supplier</h2>
+      <HeaderForm title="Update Supplier" />
+      <NewSupplierForm updateData={supplier}/>
     </div>
   )
 }

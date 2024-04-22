@@ -11,6 +11,10 @@ export default async function NewMarket() {
     }
   })
   return (
-    <NewMarketForm categories={categories}/>
+    <div>
+      <HeaderForm title="New Market" />
+      <NewMarketForm categories={categories}/>
+    </div>
+
   )
 }

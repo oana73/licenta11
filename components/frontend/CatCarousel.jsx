@@ -45,7 +45,7 @@ const responsive = {
   {categories.map((categories,i)=> {
     return( 
       <Link key={i} href='#' className=''>
-        <Image src={categories.imageUrl} alt={categories.title} width={375} height={480} className='w-full px-1'/>
+        <Image src={categories.imageUrl} alt={categories.title} width={375} height={480} className='w-full h-56 px-1 object-cover'/>
         <h2 className='text-center'>{categories.title}</h2>
       </Link>
     )

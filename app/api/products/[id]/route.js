@@ -49,7 +49,7 @@ export async function DELETE(request,{params:{id}}) {
 export async function PUT(request,{params:{id}}) {
 
     try{
-        const{title, slug, sku, codebar, price, discount, imageUrl, isActive, productStock, qty, description, categoryId, supplierId, tags} = await request.json();
+        const{title, slug, sku, codebar, price, discount, imageUrl, isActive, productStock, qty, description, tags} = await request.json();
         const existingProduct = await db.product.findUnique({
             where: {
                 id,
@@ -64,7 +64,7 @@ export async function PUT(request,{params:{id}}) {
         }
         const updatedProduct = await db.product.update({
             where:{id},
-            data: {title, slug, sku, codebar, price, discount, imageUrl, isActive, productStock, qty, description, categoryId, supplierId, tags},
+            data: {title, slug, sku, codebar, price, discount, imageUrl, isActive, productStock, qty, description, tags},
         }) 
         return NextResponse.json(updatedProduct)
     } catch(error){

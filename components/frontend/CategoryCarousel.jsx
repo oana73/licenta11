@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Product from './Product';
 
 export default function CategoryCarousel({products}) {
 const responsive = {
@@ -45,18 +46,7 @@ const responsive = {
 
   {products.map((product,i)=> {
     return( 
-      <div key={i} className='mr-3 border border-gray-400 overflow-hidden'>
-        <Link href={`/products/${product.slug}`}>
-          <Image src={product.imageUrl} alt={product.title} width={375} height={480} className='w-full h-56 object-cover'/>
-        </Link>
-        <Link href={`/products/${product.slug}`}>
-          <h2 className='text-center'>{product.title}</h2>
-        </Link>
-        <div className=" my-2 text-center">
-          <p >ugx {product.discount}</p>
-          
-        </div>
-      </div>
+      <Product product={product} key={i}/>
     )
   })}
 </Carousel>

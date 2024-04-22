@@ -7,10 +7,9 @@ export default function CartProduct({cartItem}) {
   return (
     <div className='flex items-center justify-between border-b border-slate-400 pb-3 font-semibold text-slate-300 text-sm mb-4'>
     <div className="flex items-center gap-3">
-      <Image src='/photo1.jpg' width={249} height={249} alt='' className='rounded-xl w-20 h-20'/>
+      <Image src={cartItem.imageUrl} width={249} height={249} alt={cartItem.title} className='rounded-xl w-20 h-20'/>
       <div className="flex flex-col">
-        <h2>Apple Watch</h2>
-        <small>Golden</small>
+        <h2>{cartItem.title}</h2>
       </div>
     </div>
     <div className='rounded-xl border flex gap-3 items-center '>
@@ -23,7 +22,7 @@ export default function CartProduct({cartItem}) {
       </button>
    </div>
    <div className="flex items-center gap-2">
-      <h4>$342</h4>
+      <h4>${cartItem.discount}</h4>
       <button>
         <IoTrashOutline className='text-slate-600 w-5 h-5'/>
       </button>

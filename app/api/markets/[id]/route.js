@@ -7,9 +7,6 @@ export async function GET(request,{params:{id}}) {
             where:{
                 id
             },
-            include:{
-                products: true
-            }
         })
         return NextResponse.json(market)
     } catch (error) {
@@ -49,3 +46,30 @@ export async function DELETE(request,{params:{id}}) {
     },{status:500})
     }
 }
+export async function PUT(request,{params:{id}}) {
+
+    try{
+        const{title, slug, imageUrl, description, categoryIds} = await request.json();
+        const existingMarket = await db.market.findUnique({
+            where: {
+                id,
+            }}
+        )
+        if(!existingMarket){
+            return NextResponse.json({
+                data:null,
+                message: "Market not found",
+            },{status:404}
+            )
+        }
+        const updatedMarket = await db.market.update({
+            where:{id},
+            data: {title, slug, imageUrl, description, categoryIds},
+        }) 
+        return NextResponse.json(updatedMarket)
+    } catch(error){
+        console.log(error)
+        return NextResponse.json({
+            message: "Updating Market failed",
+        },{status:500})
+    }}

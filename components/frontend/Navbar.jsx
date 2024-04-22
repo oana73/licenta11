@@ -7,6 +7,7 @@ import { IoBagOutline } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
 import { CarTaxiFront, ShoppingBag, User } from 'lucide-react'
 import ThemeSwitcher from '../ThemeSwitcher'
+import CartCount from './CartCount'
 
 export default function Navbar() {
   return (
@@ -34,10 +35,7 @@ export default function Navbar() {
             <Link href="/login" className='flex items-center text-neutral-500 hover:text-cyan-600'>
                 <FiUser />
             </Link>
-            <Link  href="/cart" className='flex items-center space-x-1 text-neutral-500 hover:text-cyan-600 '>
-                <IoBagOutline/>
-                <span className='text-sm'>Cart</span>
-            </Link>
+            <CartCount/>
         </div>
         </div>
     </div>

@@ -4,17 +4,19 @@ import SubmitButton from '@/components/Form/SubmitButon'
 import TextArea from '@/components/Form/TextArea'
 import TextInput from '@/components/Form/TextInput'
 import HeaderForm from '@/components/backoffice/HeaderForm'
-import { makePostRequest } from '@/lib/apiRequest'
+import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import MultipleChoiceMarkets from '@/components/Form/MultipleChoiceMarkets'
 import { useRouter } from 'next/navigation'
 
-export default function NewMarketForm({categories}) {
-  const [imageUrl, setImageUrl] = useState("")
+export default function NewMarketForm({categories, updateData={}}) {
+  const initialImageUrl = updateData?.imageUrl??""
+  const id = updateData?.id??""
+  const [imageUrl, setImageUrl] = useState(initialImageUrl)
   const[loading, setLoading] = useState(false)
-  const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const {register, reset, handleSubmit, formState:{errors}} =  useForm({defaultValues: {...updateData}});
   const router = useRouter()
   function redirect(){
     router.push("/dashboard/markets")
@@ -24,12 +26,19 @@ export default function NewMarketForm({categories}) {
     data.slug = slug;
     data.imageUrl=imageUrl;
     console.log(data)
-    makePostRequest(setLoading, 'api/markets', data, "Market", reset, redirect);
-    setImageUrl("");
+    if(id){
+      data.id = id
+      //make put request(update)
+      makePutRequest(setLoading, `api/markets/${id}`, data, "Market", redirect)
+      console.log("update:", data)
+  }else{
+      //make post request(create)
+      makePostRequest(setLoading, 'api/markets', data, "Market", reset, redirect);
+      setImageUrl("");
+  }
+
   }
   return (
-    <div>
-      <HeaderForm title="New Market" />
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-neutral-600 dark:border-gray-700 mx-auto my-3 mt-7">
           <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
             <TextInput
@@ -67,7 +76,5 @@ export default function NewMarketForm({categories}) {
               loadingButton="Creating..."
               /> 
       </form>
-           
-    </div>
   )
 }

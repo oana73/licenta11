@@ -11,17 +11,17 @@ import Link from 'next/link';
 import { IoSendOutline } from "react-icons/io5";
 
 export default async function ProductDetailPage({params:{slug}}) {
-    const category = await getData("/categories/661564e999ff05d404a1cc8a")
+    const category = await getData("/categories/661fe761f1f82e742e25b7d5")
   return (
-    <div className='mx-auto max-w-screen-2xl'>
+    <div className='mx-auto max-w-screen-2xl mt-10'>
         <Breadcrumb/>
-        <div className="grid grid-cols-12 gap-4">
+        <div className="grid grid-cols-12 gap-12">
             <div className='col-span-3'>
                 <Image src='/photo1.jpg' alt='' width={110} height={110} className='w-full' />
             </div>
             <div className='col-span-6'>
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className='text-xil lg:text-2xl'>Ceva nume</h2>
+                    <h2 className='text-xl lg:text-2xl'>Ceva nume</h2>
                     <button><IoShareSocialOutline/></button>
                 </div>
                 <div className='border-b'>
