@@ -105,15 +105,26 @@ export default function RegisterForm({role = "USER"}) {
         customClass="py-2 mb-3 bg-black bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 w-full  text-white rounded-md"
       />
 
-      <p className="text-sm font-light text-gray-500 dark:text-gray-400 mt-2">
-        Already have an account?{" "}
-        <Link
-          href="/login"
-          className="font-medium text-cyan-500 hover:underline "
-        >
-          Login
-        </Link>
-      </p>
+    <div className="flex justify-between gap-2">
+      <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
+          Already have an account?{" "}
+          <Link
+            href="/login"
+            className="font-medium text-cyan-500 hover:underline "
+          >
+            Login
+          </Link>
+        </p>
+        <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
+          Vendor?{" "}
+          <Link
+            href="/register-supplier"
+            className="font-medium text-cyan-500 hover:underline "
+          >
+            Register here
+          </Link>
+        </p>
+    </div>
     </form>
   );
 }

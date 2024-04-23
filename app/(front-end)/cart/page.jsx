@@ -3,6 +3,7 @@ import Breadcrumb from '@/components/frontend/Breadcrumb'
 import CartItems from '@/components/frontend/CartItems'
 import CartProduct from '@/components/frontend/CartProduct'
 import CartSubtotal from '@/components/frontend/CartSubtotal'
+import EmptyCart from '@/components/frontend/EmptyCart'
 import { current } from '@reduxjs/toolkit'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,10 +21,12 @@ export default function Cart() {
   return (
     <div className='mx-auto max-w-screen-2xl mt-10'>
         <Breadcrumb/>
-        <div className="grid grid-cols-12 gap-14">
-          <CartItems cartItems={cartItems} />
-          <CartSubtotal subTotal={subTotal} />
-        </div>
+        {cartItems.length>0?(
+          <div className="grid grid-cols-12 gap-6 md:gap-14">
+            <CartItems cartItems={cartItems} />
+            <CartSubtotal subTotal={subTotal} />
+          </div>
+        ):<EmptyCart/>}
     </div>
   )
 }
