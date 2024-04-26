@@ -4,7 +4,30 @@ import { NextResponse } from "next/server";
 export async function POST(request){
 try{
     //name,slug, phone, email,address, paymentTerms, notes,profileImage, userId
+    //update the verification in the user
     const supplierData = await request.json();
+    //checks if the supplier exisst
+    const existingUser = await db.user.findUnique({
+        where:{
+            id:supplierData.userId
+        }
+    })
+    if(!existingUser){
+
+        return NextResponse.json({
+            data: null,
+            message: "No user foun"
+        },{status:404})
+    }
+        //update the user
+        const updatedUser = await db.user.update({
+            where:{
+                id:supplierData.userId
+            },
+            data:{
+                emailVerified:true
+            }
+        })
     const newSupplierProfile = await db.supplierProfile.create({
         data: {
             name: supplierData.name,

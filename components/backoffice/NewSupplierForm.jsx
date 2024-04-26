@@ -21,7 +21,7 @@ export default function NewSupplierForm({user}) {
   }));
   const router = useRouter()
   function redirect(){
-     router.push("/dashboard/suppliers")
+     router.push("/login")
    }
   async function onSubmit(data){
     data.imageUrl=imageUrl;

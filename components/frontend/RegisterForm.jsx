@@ -42,7 +42,7 @@ export default function RegisterForm({role = "USER"}) {
         if(role === "USER"){
           router.push("/");
         }else{
-          router.push(`/onboarding/${responseData.data.id}`);
+          router.push('/verify-email');
         }
       } else {
         setLoading(false);
@@ -115,6 +115,7 @@ export default function RegisterForm({role = "USER"}) {
             Login
           </Link>
         </p>
+        {role==='USER'?(        
         <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
           Vendor?{" "}
           <Link
@@ -123,7 +124,17 @@ export default function RegisterForm({role = "USER"}) {
           >
             Register here
           </Link>
-        </p>
+        </p>):(
+        <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
+        User?{" "}
+        <Link
+          href="/register"
+          className="font-medium text-cyan-500 hover:underline "
+        >
+          Register here
+        </Link>
+      </p>
+        )}
     </div>
     </form>
   );
