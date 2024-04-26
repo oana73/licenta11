@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.0.0",
     "@faker-js/faker": "^8.4.1",
     "@prisma/client": "^5.12.1",
     "@radix-ui/react-checkbox": "^1.0.4",
