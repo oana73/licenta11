@@ -9,9 +9,16 @@ import {
    CollapsibleTrigger,
  } from "@/components/ui/collapsible"
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
  
 export default function Sidebar({showSidebar,setSidebar}) {
-   const catalogLinks=[
+   const{data:session, status} = useSession()
+   if (status==='loading'){
+      return <p>loading</p>
+   }
+   let userLinks;
+   const role = session?.user?.role;
+   let catalogLinks=[
       {
          title:"Products",
          href: "/dashboard/products"
@@ -29,7 +36,7 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/dashboard/sliders"
       },
      ];
-  const sidebarLinks=[
+  let sidebarLinks=[
    {
       title:"Customers",
       icon:Users ,
@@ -72,6 +79,60 @@ export default function Sidebar({showSidebar,setSidebar}) {
    },
   ];
   const pathName = usePathname()
+  if(role==='SUPPLIER'){
+   sidebarLinks = [
+      {
+         title:"Customers",
+         icon:Users ,
+         href: "/dashboard/customers"
+      },
+      {
+         title:"Markets",
+         icon: Blocks,
+         href: "/dashboard/markets"
+      },
+      {
+         title:"Orders",
+         icon: ShoppingBag ,
+         href: "/dashboard/orders"
+      },
+      {
+         title:"Trainings",
+         icon: Book,
+         href: "/dashboard/trainings"
+      },
+      {
+         title:"Settings",
+         icon: Settings,
+         href: "/dashboard/settings"
+      },
+      {
+         title:"Store",
+         icon: Airplay,
+         href: "/"
+      },
+     ]
+    } 
+  if(role==='USER'){
+   sidebarLinks=[
+   {
+      title:"Orders",
+      icon: ShoppingBag ,
+      href: "/dashboard/orders"
+   },
+   {
+      title:"Profile",
+      icon: ShoppingBag ,
+      href: "/dashboard/profile"
+   },
+   {
+      title:"Store",
+      icon: Airplay,
+      href: "/"
+   },
+  ]
+   catalogLinks=[]
+}
   return (
     <div className= {showSidebar?"sm:block mt-14 sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
    :" mt-20 hidden sm:block sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
@@ -92,6 +153,7 @@ export default function Sidebar({showSidebar,setSidebar}) {
               <LayoutGrid className='w-5 h-5'/>
               <span>Dashboard</span>
             </Link>
+            {catalogLinks.length>0 && (
             <Collapsible className='px-6'>
             <CollapsibleTrigger className='' >
                <div className='flex items-center space-x-3 py-0.5 hover:text-black dark:hover:text-white'>
@@ -101,22 +163,24 @@ export default function Sidebar({showSidebar,setSidebar}) {
                      </div>
                </div>
             </CollapsibleTrigger>
-            <CollapsibleContent className='pl-8 py-3 text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 rounded-xl'>
-               {
-                  catalogLinks.map((item,i)=>{
-                     return(
-                        <Link href={item.href} 
-                        className={pathName===item.href
-                        ?"flex items-center space-x-3 py-1 text-cyan-500 text-sm"
-                        :"flex items-center space-x-3 py-1 text-sm hover:text-black dark:hover:text-white"}>
-                        <span>{item.title}</span>
-                     </Link>
-                     );
+               <CollapsibleContent className='pl-8 py-3 text-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 rounded-xl'>
+                  {
+                     catalogLinks.map((item,i)=>{
+                        return(
+                           <Link href={item.href} 
+                           className={pathName===item.href
+                           ?"flex items-center space-x-3 py-1 text-cyan-500 text-sm"
+                           :"flex items-center space-x-3 py-1 text-sm hover:text-black dark:hover:text-white"}>
+                           <span>{item.title}</span>
+                        </Link>
+                        );
+                     }
+                     )
                   }
-                  )
-               }
-            </CollapsibleContent>
+               </CollapsibleContent>
             </Collapsible>
+            )}
+
             {
                sidebarLinks.map((item,i)=>{
                   const Icon = item.icon

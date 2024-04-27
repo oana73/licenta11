@@ -13,9 +13,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Image from 'next/image'
 import ThemeSwitcher from '../ThemeSwitcher'
+import UserAvatar from './UserAvatar';
 
 
 export default function Navbar({setSidebar,showSidebar}) {
+  const user = {}
   return (
     <div className='flex items-center justify-between bg-white dark:bg-neutral-900 text-slate-50 h-14 py-4 fixed top-0 w-full px-8 z-50 sm:pr-[16rem] shadow-sm' >
         {/* Icon */}
@@ -82,33 +84,7 @@ export default function Navbar({setSidebar,showSidebar}) {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <FiUser className='text-neutral-500 hover:text-cyan-600'/>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className='py-2 px-4 pr-8 text-neutral-700 dark:text-neutral-300 dark:bg-neutral-900'>
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <button className='flex items-center space-x-2'>
-                    <Airplay className="mr-2 h-4 w-4" />
-                    <span>Dashboard</span>
-                  </button>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <button className='flex items-center space-x-2'>
-                    <UserCog className="mr-2 h-4 w-4"  />
-                    <span>Edit Profile</span>
-                  </button>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <button className='flex items-center space-x-2'>
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Logout</span>
-                  </button>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <UserAvatar user= {user} />
 
             
         </div>
