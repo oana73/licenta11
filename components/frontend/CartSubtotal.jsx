@@ -17,15 +17,15 @@ export default function CartSubtotal({subTotal}) {
       <span>${tax}</span>
     </div>
     <div className='flex items-center justify-between pb-4'>
-      <span>{shipping}</span>
-      <span>$2</span>
+      <span>Shipping</span>
+      <span>${shipping}</span>
     </div>
     <p className='border-b pb-6 font-normal'>We only charge for ship</p>
     <div className='flex items-center justify-between py-4'>
       <span>Total</span>
       <span>${totalPrice}</span>
     </div>
-    <Link href='#' className='bg-slate-200 rounded-lg py-2 px-4 font-normal'>Continue to payment</Link>
+    <Link href='/checkout' className='bg-slate-200 rounded-lg py-2 px-4 font-normal'>Continue to payment</Link>
   </div>
   )
 }
