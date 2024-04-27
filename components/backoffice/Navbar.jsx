@@ -1,3 +1,4 @@
+'use client'
 import { Bell, SunDim, User , ChevronLeft,Airplay, UserCog, LogOut, X, AlignJustify} from 'lucide-react'
 import { FiUser } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
@@ -14,10 +15,15 @@ import {
 import Image from 'next/image'
 import ThemeSwitcher from '../ThemeSwitcher'
 import UserAvatar from './UserAvatar';
+import { getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 
 
 export default function Navbar({setSidebar,showSidebar}) {
-  const user = {}
+  const {data: session, status } = useSession()
+  if(status==='loading'){
+    return <p>Loadig...</p>
+  }
   return (
     <div className='flex items-center justify-between bg-white dark:bg-neutral-900 text-slate-50 h-14 py-4 fixed top-0 w-full px-8 z-50 sm:pr-[16rem] shadow-sm' >
         {/* Icon */}
@@ -84,7 +90,9 @@ export default function Navbar({setSidebar,showSidebar}) {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <UserAvatar user= {user} />
+            {status==='authenticated'&&(
+              <UserAvatar user= {session?.user} />
+            )}
 
             
         </div>

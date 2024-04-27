@@ -43,13 +43,15 @@ export async function POST(request){
         if(role==='SUPPLIER'){
             //Send an Email with the Token on the link as a search param
             const linkText = "Veify";
+            const subject = "Account Verification"
+            const description = "Thank you, for Creating annAccount with Us. We request you to click on the link Below in order to verify your Account. Thankyou"
             const userId = newUser.id;
             const redirectUrl = `onboarding/${userId}?token=${token}`;
             const sendMail = await resend.emails.send({
                 from: 'onboarding@resend.dev',
                 to: email,
-                subject: 'Hello World',
-                react: EmailTemplate({name, redirectUrl, linkText}),
+                subject: subject,
+                react: EmailTemplate({name, redirectUrl, linkText,description, subject}),
                 html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
               });
             console.log(sendMail)}
