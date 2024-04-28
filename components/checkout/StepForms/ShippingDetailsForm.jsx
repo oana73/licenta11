@@ -1,13 +1,31 @@
 'use client'
 import TextInput from '@/components/Form/TextInput';
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import NavButtons from '../NavButtons';
+import { Circle, Truck } from 'lucide-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentStep, updateCheckoutFormData } from '@/redux/slices/checkoutSlice';
 
 export default function ShippingDetailsForm() {
-  const {register, reset, handleSubmit, formState:{errors}} = useForm();
+  const dispatch = useDispatch()
+  const currentStep = useSelector((store)=> store.checkout.currentStep)
+  const existingFormData = useSelector((store)=> store.checkout.checkoutFormData)
+  const {register, reset, handleSubmit, formState:{errors}} = useForm({
+    defaultValues:{
+      ...existingFormData
+    }
+  });
+  const initialShippingCost = existingFormData.shippingCost||""
+  const [shippingCost, setShippingCost] = useState(initialShippingCost)
+  console.log(shippingCost)
   async function processData(data){
+    data.shippingCost = shippingCost
     console.log(data)
+    //update the checkout data
+    dispatch(updateCheckoutFormData(data))
+    //update the current step
+    dispatch(setCurrentStep(currentStep + 1))
   }
   return (
     <form onSubmit={handleSubmit(processData)} >
@@ -39,15 +57,37 @@ export default function ShippingDetailsForm() {
           className='w-full'/>
       </div>
       {/* Shipping cost */}
-      <div className='flex'>
-      <div className="flex items-center w-full ps-4 border border-gray-200 rounded dark:border-gray-700">
-          <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-          <label for="bordered-radio-1" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default radio</label>
-      </div>
-      <div className="flex items-center w-full ps-4 border border-gray-200 rounded dark:border-gray-700">
-          <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
-          <label for="bordered-radio-2" className="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked state</label>
-      </div>
+      <div className='col-span-full'>
+        <h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">Shipping?</h3>
+        <ul class="grid w-full gap-6 md:grid-cols-2">
+            <li>
+                <input type="radio" id="hosting-small" name="hosting" value="8" class="hidden peer" required onChange={(e)=>setShippingCost(e.target.value)}/>
+                <label for="hosting-small" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                  {/* Design */}
+                  <div className="flex gap-2 items-center">
+                    <Truck className='w-6 h-6 flex-shrink-0 ms-3'/>
+                    <div className=''>
+                      <p>ups</p>
+                      <p>Delivery Cost: $8</p>
+                    </div>
+                  </div>
+                  <Circle className='w-5 h-5 flex-shrink-0  ms-3'/>
+                </label>
+            </li>
+            <li>
+                <input type="radio" id="hosting-big" name="hosting" value="10" class="hidden peer" onChange={(e)=>setShippingCost(e.target.value)}/>
+                <label for="hosting-big" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  <div className="flex gap-2 items-center">
+                    <Truck className='w-6 h-6 flex-shrink-0 ms-3'/>
+                    <div className=''>
+                      <p>ups</p>
+                      <p>Delivery Cost: $10</p>
+                    </div>
+                  </div>
+                  <Circle className='w-5 h-5 flex-shrink-0  ms-3'/>
+                </label>
+            </li>
+        </ul>
       </div>
       <NavButtons/>
     </form>
