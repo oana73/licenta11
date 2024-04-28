@@ -16,7 +16,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
    if (status==='loading'){
       return <p>loading</p>
    }
-   let userLinks;
    const role = session?.user?.role;
    let catalogLinks=[
       {

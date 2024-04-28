@@ -121,6 +121,13 @@ enum Gender{
   FAMALE
   MALE
 }
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELED
+}
 //user => admin, supplier, customer
 model User {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -172,14 +179,18 @@ model Order {
   paymentMethod  String
   //Order items
   orderItems     OrderItem[]
+  orderStatus    OrderStatus @default(PROCESSING)
+  orderNumber String?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-  user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user           User      @relation(fields: [userId], references: [id])
 }
 model OrderItem {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   orderId     String    @db.ObjectId
   productId   String    @db.ObjectId
+  imageUrl   String?    
+  title   String?
   quantity    Int
   price       Float
   createdAt   DateTime  @default(now())

@@ -15,7 +15,8 @@ try{
         shippingCost,
         streetAddress,
         userId,
-        zipCode
+        zipCode,
+        orderNumber
     } = checkoutFormData
     const newOrder = await db.order.create({
         data:{
@@ -29,15 +30,31 @@ try{
             country ,
             zipCode ,
             shippingCost:parseFloat(shippingCost),
-            paymentMethod,}
+            paymentMethod,
+            orderNumber: generateOrderNumber(8)}
     })
+    //create orderNumber
+    function generateOrderNumber(length) {
+        const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let orderNumber = '';
+      
+        for (let i = 0; i < length; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          orderNumber += characters.charAt(randomIndex);
+        }
+      
+        return orderNumber;
+      }
+
     //create order Item
     const newOrderItems = await prisma.orderItem.createMany({
         data: orderItems.map((item) => ({
             productId:item.id,
             quantity: parseInt(item.qty),
             price: parseFloat(item.discount),
-          orderId: newOrder.id,
+            orderId: newOrder.id,
+            imageUrl:item.imageUrl,
+            title: item.title,
           // Assuming you have a productId field in each item, adjust as needed
         })),
       });
@@ -57,7 +74,11 @@ export async function GET(request) {
         const orders = await db.order.findMany({
             orderBy:{
                 createdAt:"desc",
-            }})
+            },
+            include:{
+                orderItems:true,
+            }
+        })
         return NextResponse.json(orders)
     } catch (error) {
         console.log(error)

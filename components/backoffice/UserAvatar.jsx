@@ -16,6 +16,7 @@ import Link from 'next/link'
 
 export default function UserAvatar({user={}}) {
   const {name} = user
+  const role = user?.role
   const router = useRouter()
   async function handdleLogout(){
     await signOut()
@@ -41,6 +42,15 @@ export default function UserAvatar({user={}}) {
           <span>Edit Profile</span>
         </Link>
       </DropdownMenuItem>
+      {
+        role==='USER'&&
+        <DropdownMenuItem>
+        <Link href='/dashboard/orders' className='flex items-center space-x-2'>
+          <UserCog className="mr-2 h-4 w-4"  />
+          <span>MY orders</span>
+        </Link>
+        </DropdownMenuItem>
+      }
       <DropdownMenuItem>
         <button onClick={handdleLogout} className='flex items-center space-x-2'>
           <LogOut className="mr-2 h-4 w-4" />
