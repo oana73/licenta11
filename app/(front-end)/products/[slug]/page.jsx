@@ -11,30 +11,30 @@ import Link from 'next/link';
 import { IoSendOutline } from "react-icons/io5";
 
 export default async function ProductDetailPage({params:{slug}}) {
-    const category = await getData("/categories/661fe761f1f82e742e25b7d5")
+    const product = await getData(`/products/product/${slug}`)
   return (
     <div className='mx-auto max-w-screen-2xl mt-10'>
         <Breadcrumb/>
         <div className="grid grid-cols-12 gap-12">
             <div className='col-span-3'>
-                <Image src='/photo1.jpg' alt='' width={110} height={110} className='w-full' />
+                <Image src={product.imageUrl} alt={product.title} width={110} height={110} className='w-full' />
             </div>
             <div className='col-span-6'>
                 <div className="flex items-center justify-between mb-4">
-                    <h2 className='text-xl lg:text-2xl'>Ceva nume</h2>
+                    <h2 className='text-xl lg:text-2xl'>{product.title}</h2>
                     <button><IoShareSocialOutline/></button>
                 </div>
                 <div className='border-b'>
-                    <p className='py-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, dLorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, dLorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae, d</p>
+                    <p className='py-2'>{product.description}</p>
                     <div className='flex items-center gap-8 mb-4'>
-                        <p>SKU: 54132446</p>
-                        <p className='py-1.5 px-4 border border-neutral-200 rounded-full'>Stock: 256</p>
+                        <p>SKU: {product.sku}</p>
+                        <p className='py-1.5 px-4 border border-neutral-200 rounded-full'>Stock: {product.qty}</p>
                     </div>
                 </div>
                 <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
                     <div className="flex items-center gap-4">
-                        <h4>UGX 44</h4>
-                        <del className='text-neutral-400 text-sm'>UGX 55</del>
+                        <h4>UGX {product.discount}</h4>
+                        <del className='text-neutral-400 text-sm'>UGX {product.price}</del>
                     </div>
                     <p className='flex items-center'>
                         <CiShoppingTag className='text-neutral-600 me-2'/>
@@ -103,7 +103,7 @@ export default async function ProductDetailPage({params:{slug}}) {
         </div>
         <div className='my-8 rounded-xl bg-slate-100 p-4'>
             <h2 className='mb-4 font-semibold ml-2'>Similar Products</h2>
-            <CategoryCarousel products={category.products}/>
+            {/* <CategoryCarousel products={category.products}/> */}
         </div>
     </div>
   )

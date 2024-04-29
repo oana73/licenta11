@@ -9,7 +9,7 @@ export default async function NewProduct() {
   const usersData = await getData("users")
   //console.log(categoriesData)
   //console.log(usersData)
-  const suppliersData = usersData.filter((user)=>user.role==="SUPPLIER")
+  const suppliersData = usersData?.filter((user)=>user.role==="SUPPLIER")??[]
   const suppliers = suppliersData.map((supplier)=>{
     return{
       id: supplier.id,

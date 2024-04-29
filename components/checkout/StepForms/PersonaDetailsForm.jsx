@@ -19,12 +19,14 @@ export default function PersonaDetailsForm() {
   });
   const dispatch = useDispatch()
   async function processData(data){
-    data.userId = userId
-    //update the checkout data
-    dispatch(updateCheckoutFormData(data))
-    //update the current step
-    dispatch(setCurrentStep(currentStep + 1))
-    
+    if(userId){
+      data.userId = userId
+      //update the checkout data
+      dispatch(updateCheckoutFormData(data))
+      //update the current step
+      dispatch(setCurrentStep(currentStep + 1))
+      
+    }
   }
   return (
     <form onSubmit={handleSubmit(processData)} >

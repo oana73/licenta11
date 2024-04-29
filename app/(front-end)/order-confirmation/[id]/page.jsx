@@ -5,8 +5,8 @@ import Image from "next/image";
 import React from "react";
 
 export default async function page({ params: { id } }) {
-  const orders = await getData(`orders/${id}`);
-  const { orderItems } = orders;
+  const order = await getData(`orders/${id}`);
+  const { orderItems } = order;
   const subTotal = orderItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
   return (
     <section className="py-12 dark:bg-slate-950 bg-slate-50 sm:py-16 lg:py-20">
@@ -28,10 +28,10 @@ export default async function page({ params: { id } }) {
                   <CheckCircle2 className="w-10 h-10 mx-auto text-lime-500" />
 
                   <h1 className="mt-4 text-2xl font-bold text-gray-900 dark:text-lime-50">
-                    We received your orders!
+                    We received your order!
                   </h1>
                   <p className="mt-2 text-sm font-normal text-gray-600 dark:text-slate-300">
-                    Your orders #{orders.orderNumber} is completed and ready to
+                    Your order #{order.orderNumber} is completed and ready to
                     ship
                   </p>
                 </div>
@@ -43,11 +43,11 @@ export default async function page({ params: { id } }) {
                         Shipping Address
                       </h2>
                       <p className="mt-6 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {orders.firstName} {orders.lastName}
+                        {order.firstName} {order.lastName}
                       </p>
                       <p className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {orders.streetAddress} {orders.city}, {orders.zipCode},{" "}
-                        {orders.country}
+                        {order.streetAddress} {order.city}, {order.zipCode},{" "}
+                        {order.country}
                       </p>
                     </div>
 
@@ -56,7 +56,7 @@ export default async function page({ params: { id } }) {
                         Payment Info
                       </h2>
                       <p className="mt-6 text-sm font-medium text-gray-600 dark:text-gray-300">
-                        {orders.paymentMethod}
+                        {order.paymentMethod}
                       </p>
                       {/* <p className="mt-1 text-sm font-medium text-gray-600">
                         VISA
@@ -69,7 +69,7 @@ export default async function page({ params: { id } }) {
 
                 <div className="py-8">
                   <h2 className="text-xs font-bold tracking-widest text-gray-400 uppercase dark:text-gray-500">
-                    orders Items
+                    Order Items
                   </h2>
 
                   <div className="flow-root mt-8">
