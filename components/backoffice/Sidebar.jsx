@@ -52,6 +52,11 @@ export default function Sidebar({showSidebar,setSidebar}) {
       href: "/dashboard/orders"
    },
    {
+      title:"Sales",
+      icon: ShoppingBag ,
+      href: "/dashboard/sales"
+   },
+   {
       title:"Suppliers",
       icon: FileBadge,
       href: "/dashboard/suppliers"
@@ -96,6 +101,11 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/dashboard/orders"
       },
       {
+         title:"Sales",
+         icon: ShoppingBag ,
+         href: "/dashboard/sales"
+      },
+      {
          title:"Trainings",
          icon: Book,
          href: "/dashboard/trainings"
@@ -115,7 +125,7 @@ export default function Sidebar({showSidebar,setSidebar}) {
   if(role==='USER'){
    sidebarLinks=[
    {
-      title:"Orders",
+      title:"My Orders",
       icon: ShoppingBag ,
       href: "/dashboard/orders"
    },

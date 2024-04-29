@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 
 export async function GET(request,{params:{id}}) {
     try {
-        const order = await db.order.findUnique({
+        const orders = await db.order.findUnique({
             where:{
                 id
             },
@@ -11,7 +11,18 @@ export async function GET(request,{params:{id}}) {
                 orderItems:true,
             }
         })
-        return NextResponse.json(order)
+        // const orders = await db.order.findMany({
+        //     where:{
+        //         userId:id
+        //     },
+        //     orderBy:{
+        //         createdAt:"desc",
+        //     },
+        //     include:{
+        //         orderItems:true,
+        //     }
+        // })
+        return NextResponse.json(orders)
     } catch (error) {
         console.log(error)
         return NextResponse.json({
