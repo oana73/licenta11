@@ -41,5 +41,16 @@ export const ourFileRouter = {
       console.log("file url", file.url, metadata);
       return { uploadedBy: "ceva" };
     }),
-    
+    customerProfileUploader: f({ image: { maxFileSize: "2MB" } })
+    // Set permissions and file types for this FileRoute
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "ceva" };
+    }),
+    multipleImageUpload: f({ image: { maxFileSize: "8MB", maxFileCount:4 } })
+    // Set permissions and file types for this FileRoute
+    .onUploadComplete(async ({ metadata, file }) => {
+      console.log("file url", file.url, metadata);
+      return { uploadedBy: "ceva" };
+    }),
 };

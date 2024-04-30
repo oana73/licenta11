@@ -6,7 +6,18 @@ export async function GET(request, {params:{id}}) {
         const user = await db.user.findUnique({
             where:{
                 id,
-            }
+            },
+            select:{
+                name:true, 
+                email:true,
+                id:true,
+                role:true,
+                createdAt:true,
+                profile:true,
+            },
+            // include:{
+            //     profile:true,
+            // }
             })
         return NextResponse.json(user)
     } catch (error) {

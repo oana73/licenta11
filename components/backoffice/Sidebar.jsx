@@ -86,19 +86,9 @@ export default function Sidebar({showSidebar,setSidebar}) {
   if(role==='SUPPLIER'){
    sidebarLinks = [
       {
-         title:"Customers",
-         icon:Users ,
-         href: "/dashboard/customers"
-      },
-      {
          title:"Markets",
          icon: Blocks,
          href: "/dashboard/markets"
-      },
-      {
-         title:"Orders",
-         icon: ShoppingBag ,
-         href: "/dashboard/orders"
       },
       {
          title:"Sales",
@@ -121,6 +111,16 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/"
       },
      ]
+     catalogLinks=[
+      {
+         title:"Products",
+         href: "/dashboard/products"
+      },
+      {
+         title:"Coupons",
+         href: "/dashboard/coupons"
+      },
+     ];
     } 
   if(role==='USER'){
    sidebarLinks=[

@@ -12,7 +12,7 @@ export default function SalesInvoice({order}) {
 
   const invoiceRef = useRef();
 
-  const total = subTotal + tax
+  const total = (parseFloat(subTotal) + parseFloat(tax)).toFixed(2)
   const handlePrint = useReactToPrint({
     content: () => invoiceRef.current,
   });

@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { ArrowLeft, Plus, X } from 'lucide-react'
 import AddFeature from '@/components/Form/AddFeature'
 import { useRouter } from 'next/navigation'
+import MultipleImageInput from '../Form/MultipleImageInput'
 
 export default function NewProductForm({categories, suppliers, updateData = {}}) {
 console.log(suppliers)
@@ -27,10 +28,12 @@ console.log(suppliers)
   function redirect(){
     router.push("/dashboard/products")
   }
+  const[productImages, setProductImages] = useState([])
+  console.log(productImages)
   async function onSubmit(data){
     const slug = generateSlug(data.title)
     data.slug = slug;
-    data.imageUrl=imageUrl;
+    data.productImages=productImages;
     data.tags = tags;
     data.qty = 1;
     console.log(data);
@@ -42,7 +45,7 @@ console.log(suppliers)
   }else{
       //make post request(create)
       makePostRequest(setLoading, 'api/products', data, "Product", reset, redirect);
-      setImageUrl("")
+      setProductImages([])
       setTags([])
   }
 
@@ -113,11 +116,11 @@ console.log(suppliers)
               register={register}
               errors={errors}
             />
-            <ImageInput
-              label="Product Image"
-              imageUrl={imageUrl}
-              setImageUrl={setImageUrl} 
-              endpoint="productImageUploader"
+            <MultipleImageInput
+              label="Product Images"
+              imageUrls={productImages}
+              setImageUrls={setProductImages} 
+              endpoint="multipleImageUpload"
               />
             <div className="w-full ">
               <label className="relative inline-flex items-center cursor-pointer">

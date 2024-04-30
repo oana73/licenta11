@@ -1,3 +1,4 @@
+import NewSupplierForm from '@/components/backoffice/NewSupplierForm'
 import React from 'react'
 
 export default async function updateSupplier({params:{id}}) {

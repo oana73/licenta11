@@ -8,11 +8,14 @@ import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import { convertIsoToNormal } from '@/lib/convertIsoToNormal'
 import { generateSlug } from '@/lib/generateSlug'
 import { isoDate } from '@/lib/isoDate'
+import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export default function CouponForm({updateData={}}) {
+  const {data: session,status} = useSession() 
+  const vendorId = session?.user?.id
   const expiryDateNormal = convertIsoToNormal(updateData.valability)
   const id = updateData?.id??""
   updateData.valability = expiryDateNormal
@@ -23,6 +26,7 @@ export default function CouponForm({updateData={}}) {
     router.push("/dashboard/coupons")
   }
   async function onSubmit(data){
+    data.vendorId = vendorId
     const isoFormatDate = isoDate(data.valability)
     data.valability = isoFormatDate;
     console.log(data)

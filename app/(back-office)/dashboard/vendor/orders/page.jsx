@@ -14,8 +14,13 @@ export default async function Coupons() {
   const session = await getServerSession(authOptions)
   const id = session?.user?.id
   const role = session?.user?.role
-  const allCoupons = await getData('coupons')
-  const supplierCoupons = await allCoupons.filter((coupon)=>coupon.vendorId===id)
+  const allSales = await getData('sales')
+
+  //fetch all the sales
+  //filter by vendorId to get sales for this vendor
+  //fetch order by id
+  //customer name, email, phone, orderNumber
+  const supplierSales = await allSales.filter((sale)=>sale.vendorId===id)
   return (
     <div>
       <PageHeader 
@@ -25,8 +30,8 @@ export default async function Coupons() {
       />
       <div className='py-8'>
         {
-          role==="ADMIN"?(<DataTable data={allCoupons} columns={columns}/>):(
-            <DataTable data={supplierCoupons} columns={columns}/>
+          role==="ADMIN"?(<DataTable data={allSales} columns={columns}/>):(
+            <DataTable data={supplierSales} columns={columns}/>
           )
         }
       </div>
