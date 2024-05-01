@@ -6,16 +6,17 @@ import Sorting from './Sorting'
 import FilteredProducts from './FilteredProducts'
 import Filter from './Filter'
 
-export default function FilterComponent({products}) {
+export default function FilterComponent({category,products}) {
+  const { title,slug } = category
   return (
     <div>
         <div className="bg-white space-y-6 text-slate-900 py-8 px-4 text-xs">
-            <Breadcrumb/>
-            <Sorting/>
+            <Breadcrumb title={title}/>
+            <Sorting title={title} slug={slug} />
         </div>
         <div className='grid grid-cols-12 py-8 gap-4'>
             <div className='col-span-3'>
-                <Filter/>
+                <Filter slug={slug}/>
             </div>
             <div className='col-span-9'>
                 <FilteredProducts products={products}/>
