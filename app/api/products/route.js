@@ -35,6 +35,9 @@ export async function GET(request) {
     const sortBy =request.nextUrl.searchParams.get('sort')
     const min =request.nextUrl.searchParams.get('min')
     const max =request.nextUrl.searchParams.get('max')
+    const searchTerm =request.nextUrl.searchParams.get('search')
+    const page =request.nextUrl.searchParams.get('page') || 1
+    const pageSize = 3
     let where={
         categoryId
     }
@@ -54,7 +57,24 @@ export async function GET(request) {
     }
     let products;
     try {
-        if(categoryId && sortBy){
+        if(searchTerm){
+            products = await db.product.findMany({
+                where:{
+                    OR:[
+                      {title:{ contains:searchTerm, mode: "insensitive"},
+                    }
+                    ]
+                }
+        },)
+        }else if(categoryId && page){
+            products = await db.product.findMany({
+                where,
+                skip: (parseInt(page)-1)* parseInt(pageSize),
+                take: parseInt(pageSize),
+                orderBy:{
+                    createdAt: "desc",
+        },})
+        }else if(categoryId && sortBy){
             products = await db.product.findMany({
                 where,
                 orderBy:{
