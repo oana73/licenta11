@@ -2,7 +2,6 @@ import CategoryList from "@/components/frontend/CategoryList";
 import CommunityList from "@/components/frontend/CommunityList";
 import Hero from "@/components/frontend/Hero";
 import MarketList from "@/components/frontend/MarketList";
-import CatList from "@/components/frontend/CatList";
 import { getData } from "@/lib/getData";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,13 +18,12 @@ export default async function Home() {
   return (
     <div className="min-h-screen ">
     <Hero/>
-    <CatList/>
     <MarketList/>
     {
       categories.map((category,i)=>{
         return(
           <div key={i}>
-            <CategoryList category={category}/>
+            <CategoryList isMarketPage={false} category={category}/>
           </div>
         )}
       )

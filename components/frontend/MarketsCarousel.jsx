@@ -44,7 +44,7 @@ const responsive = {
 
   {markets.map((market,i)=> {
     return( 
-      <Link key={i} href='#' className=''>
+      <Link key={i} href={`/market/${market.slug}`} className=''>
         <Image src={market.imageUrl} alt={market.title} width={375} height={480} className='w-full px-1'/>
         <h2 className='text-center'>{market.title}</h2>
       </Link>
