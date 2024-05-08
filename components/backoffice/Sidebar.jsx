@@ -86,19 +86,14 @@ export default function Sidebar({showSidebar,setSidebar}) {
   if(role==='SUPPLIER'){
    sidebarLinks = [
       {
-         title:"Markets",
-         icon: Blocks,
-         href: "/dashboard/markets"
-      },
-      {
          title:"Sales",
          icon: ShoppingBag ,
          href: "/dashboard/sales"
       },
       {
-         title:"Trainings",
-         icon: Book,
-         href: "/dashboard/trainings"
+         title:"My Orders",
+         icon: ShoppingBag ,
+         href: "/dashboard/orders"
       },
       {
          title:"Settings",

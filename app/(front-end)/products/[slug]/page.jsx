@@ -9,9 +9,15 @@ import CategoryCarousel from '@/components/frontend/CategoryCarousel';
 import { getData } from '@/lib/getData';
 import Link from 'next/link';
 import { IoSendOutline } from "react-icons/io5";
+import AddToCartButton from '@/components/frontend/AddToCartButton';
 
 export default async function ProductDetailPage({params:{slug}}) {
     const product = await getData(`/products/product/${slug}`)
+    const {id} = product
+    const catId = product.categoryId
+    const category = await getData(`/categories/${catId}`)
+    const categoryProducts = category.products
+    const products = categoryProducts.filter((product)=> product.id !== id)
   return (
     <div className='mx-auto max-w-screen-2xl mt-10'>
         <Breadcrumb/>
@@ -42,18 +48,7 @@ export default async function ProductDetailPage({params:{slug}}) {
                     </p>
                 </div>
                 <div className='flex justify-between items-center py-6'>
-                    <div className='rounded-xl border flex gap-3 items-center '>
-                        <button className='border-r py-3 px-4'>
-                            <FaMinus/>
-                        </button>
-                        <p className='flex-grow py-2 px-4'>1</p>
-                        <button className='border-l py-3 px-4'>
-                            <FaPlus/>
-                        </button>
-                    </div>
-                    <button className='flex items-center space-x-2 px-4 py-2 rounded-md bg-cyan-300'>
-                        <ShoppingBag/>
-                    </button>
+                    <AddToCartButton product={product}/>
                 </div>
             </div>
             <div className='col-span-3 hidden sm:block bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
@@ -102,8 +97,8 @@ export default async function ProductDetailPage({params:{slug}}) {
             </div>
         </div>
         <div className='my-8 rounded-xl bg-slate-100 p-4'>
-            <h2 className='mb-4 font-semibold ml-2'>Similar Products</h2>
-            {/* <CategoryCarousel products={category.products}/> */}
+            <h2 className='mb-4 font-semibold ml-2 '>Similar Products</h2>
+            <CategoryCarousel products={products}/>
         </div>
     </div>
   )

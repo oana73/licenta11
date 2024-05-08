@@ -4,7 +4,7 @@ import CategoryCarousel from './CategoryCarousel'
 
 export default function CategoryList({category, isMarketPage}) {
   return (
-    <div className='mx-auto max-w-screen-2xl py-12 '>
+    <div className='mx-auto max-w-screen-2xl py-2 '>
       <div className=' flex justify-between items-center px-6 '>
         <h2>
           {category.title}
@@ -14,7 +14,7 @@ export default function CategoryList({category, isMarketPage}) {
         </Link> 
       </div>
       <div className='p-4 '>
-        <CategoryCarousel isMarketPage={true} products={category.products}/>
+        <CategoryCarousel isMarketPage={false} products={category.products}/>
       </div>
   </div>
   )
