@@ -105,9 +105,9 @@ model Training {
 
 model SupplierProfile {
   id           String  @id @default(auto()) @map("_id") @db.ObjectId
-  name         String
-  phone        String
-  email        String
+  firstName   String?
+  lastName   String?
+  phone        String?
   address      String?
   profileImage String?
   paymentTerms String

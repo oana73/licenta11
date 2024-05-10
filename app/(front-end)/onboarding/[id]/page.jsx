@@ -1,19 +1,37 @@
+
+import StepForm from '@/components/onboarding/StepForm';
+import Steps from '@/components/onboarding/Steps';
 import React from 'react'
-import NewSupplierForm from '@/components/backoffice/NewSupplierForm';
-import { getData } from '@/lib/getData';
-import db from '@/lib/db';
 
-export default async function page({params:{id}}) {
-    const user = await getData(`users/${id}`)
-    console.log(user)
-  return(
-    <div className='flex flex-col gap-6 p-10'>
-        <div className='p-4 mx-auto'>
-            Hello {user?.name}, tell us more about you 
+export default function page({params:{id}}) {
+    const steps = [
+        {
+            number:1,
+            title: "Personal Details",
+        },
+        {
+            number:2,
+            title: "Shop Details",
+        },
+        {
+            number:3,
+            title: "Aditional Information ",
+        },
+        {
+            number:4,
+            title: "Summary ",
+        },
+      ];
+  return (
+    <div className='mx-auto max-w-screen-2xl min-h-screen'>
+        <div className="max-w-3xl my-6 mx-auto  border border-slate-200 rounded-lg p-6">
+            {/* Steps */}
+            <Steps steps={steps}/>
+            <div className='w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+                {/* Form */}
+                <StepForm supplierId={id} />
+            </div>
         </div>
-        {/* auto coplet the fields after registration */}
-        <NewSupplierForm user={user}/> 
     </div>
-  );
+  )
 }
-

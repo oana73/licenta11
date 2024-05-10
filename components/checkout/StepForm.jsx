@@ -2,9 +2,9 @@
 import React from 'react'
 import PersonaDetailsForm from './StepForms/PersonaDetailsForm'
 import ShippingDetailsForm from './StepForms/ShippingDetailsForm'
-import PaymentMethodForm from './StepForms/PaymentMethodForm.jsx'
 import OrderSummaryForm from './StepForms/OrderSummary'
 import { useSelector } from 'react-redux'
+import PaymentMethodForm from './StepForms/PaymentMethodForm'
 
 export default function StepForm() {
     const currentStep = useSelector((store)=>store.checkout.currentStep)
