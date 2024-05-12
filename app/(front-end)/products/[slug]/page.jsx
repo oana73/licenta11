@@ -10,6 +10,8 @@ import { getData } from '@/lib/getData';
 import Link from 'next/link';
 import { IoSendOutline } from "react-icons/io5";
 import AddToCartButton from '@/components/frontend/AddToCartButton';
+import { ProductShare } from '@/components/frontend/ProductShareButton';
+import ProductImages from '@/components/frontend/ProductImages';
 
 export default async function ProductDetailPage({params:{slug}}) {
     const product = await getData(`/products/product/${slug}`)
@@ -18,23 +20,23 @@ export default async function ProductDetailPage({params:{slug}}) {
     const category = await getData(`/categories/${catId}`)
     const categoryProducts = category.products
     const products = categoryProducts.filter((product)=> product.id !== id)
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const urlToShare = `${baseUrl}/products/${slug}`
   return (
     <div className='mx-auto max-w-screen-2xl mt-10'>
         <Breadcrumb/>
         <div className="grid grid-cols-12 gap-12">
-            <div className='col-span-3'>
-                <Image src={product.imageUrl} alt={product.title} width={110} height={110} className='w-full' />
-            </div>
+            <ProductImages productImages={product.productImages} thumbnail={product.imageUrl}/>
             <div className='col-span-6'>
                 <div className="flex items-center justify-between mb-4">
                     <h2 className='text-xl lg:text-2xl'>{product.title}</h2>
-                    <button><IoShareSocialOutline/></button>
+                    {/* <ProductShare urlToShare={urlToShare}/> */}
                 </div>
                 <div className='border-b'>
                     <p className='py-2'>{product.description}</p>
                     <div className='flex items-center gap-8 mb-4'>
                         <p>SKU: {product.sku}</p>
-                        <p className='py-1.5 px-4 border border-neutral-200 rounded-full'>Stock: {product.qty}</p>
+                        <p className='py-1.5 px-4 border border-neutral-200 rounded-full'>Stock: {product.productStock}</p>
                     </div>
                 </div>
                 <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
