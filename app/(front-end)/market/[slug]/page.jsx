@@ -34,7 +34,7 @@ export default async function page({params:{slug}}) {
     marketCategories.map((category,i)=>{
       return(
         <div className='space-y-6' key={i}>
-          <CategoryList isMarketPage={false} category={category}/>
+          <CategoryList category={category}/>
         </div>
       )}
     )

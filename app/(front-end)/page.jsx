@@ -13,6 +13,7 @@ export default async function Home() {
   const categories = categoriesData.filter((category)=>{
     return category.products.length >0 
   })
+  const trainings =  await getData("trainings")
   const session = await getServerSession(authOptions);
   console.log(session?.user)
   return (
@@ -23,17 +24,12 @@ export default async function Home() {
       categories.map((category,i)=>{
         return(
           <div key={i}>
-            <CategoryList isMarketPage={false} category={category}/>
+            <CategoryList category={category}/>
           </div>
         )}
       )
     }
-    
-    <CommunityList/>
-      <h2 className=" text-4xl ">
-        Welcome
-      </h2>
-      <Link className="my-4 hover:underline" href="/register-supplier">Sell smth!</Link>
+    <CommunityList trainings={trainings.slice(0,3)}/>
     </div>
   );
 }

@@ -2,28 +2,46 @@ import React from 'react'
 import SmallCard from './SmallCard'
 import { ArrowUpDown, Loader, ShoppingCart, SquareCheckBigIcon } from 'lucide-react'
 
-export default function SmallCards() {
+export default function SmallCards({orders}) {
+    const status = {
+        pending: "PENDING",
+        processing: "PROCESSING",
+        shipped:"SHIPPED",
+        delivery:"DELIVERED",
+        canceled:"CANCELED"
+      }
+    function getOrdersCountByStatus(status){
+        const filterdOrders = orders.filter((order)=> order.orderStatus === status )
+        const count = filterdOrders.length
+        return count
+    }
+    const ordersCount = orders.length
+    const pendingOrdersCount = getOrdersCountByStatus(status.pending)
+    const processingOrdersCount = getOrdersCountByStatus(status.processing)
+    const deliverdOrdersCount = getOrdersCountByStatus(status.delivery)
+    const canceledOrdersCount = getOrdersCountByStatus(status.canceled)
+    
     const orderStatus=[{
         title: "Total Orders",
-        number: 100,
+        number: ordersCount,
         iconColor: "bg-cyan-600",
         icon: ShoppingCart
     },
     {
         title: "Orders Pending",
-        number: 100,
+        number: pendingOrdersCount,
         iconColor: "bg-[#bc5090]",
         icon: Loader 
     },
     {
         title: "Orders Processing",
-        number: 300,
+        number: processingOrdersCount,
         iconColor: "bg-[#ff6361]",
         icon: ArrowUpDown
     },
     {
         title: "Orders deliverd",
-        number: 500,
+        number: deliverdOrdersCount,
         iconColor: "bg-[#ffa600]",
         icon: SquareCheckBigIcon
     },

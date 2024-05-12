@@ -1,25 +1,55 @@
 import React from 'react'
 import LargeCard from './LargeCard'
 
-export default function LargeCards() {
+export default function LargeCards({sales}) {
+    const today = new Date();
+    const thisWeekStart = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - today.getDay()
+    );
+    const thisMonthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+  
+    const todaySales = sales
+      .filter((sale) => {
+        const saleDate = new Date(sale.createdAt);
+        return saleDate.toDateString() === today.toDateString();
+      })
+      .reduce((acc, sale) => acc + sale.total, 0);
+  
+    const thisWeekSales = sales
+      .filter((sale) => {
+        const saleDate = new Date(sale.createdAt);
+        return saleDate >= thisWeekStart && saleDate <= today;
+      })
+      .reduce((acc, sale) => acc + sale.total, 0);
+  
+    const thisMonthSales = sales
+      .filter((sale) => {
+        const saleDate = new Date(sale.createdAt);
+        return saleDate >= thisMonthStart && saleDate <= today;
+      })
+      .reduce((acc, sale) => acc + sale.total, 0);
+    console.log(todaySales, thisWeekSales, thisMonthSales);
+    const totalSales = sales.reduce((acc, item)=>acc+item.total,0).toFixed(2) ?? 0;
     const orderStats=[{
         period: "Today Orders",
-        sales: 10000,
+        sales: todaySales,
         color: "bg-cyan-600"
     },
     {
-        period: "Yesterday Orders",
-        sales: 10000,
+        period: "Weekly Orders",
+        sales: thisWeekSales,
         color: "bg-[#bc5090]"
     },
     {
         period: "This Month",
-        sales: 30000,
+        sales: thisMonthSales,
         color: "bg-[#ff6361]"
     },
     {
         period: "All Time Sales",
-        sales: 50000,
+        sales: totalSales,
         color: "bg-[#ffa600]"
     },
 ]

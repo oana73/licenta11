@@ -91,11 +91,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/dashboard/sales"
       },
       {
-         title:"My Orders",
-         icon: ShoppingBag ,
-         href: "/dashboard/orders"
-      },
-      {
          title:"Settings",
          icon: Settings,
          href: "/dashboard/settings"

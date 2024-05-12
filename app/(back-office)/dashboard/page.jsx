@@ -8,9 +8,13 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/authOptions'
 import UserDashboard from '@/components/backoffice/UserDashboard'
 import SupplierDashboard from '@/components/backoffice/SupplierDashboard'
+import { getData } from '@/lib/getData'
 export default async function page() {
   const session = await getServerSession(authOptions)
   const role = session?.user?.role
+  const sales = await getData("sales")
+  const orders = await getData("orders")
+  const products = await getData("products")
   if(role==='USER'){
     return <UserDashboard/>
   }
@@ -21,9 +25,9 @@ export default async function page() {
     <div>
       <Heading className='py-4' title="Dashboard Overview"/>
       {/* Large Cards */}
-      <LargeCards/>
+      <LargeCards sales={sales}/>
       {/* Smal Cards */}
-      <SmallCards/>
+      <SmallCards orders={orders} />
       {/* Charts */}
       <Charts/>
       {/* Recent Orders  */}
