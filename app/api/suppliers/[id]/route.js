@@ -49,3 +49,31 @@ export async function DELETE(request,{params:{id}}) {
     },{status:500})
     }
 }
+
+export async function PUT(request,{params:{id}}) {
+
+    try{
+        const{status} = await request.json();
+        const existingUser = await db.user.findUnique({
+            where: {
+                id,
+            }}
+        )
+        if(!existingUser){
+            return NextResponse.json({
+                data:null,
+                message: "User not found",
+            },{status:404}
+            )
+        }
+        const updatedUser = await db.user.update({
+            where:{id},
+            data: {status},
+        }) 
+        return NextResponse.json(updatedUser)
+    } catch(error){
+        console.log(error)
+        return NextResponse.json({
+            message: "Updating user failed",
+        },{status:500})
+    }}

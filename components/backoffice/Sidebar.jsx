@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { Airplay, Blocks, Book, ChevronDown, ChevronRight, FileBadge, Headset, Layers, Layout, LayoutGrid, Settings, ShoppingBag, Users } from 'lucide-react'
+import { Airplay, Blocks, Book, ChevronDown, ChevronRight, FileBadge, Headset, Layers, Layout, LayoutGrid, Settings, ShoppingBag, Users, Verified } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import {
    Collapsible,
@@ -12,10 +12,12 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
  
 export default function Sidebar({showSidebar,setSidebar}) {
-   const{data:session, status} = useSession()
-   if (status==='loading'){
+   const{data:session, state} = useSession()
+   const  status   = session?.user.status;
+   if (state==='loading'){
       return <p>loading</p>
    }
+
    const role = session?.user?.role;
    let catalogLinks=[
       {
@@ -83,6 +85,27 @@ export default function Sidebar({showSidebar,setSidebar}) {
    },
   ];
   const pathName = usePathname()
+  if (role === 'SUPPLIER' && !status) {
+   return (
+      <div className= {showSidebar?"sm:block mt-14 sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
+     :" mt-20 hidden sm:block sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
+          <a className='mb-6 ' href="/dashboard">
+            <Image src="/logo.png"
+            alt="logo"
+            width={50}
+            height={50}
+            className='mt-3'
+            />
+          </a>
+          <div className='space-y-6 flex flex-col'>
+              <div className='flex items-center space-x-3 px-6 py-0.5 hover-cyan-500'>
+                <Verified className='w-5 h-5'/>
+                <span>Verification</span>
+              </div>
+          </div>
+      </div>
+    )
+}
   if(role==='SUPPLIER'){
    sidebarLinks = [
       {

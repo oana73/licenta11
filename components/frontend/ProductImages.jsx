@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
-export default function ProductImages({productImages=["https://swiperjs.com/demos/images/nature-1.jpg","https://swiperjs.com/demos/images/nature-2.jpg","https://swiperjs.com/demos/images/nature-3.jpg","https://swiperjs.com/demos/images/nature-4.jpg","https://swiperjs.com/demos/images/nature-5.jpg"], thumbnail}) {
+export default function ProductImages({productImages=[], thumbnail}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <div className='col-span-3'>

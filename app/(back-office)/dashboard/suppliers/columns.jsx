@@ -7,6 +7,7 @@ import DateColumn from "@/components/DataTableColumns/DateColumn"
 import ImageColumn from "@/components/DataTableColumns/ImageColumn"
 import SortColumn from "@/components/DataTableColumns/SortColumn"
 import ActionColumn from "@/components/DataTableColumns/ActionColumn"
+import Status from "@/components/DataTableColumns/Status"
 
 export const columns = [
 {
@@ -49,6 +50,15 @@ export const columns = [
     header: "Create Date",
     cell: ({ row }) => (<DateColumn row={row} accessorKey='createdAt'/>)
 
+  },
+  {
+    accessorKey:"role",
+    header:"Role"
+  },
+  {
+    accessorKey:"status",
+    header:"Status",
+    cell:({ row}) => <Status row={row} accessorKey="status"/>
   },
   {
     id: "actions",

@@ -29,7 +29,7 @@ export default async function page() {
       {/* Smal Cards */}
       <SmallCards orders={orders} />
       {/* Charts */}
-      <Charts/>
+      <Charts sales={sales}/>
       {/* Recent Orders  */}
       {/* <CustomData/> */}
     </div>
