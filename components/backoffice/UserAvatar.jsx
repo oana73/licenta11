@@ -20,7 +20,7 @@ export default function UserAvatar({user={}}) {
   const router = useRouter()
   async function handdleLogout(){
     await signOut()
-    router.push('/')
+    router.push('/aboutUs')
   }
   return (
     <DropdownMenu>

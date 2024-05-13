@@ -81,7 +81,7 @@ export default function Sidebar({showSidebar,setSidebar}) {
    {
       title:"Store",
       icon: Airplay,
-      href: "/"
+      href: "/aboutUs"
    },
   ];
   const pathName = usePathname()
@@ -150,7 +150,7 @@ export default function Sidebar({showSidebar,setSidebar}) {
    {
       title:"Store",
       icon: Airplay,
-      href: "/"
+      href: "/aboutUs"
    },
   ]
    catalogLinks=[]

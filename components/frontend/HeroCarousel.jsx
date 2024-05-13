@@ -6,12 +6,12 @@ import { Carousel } from 'nuka-carousel';
 
 export default function HeroCarousel({sliders}){
   return (
-    <Carousel autoplay showDots  className='rounded-md overflow-hidden h-[300px]' >
+    <Carousel autoplay showDots wrapAround className='rounded-md h-[300px]' >
         {
           sliders.map((slider, i)=>{
             return(
               //  <Link  href={slider.link}>
-                <Image key={i} width={712} height={384} src={slider.imageUrl} className='w-full' alt={slider.title}/>
+                <Image key={i} width={556} height={556} src={slider.imageUrl} className='w-full' alt={slider.title}/>
               // {/* </Link> */}
             );
           })

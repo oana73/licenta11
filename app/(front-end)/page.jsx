@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 
-export default async function Home() {
+export default async function Shop() {
   const categoriesData = await getData('categories')
   const categories = categoriesData.filter((category)=>{
     return category.products.length >0 
@@ -17,7 +17,7 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   console.log(session?.user)
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen mx-auto max-w-screen-2xl ">
     <Hero/>
     <MarketList/>
     {

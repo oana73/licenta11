@@ -35,12 +35,12 @@ export default function RegisterForm({role = "USER"}) {
         setLoading(false);
         toast.success("User Created Successfully");
         reset();
-        //if role = user => homepage
+        //if role = user => Shoppage
         //if role = supplier => onboarding 
         // sends users on different pages depending on their role
         const userRole = responseData.data.role
         if(role === "USER"){
-          router.push("/");
+          router.push("/aboutUs");
         }else{
           router.push('/verify-email');
         }
