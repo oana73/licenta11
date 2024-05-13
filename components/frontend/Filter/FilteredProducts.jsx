@@ -3,10 +3,7 @@ import React from 'react'
 import Product from '../Product'
 import Paginate from './Paginate'
 
-export default async function FilteredProducts({products, productCount}) {
-  const pageSize = 3
-  const totalPages = Math.ceil(productCount/pageSize)
-  
+export default async function FilteredProducts({products=[]}) {
   return (
 
     <div>
@@ -18,7 +15,7 @@ export default async function FilteredProducts({products, productCount}) {
             }
         </div>
         <div className="flex items-center p-8 mx-auto w-full">
-        <Paginate totalPages={totalPages} />
+        {/* <Paginate /> */}
         </div>
     </div>
   )

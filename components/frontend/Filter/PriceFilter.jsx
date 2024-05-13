@@ -57,7 +57,8 @@ export default function PriceFilter({slug}) {
                         <Link key={i} 
                         href={range.max && range.min 
                         ?`/category/${slug}?sort=asc&max=${range.max}&min=${range.min}` 
-                        : range.max? `/category/${slug}?sort=asc&max=${range.max}`
+                        : range.max
+                        ? `/category/${slug}?sort=asc&max=${range.max}`
                         :`/category/${slug}?sort=asc&min=${range.min}`}
                         className={`${
                             (range.min && range.min == minParam) ||

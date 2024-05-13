@@ -59,21 +59,14 @@ export async function GET(request) {
     try {
         if(searchTerm){
             products = await db.product.findMany({
-                where:{
+                where: {
                     OR:[
-                      {title:{ contains:searchTerm, mode: "insensitive"},
-                    }
+                        {title: {contains:searchTerm, mode:'insensitive'},},
+                        {description: {contains:searchTerm, mode:'insensitive'},}
                     ]
                 }
-        },)
-        }else if(categoryId && page){
-            products = await db.product.findMany({
-                where,
-                skip: (parseInt(page)-1)* parseInt(pageSize),
-                take: parseInt(pageSize),
-                orderBy:{
-                    createdAt: "desc",
-        },})
+                
+        })
         }else if(categoryId && sortBy){
             products = await db.product.findMany({
                 where,

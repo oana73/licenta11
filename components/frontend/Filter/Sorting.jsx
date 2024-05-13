@@ -6,14 +6,14 @@ import React from 'react'
 export default function Sorting({title, slug, isSearch}) {
   const searchParams = useSearchParams()
   const sortParam = searchParams.get("sort")
-  const pathname = usePathname()
+   const pathname = usePathname()
   console.log(sortParam)
   //console.log(pathname)
   const sortingLinks = [
     {
       title:'Relevance',
       href: `/category/${slug}`,
-      sort: null
+      sort:null
     },
     {
       title:'High to Low',
@@ -29,7 +29,7 @@ export default function Sorting({title, slug, isSearch}) {
   return (
     <div className='flex items-center justify-between '>
         {/* <h2 className='text-xl'>Search result</h2> */}
-        <h2 className='text-xl font-medium'>{isSearch && "Search Results - " }{title}</h2>
+        <h2 className='text-xl font-medium capitalize'>{isSearch && "Search Results - "}{title}</h2>
         <div className='flex text-sm items-center gap-3'>
             <p>Sort by</p>
             <div className='flex items-center'>
