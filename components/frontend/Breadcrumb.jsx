@@ -10,7 +10,8 @@ export default function Breadcrumb() {
   pathArr.shift()
   console.log(pathArr)
 return (
-<nav className="flex mb-4" aria-label="Breadcrumb">
+<div className='mx-auto max-w-screen-2xl mt-4'>
+<nav className="flex mb-4  " aria-label="Breadcrumb">
   <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
     <li className="inline-flex items-center">
       <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
@@ -31,6 +32,7 @@ return (
     }
   </ol>
 </nav>
+</div>
 
   )
 }

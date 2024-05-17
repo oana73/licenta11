@@ -23,37 +23,41 @@ export default async function ProductDetailPage({params:{slug}}) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const urlToShare = `${baseUrl}/products/${slug}`
   return (
-    <div className='mx-auto max-w-screen-2xl mt-10'>
+    <div className='mx-auto max-w-screen-2xl mt-4'>
         <Breadcrumb/>
         <div className="grid grid-cols-12 gap-12">
             <ProductImages productImages={product.productImages} thumbnail={product.imageUrl}/>
-            <div className='col-span-6'>
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className='text-xl lg:text-2xl'>{product.title}</h2>
+            <div className='col-span-8 border border-gray-300 px-8 py-6'>
+                <div className="items-center justify-between mb-4 ">
+                    <div className='flex items-center justify-between'>
+                        <h2 className='text-xl text-semibold lg:text-3xl'>{product.title}</h2>
+                        <div className="flex items-center">
+                            <p className='text-2xl font-bold text-black cursor-auto' >${product.discount}</p>
+                            <del>
+                                <p class="text-sm text-gray-600 cursor-auto ml-2">${product.price}</p>
+                            </del>
+                        </div>
+                    </div>
+                    <p className='text-sm text-gray-500'> {product.productStock>0 ? "Availble" : "Out Of Stock"}</p>
                     {/* <ProductShare urlToShare={urlToShare}/> */}
                 </div>
                 <div className='border-b'>
-                    <p className='py-2'>{product.description}</p>
-                    <div className='flex items-center gap-8 mb-4'>
-                        <p>SKU: {product.sku}</p>
-                        <p className='py-1.5 px-4 border border-neutral-200 rounded-full'>Stock: {product.productStock}</p>
-                    </div>
+                    <p className='py-2 text-justify'>{product.description}</p>
                 </div>
-                <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
-                    <div className="flex items-center gap-4">
-                        <h4>UGX {product.discount}</h4>
-                        <del className='text-neutral-400 text-sm'>UGX {product.price}</del>
-                    </div>
+                {/* <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
                     <p className='flex items-center'>
                         <CiShoppingTag className='text-neutral-600 me-2'/>
                         <span> Save 50% now!</span>
                     </p>
-                </div>
-                <div className='flex justify-between items-center py-6'>
+                </div> */}
+                <div className='flex justify-between items-center py-6 gap-6'>
                     <AddToCartButton product={product}/>
+                    <button className='items-center w-1/2 space-x-2 px-4 py-2 rounded-md bg-black text-white '>
+                        <span>Go to Store</span>
+                    </button>
                 </div>
             </div>
-            <div className='col-span-3 hidden sm:block bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
+            {/* <div className='col-span-2 hidden sm:block bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
                 <h2 className='bg-slate-100 py-2 px-6 border-b border-gray-200'>
                     Delivery 
                 </h2>
@@ -96,10 +100,10 @@ export default async function ProductDetailPage({params:{slug}}) {
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div>
-        <div className='my-8 rounded-xl bg-slate-100 p-4'>
-            <h2 className='mb-4 font-semibold ml-2 '>Similar Products</h2>
+        <div className='my-8 rounded-xl bg-slate-100 mt-40'>
+            <h2 className='flex justify-between items-center py-3 px-6  bg-gray-200 bg-opacity-25 rounded-lg '>Similar Products</h2>
             <CategoryCarousel products={products}/>
         </div>
     </div>

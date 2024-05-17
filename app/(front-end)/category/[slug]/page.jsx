@@ -21,7 +21,6 @@ export default async function page({params:{slug}, searchParams }) {
     // const { products } = categories;
   return (
     <div>
-        <h2>Slug:{slug}</h2>
         <h2>
         <FilterComponent category={category} products={products}/>
         </h2>

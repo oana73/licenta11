@@ -11,7 +11,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 export default function ProductImages({productImages=[], thumbnail}) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className='col-span-3'>
+    <div className='col-span-4'>
         {
             productImages.length<=0 ?(
                 <Image src={thumbnail} alt={product.title} width={110} height={110} className='w-full' />
@@ -22,7 +22,7 @@ export default function ProductImages({productImages=[], thumbnail}) {
                   '--swiper-navigation-color': '#fff',
                   '--swiper-pagination-color': '#fff',
                 }}
-                spaceBetween={10}
+                spaceBetween={0}
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}

@@ -12,7 +12,7 @@ export default async function page() {
   const markets = await getData('markets')
   return (
     <div>
-      <PageHeader 
+      <PageHeader
         heading="Markets" 
         href="/dashboard/markets/new"
         linkTitle="Add Market"

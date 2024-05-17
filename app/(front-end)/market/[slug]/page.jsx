@@ -19,9 +19,9 @@ export default async function page({params:{slug}}) {
   return (
   <>
   <Breadcrumb/>
-  <div className=' p-2 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex items-center gap-6'>
+  <div className='mx-auto max-w-screen-2xl p-2 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex items-center gap-6'>
       <div className=''>
-        <Image width={50} height={50} src={market.imageUrl} alt={market.title} className='w-18 h-18 rounded-full object-cover' />
+        <Image width={300} height={300} src={market.imageUrl} alt={market.title} className='w-24 h-24 rounded-full object-cover' />
       </div>
       <div className="">
       <h2 className='py-4 text-base lg:text-2xl'>{market.title}</h2>

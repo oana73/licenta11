@@ -10,7 +10,7 @@ export default function CategoryCarousel({products}) {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 4,
+        items: 5,
         slidesToSlide: 4// optional, default to 1.
     },
     tablet: {
@@ -41,7 +41,7 @@ const responsive = {
       removeArrowOnDeviceType={["tablet", "mobile"]}
       //deviceType={}
       dotListClass="custom-dot-list-style"
-      itemClass="px-2"
+      itemClass="p-6"
 >
 
   {products.map((product,i)=> {

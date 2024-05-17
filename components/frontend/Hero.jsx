@@ -36,7 +36,7 @@ export default async function Hero() {
             <p className='text-[0.7rem]'>Start selling your artwork</p>
           </Link>
         </div>
-        <div class="tenor-gif-embed " data-postid="7103876480481787784" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/christmas-shopping-shop-sale-amazon-gif-7103876480481787784">Christmas Shopping GIF</a>from <a href="https://tenor.com/search/christmas-gifs">Christmas GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="tenor-gif-embed" data-postid="19455451" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/kikicat-kikiapp-cat-cute-cat-kiki-gif-19455451">Kikicat Kikiapp Sticker</a>from <a href="https://tenor.com/search/kikicat-stickers">Kikicat Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
       </div>
       </div>
   )

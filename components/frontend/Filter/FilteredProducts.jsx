@@ -7,15 +7,12 @@ export default async function FilteredProducts({products=[]}) {
   return (
 
     <div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
             {
                 products.map((product,i)=>{
                     return <Product key={i} product={product}/>
                 })
             }
-        </div>
-        <div className="flex items-center p-8 mx-auto w-full">
-        {/* <Paginate /> */}
         </div>
     </div>
   )

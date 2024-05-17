@@ -9,12 +9,12 @@ export default function MarketsCarousel({markets}) {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 5,
-        slidesToSlide: 5// optional, default to 1.
+        items: 6,
+        slidesToSlide: 1// optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2,
+        items: 5,
         slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
@@ -25,28 +25,28 @@ const responsive = {
     };
   return (
     <Carousel
-  swipeable={false}
-  draggable={false}
-  responsive={responsive}
-  ssr={true} // means to render carousel on server-side.
-  infinite={true}
-  autoPlay={true}
-  autoPlaySpeed={5000}
-  keyBoardControl={true}
-  customTransition="all .5"
-  transitionDuration={1000}
-  containerClass="carousel-container"
-  removeArrowOnDeviceType={["tablet", "mobile"]}
-  //deviceType={}
-  dotListClass="custom-dot-list-style"
-  itemClass="carousel-item-padding-40-px"
->
+      swipeable={true}
+      draggable={false}
+      responsive={responsive}
+      ssr={true} // means to render carousel on server-side.
+      infinite={true}
+      autoPlay={true}
+      autoPlaySpeed={5000}
+      keyBoardControl={true}
+      customTransition="all .5"
+      transitionDuration={1000}
+      containerClass="carousel-container"
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+      //deviceType={}
+      dotListClass="custom-dot-list-style"
+      itemClass="px-4"
+    >
 
   {markets.map((market,i)=> {
     return( 
       <Link key={i} href={`/market/${market.slug}`} className=''>
-        <Image src={market.imageUrl} alt={market.title} width={375} height={480} className='w-full px-1'/>
-        <h2 className='text-center'>{market.title}</h2>
+        <Image src={market.imageUrl} alt={market.title} width={200} height={200} className='w-full px-1 rounded-full'/>
+        <h2 className='text-center mt-2'>{market.title}</h2>
       </Link>
     )
   })}

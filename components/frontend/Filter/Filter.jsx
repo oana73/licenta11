@@ -4,7 +4,7 @@ import PriceFilter from "./PriceFilter";
 
 export default function Filter({slug}) {
   return (
-    <div className="bg-green-400">
+    <div className="">
         <PriceFilter slug={slug}/>
     </div>
   )
