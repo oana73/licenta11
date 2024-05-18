@@ -12,11 +12,9 @@ export default async function Customers() {
   const customers = await getData('customers')
   return (
     <div>
-      {/* <PageHeader 
-        heading="Coupons" 
-        href="/dashboard/coupons/new"
-       linkTitle="Add Coupon"
-      /> */}
+      <span className=' text-2xl font-semibold text-neutral-700 dark:text-neutral-300'>
+        Customers
+      </span>
       <div className='py-8'>
         <DataTable data={customers} columns={columns}/>
       </div>

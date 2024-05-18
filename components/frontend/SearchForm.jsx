@@ -22,7 +22,7 @@ export default function SearchForm() {
     <form onSubmit={handleSubmit(handleSearch)} className="flex items-center">   
         <label htmlFor="voice-search" className="sr-only">Search</label>
         <button type="button" onClick={toggleSearch} className="mr-2 text-neutral-500 hover:text-cyan-600">
-            <LuSearch />
+            Search
         </button>
         {isOpen && (
           <>

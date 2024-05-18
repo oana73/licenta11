@@ -32,9 +32,9 @@ export default function Navbar() {
             Shop
         </Link>
         <Link href="#" className='text-neutral-500 hover:text-cyan-600 text-sm'>
-            Sales
+          <SearchForm />
         </Link>
-        <SearchForm />
+        
       
         </div>
         <div className='flex gap-8'>

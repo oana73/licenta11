@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { Airplay, Blocks, Book, ChevronDown, ChevronRight, FileBadge, Headset, Layers, Layout, LayoutGrid, Settings, ShoppingBag, Users, Verified } from 'lucide-react'
+import { Airplay, Blocks, Book, ChevronDown, ChevronRight, FileBadge, Headset, Layers, Layout, LayoutGrid, ShoppingBag, Users, Verified } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import {
    Collapsible,
@@ -28,14 +28,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
          title:"Categories",
          href: "/dashboard/categories"
       },
-      {
-         title:"Coupons",
-         href: "/dashboard/coupons"
-      },
-      {
-         title:"Sliders",
-         href: "/dashboard/sliders"
-      },
      ];
   let sidebarLinks=[
    {
@@ -49,11 +41,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
       href: "/dashboard/markets"
    },
    {
-      title:"Orders",
-      icon: ShoppingBag ,
-      href: "/dashboard/orders"
-   },
-   {
       title:"Sales",
       icon: ShoppingBag ,
       href: "/dashboard/sales"
@@ -64,19 +51,9 @@ export default function Sidebar({showSidebar,setSidebar}) {
       href: "/dashboard/suppliers"
    },
    {
-      title:"Staff",
-      icon: Headset,
-      href: "/dashboard/staff"
-   },
-   {
       title:"Trainings",
       icon: Book,
       href: "/dashboard/trainings"
-   },
-   {
-      title:"Settings",
-      icon: Settings,
-      href: "/dashboard/settings"
    },
    {
       title:"Store",
@@ -87,8 +64,8 @@ export default function Sidebar({showSidebar,setSidebar}) {
   const pathName = usePathname()
   if (role === 'SUPPLIER' && !status) {
    return (
-      <div className= {showSidebar?"sm:block mt-14 sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
-     :" mt-20 hidden sm:block sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
+      <div className= {showSidebar?"lg:block mt-14 lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
+     :" mt-20 hidden lg:block lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
           <a className='mb-6 ' href="/dashboard">
             <Image src="/logo.png"
             alt="logo"
@@ -114,11 +91,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/dashboard/sales"
       },
       {
-         title:"Settings",
-         icon: Settings,
-         href: "/dashboard/settings"
-      },
-      {
          title:"Store",
          icon: Airplay,
          href: "/"
@@ -128,10 +100,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
       {
          title:"Products",
          href: "/dashboard/products"
-      },
-      {
-         title:"Coupons",
-         href: "/dashboard/coupons"
       },
      ];
     } 
@@ -143,11 +111,6 @@ export default function Sidebar({showSidebar,setSidebar}) {
       href: "/dashboard/orders"
    },
    {
-      title:"Profile",
-      icon: ShoppingBag ,
-      href: "/dashboard/profile"
-   },
-   {
       title:"Store",
       icon: Airplay,
       href: "/aboutUs"
@@ -156,8 +119,8 @@ export default function Sidebar({showSidebar,setSidebar}) {
    catalogLinks=[]
 }
   return (
-    <div className= {showSidebar?"sm:block mt-14 sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
-   :" mt-20 hidden sm:block sm:mt-0 font-medium bg-slate-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
+    <div className= {showSidebar?"lg:block mt-14 lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
+   :" mt-20 hidden lg:block lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
         <a className='mb-6 ' href="/dashboard">
           <Image src="/logo.png"
           alt="logo"

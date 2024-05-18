@@ -1,6 +1,5 @@
 import CategoryList from "@/components/frontend/CategoryList";
 import CommunityList from "@/components/frontend/CommunityList";
-import Hero from "@/components/frontend/Hero";
 import MarketList from "@/components/frontend/MarketList";
 import { getData } from "@/lib/getData";
 import Image from "next/image";
@@ -18,7 +17,6 @@ export default async function Shop() {
   console.log(session?.user)
   return (
     <div className="min-h-screen mx-auto max-w-screen-2xl ">
-    <Hero/>
     <MarketList/>
     {
       categories.map((category,i)=>{

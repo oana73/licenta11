@@ -82,7 +82,7 @@ export default function DataTable({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody className='text-neutral-700 dark:text-neutral-50'>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow

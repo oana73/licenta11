@@ -53,7 +53,6 @@ export default function NewMarketForm({categories, updateData={}}) {
               multiple={true}
               register={register}
               errors={errors}
-              className='w-full'
             />
             <TextArea
               label="Market Description"

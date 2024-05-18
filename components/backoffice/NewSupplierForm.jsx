@@ -73,15 +73,16 @@ export default function NewSupplierForm({user}) {
               register={register}
               errors={errors}
               isRequired = {false}/>
+            <ImageInput
+              label="Supplier Profile Image"
+              imageUrl={imageUrl}
+              setImageUrl={ setImageUrl}
+              endpoint='supplierProfileUploader'/>
           </div>
-          <ImageInput
-            label="Supplier Profile Image"
-            imageUrl={imageUrl}
-            setImageUrl={ setImageUrl}
-            endpoint='supplierProfileUploader'/>
+
           <SubmitButton 
             isLoading = {loading} 
-            buttonTitle="Create Suppliers" 
+            buttonTitle="Create Supplier" 
             loadingButton="Creating..."/> 
       </form>
            

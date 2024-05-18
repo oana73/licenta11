@@ -32,7 +32,7 @@ export default function BlogInput({label, className="sm:col-span-2", value, onCh
     <div className={className}>
         <label
             htmlFor="content"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-neutral-700 dark:text-neutral-300"
         >
             {label}
         </label>
@@ -42,6 +42,7 @@ export default function BlogInput({label, className="sm:col-span-2", value, onCh
             onChange={onChange}
             modules={modules}
             formats={formats}
+            className='text-neutral-700 dark:text-neutral-300'
         />
         </div>
   )

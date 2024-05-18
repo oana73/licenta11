@@ -20,9 +20,9 @@ export function DataTableViewOptions({table}) {
         <Button
           variant="outline"
           size="sm"
-          className="ml-auto hidden h-8 lg:flex"
+          className="ml-auto hidden h-8 lg:flex text-neutral-700 dark:text-neutral-50" 
         >
-          <MixerHorizontalIcon className="mr-2 h-4 w-4" />
+          <MixerHorizontalIcon className="mr-2 h-4 w-4 " />
           View
         </Button>
       </DropdownMenuTrigger>

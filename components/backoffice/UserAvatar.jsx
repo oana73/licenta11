@@ -36,12 +36,6 @@ export default function UserAvatar({user={}}) {
           <span>Dashboard</span>
         </Link>
       </DropdownMenuItem>
-      <DropdownMenuItem>
-        <Link href='/dashboard/profile' className='flex items-center space-x-2'>
-          <UserCog className="mr-2 h-4 w-4"  />
-          <span>Edit Profile</span>
-        </Link>
-      </DropdownMenuItem>
       {
         role==='USER'&&
         <DropdownMenuItem>

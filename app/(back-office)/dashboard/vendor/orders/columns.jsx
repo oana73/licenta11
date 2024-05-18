@@ -46,11 +46,4 @@ export const columns = [
     header: "Create Date",
     cell: ({ row }) => (<DateColumn row={row} accessorKey='createdAt'/>)
   },
-  {
-    id: "actions",
-    cell: ({ row }) => {
-      const coupon = row.original
-      return (<ActionColumn row = {row} title="Coupon" editEndpoint={`coupons/update/${coupon.id}`} endpoint={`coupons/${coupon.id}`}/> )
-    }
-},
 ] 

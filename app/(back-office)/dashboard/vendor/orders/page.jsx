@@ -23,11 +23,11 @@ export default async function Coupons() {
   const supplierSales = await allSales.filter((sale)=>sale.vendorId===id)
   return (
     <div>
-      <PageHeader 
+      {/* <PageHeader 
         heading="Coupons" 
         href="/dashboard/coupons/new"
        linkTitle="Add Coupon"
-      />
+      /> */}
       <div className='py-8'>
         {
           role==="ADMIN"?(<DataTable data={allSales} columns={columns}/>):(

@@ -23,8 +23,8 @@ export default function ActionColumn({row, title, endpoint, editEndpoint}) {
         </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-        <DropdownMenuSeparator />
+        <DropdownMenuLabel className="text-neutral-700 dark:text-neutral-50">Actions</DropdownMenuLabel>
+        <DropdownMenuSeparator className='bg-neutral-400 dark:bg-neutral-50'/>
         <DropdownMenuItem><EditBtn title={title} editEndpoint={editEndpoint} /></DropdownMenuItem>
         <DropdownMenuItem><DeleteBtn title={title} endpoint={endpoint} /></DropdownMenuItem>
 
