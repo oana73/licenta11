@@ -32,12 +32,12 @@ export default function Sorting({title, slug, isSearch}) {
         <h2 className='text-xl font-medium capitalize'>{isSearch && "Search Results - "}{title}</h2>
         <div className='flex text-sm items-center gap-3'>
             <p>Sort by</p>
-            <div className='flex items-center'>
+            <div className='flex items-center gap-2'>
               {
                 sortingLinks.map((link,i)=>{
                   //console.log(actualPathName, link.href)
                   return(
-                    <Link key={i} href={link.href} className={`${link.sort === sortParam? "border border-cyan-500 text-cyan-500 px-2 py-1":"border border-slate-500 px-2 py-1"}`}>{link.title}</Link>
+                    <Link key={i} href={link.href} className={`${link.sort === sortParam? "border border-cyan-600 text-cyan-600 px-4 py-0.5 rounded-lg":"border border-neutral-500 px-4 py-0.5 rounded-lg text-neutral-700 dark:text-neutral-300"}`}>{link.title}</Link>
                   )
                 })
               }

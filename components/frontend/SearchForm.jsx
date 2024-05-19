@@ -26,13 +26,12 @@ export default function SearchForm() {
         </button>
         {isOpen && (
           <>
-          <div className="">
-              
-              <input {...register("searchTerm")} type="text" id="voice-search" className=" bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-cyan-500 focus:border-cyan-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-cyan-500 dark:focus:border-cyan-500" placeholder="Search..." required />
+          <div className="bg-neutral-50 dark:bg-neutral-700 border border-neutral-300  rounded-lg  p-2">
+              <button type='submit'>
+                <LuSearch className='mr-2'/>
+              </button>
+              <input {...register("searchTerm")} type="text" id="voice-search" className=" bg-neutral-50 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 focus:ring-cyan-500 focus:border-cyan-500 dark:border-neutral-600 dark:focus:ring-cyan-500 dark:focus:border-cyan-500" placeholder="Find product"  required />
           </div>
-          <button type='submit'>
-          <LuSearch />
-          </button>
           </>
         )}
     </form>

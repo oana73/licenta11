@@ -31,9 +31,9 @@ export default function Navbar() {
         <Link href="/" className='text-neutral-500 hover:text-cyan-600 text-sm'>
             Shop
         </Link>
-        <Link href="#" className='text-neutral-500 hover:text-cyan-600 text-sm'>
+        <p className='text-neutral-500 hover:text-cyan-600 text-sm'>
           <SearchForm />
-        </Link>
+        </p>
         
       
         </div>

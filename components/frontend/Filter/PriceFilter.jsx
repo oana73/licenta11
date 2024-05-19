@@ -42,11 +42,11 @@ export default function PriceFilter({slug}) {
     }
   return (
     <div>
-        <div className="hidden sm:block bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700  mb-6 ">
+        <div className="hidden sm:block dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow-sm  mb-6 ">
             <div className="flex justify-between items-center border-b border-gray-200">
                 <h2 className='px-6 py-4 text-xl font-medium'>Price</h2>
                 <Link href={`/category/${slug}`} className='me-6 mb-0'>
-                    <RotateCcw className='w-5 h-5 text-neutral-600 hover:text-cyan-500 duration-500 transition-all'/>
+                    <RotateCcw className='w-5 h-5 text-neutral-700 dark:text-neutral-300 hover:text-cyan-500 duration-500 transition-all'/>
                 </Link>
             </div>
             {/* Filters */}
@@ -64,8 +64,8 @@ export default function PriceFilter({slug}) {
                             (range.min && range.min == minParam) ||
                             (range.max && range.max == maxParam) ||
                             (range.min && range.max && range.min == minParam && range.max==maxParam)
-                            ? "flex gap-2 items-center hover:text-gray-900 duration-500 transition-all text-cyan-500"
-                            : "flex gap-2 items-center hover:text-gray-900 duration-500 transition-all text-gray-500"
+                            ? "flex gap-2 items-center text-cyan-500 hover:text-cyan-900 duration-500 transition-all "
+                            : "flex gap-2 items-center text-neutral-700 dark:text-neutral-300 hover:text-cyan-900 duration-500 transition-all "
 
                         }`}
                         >
@@ -78,26 +78,26 @@ export default function PriceFilter({slug}) {
         </div>
 
         <div className='flex flex-col overflow-y-auto py-2 px-6'>
-            <h2 className='font-medium mt-3'>Custom Range</h2>
+            <h2 className='font-medium mt-3 text-neutral-700 dark:text-neutral-300'>Custom Range</h2>
             <form onSubmit={handleSubmit(onSubmit)} className='my-2'>
                 <div className='flex space-x-4'>
                     <div className='w-full'>
-                    <label htmlFor="input-min" className='block text-sm font-medium text-gray-600 px-0.5'>From:</label>
+                    <label htmlFor="input-min" className='block text-sm font-medium text-neutral-700 dark:text-neutral-300 px-0.5'>From:</label>
                         <input 
                             {...register("min")}
                             type='number'
                             id="input-min"
-                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
+                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
                             placeholder='min'
                         />
                     </div>
                     <div className='w-full'>
-                    <label htmlFor="input-max" className='block text-sm font-medium text-gray-600 px-0.5'>To:</label>
+                    <label htmlFor="input-max" className='block text-sm font-medium text-neutral-700 dark:text-neutral-300 px-0.5'>To:</label>
                         <input 
                             {...register("max")}
                             type='number'
                             id="input-max"
-                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
+                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
                             placeholder='max'
                         />
                     </div>

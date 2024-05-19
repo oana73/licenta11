@@ -11,7 +11,7 @@ export default function FilterComponent({category,products}) {
   const { title, slug } = category
   return (
     <div className='mx-auto max-w-screen-2xl'>
-        <div className=" bg-white space-y-6 text-slate-900 py-8 text-xs ">
+        <div className="space-y-6 text-neutral-700 dark:text-neutral-300 py-8 text-xs ">
             <Breadcrumb title={title} />
             <Sorting title={title} slug={slug} isSearch={category?.isSearch}/>
         </div>

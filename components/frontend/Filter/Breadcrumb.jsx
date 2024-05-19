@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function Breadcrumb({title}) {
   return (
-    <div className="bg-white space-y-6 text-slate-900 text-xs">
+    <div className="space-y-6 text-neutral-700 dark:text-neutral-300 text-xs">
         <div className="flex items-center justify-between"> 
             <div className='flex items-center'>
                 <Link href="#">Shop</Link>

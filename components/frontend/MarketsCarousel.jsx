@@ -46,7 +46,7 @@ const responsive = {
     return( 
       <Link key={i} href={`/market/${market.slug}`} className=''>
         <Image src={market.imageUrl} alt={market.title} width={200} height={200} className='w-full px-1 rounded-full'/>
-        <h2 className='text-center mt-2'>{market.title}</h2>
+        <h2 className='text-center mt-2 text-neutral-700 dark:text-neutral-300'>{market.title}</h2>
       </Link>
     )
   })}
