@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className=" flex items-center justify-between py-1 mx-auto max-w-screen-2xl ">
         <Link className="flex items-center" href="/aboutUs">
           <Image src={logo} alt="logo" className="w-8" />
-          <span className='text-neutral-700 font-semibold'>PlayModeOn</span>
+          <span className='text-neutral-600 font-semibold font-serif'>CraftCorner</span>
         </Link>
         <div className='flex items-center justify-between space-x-8'>
         <Link href="/aboutUs" className='text-neutral-500 hover:text-cyan-600 text-sm'>
