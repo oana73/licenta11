@@ -46,7 +46,7 @@ export default function PriceFilter({slug}) {
             <div className="flex justify-between items-center border-b border-gray-200">
                 <h2 className='px-6 py-4 text-xl font-medium'>Price</h2>
                 <Link href={`/category/${slug}`} className='me-6 mb-0'>
-                    <RotateCcw className='w-5 h-5 text-neutral-700 dark:text-neutral-300 hover:text-cyan-500 duration-500 transition-all'/>
+                    <RotateCcw className='w-5 h-5 text-neutral-700 dark:text-neutral-300 hover:text-pink-500 duration-500 transition-all'/>
                 </Link>
             </div>
             {/* Filters */}
@@ -64,8 +64,8 @@ export default function PriceFilter({slug}) {
                             (range.min && range.min == minParam) ||
                             (range.max && range.max == maxParam) ||
                             (range.min && range.max && range.min == minParam && range.max==maxParam)
-                            ? "flex gap-2 items-center text-cyan-500 hover:text-cyan-900 duration-500 transition-all "
-                            : "flex gap-2 items-center text-neutral-700 dark:text-neutral-300 hover:text-cyan-900 duration-500 transition-all "
+                            ? "flex gap-2 items-center text-pink-500 hover:text-pink-900 duration-500 transition-all "
+                            : "flex gap-2 items-center text-neutral-700 dark:text-neutral-300 hover:text-pink-900 duration-500 transition-all "
 
                         }`}
                         >
@@ -87,7 +87,7 @@ export default function PriceFilter({slug}) {
                             {...register("min")}
                             type='number'
                             id="input-min"
-                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
+                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5'
                             placeholder='min'
                         />
                     </div>
@@ -97,7 +97,7 @@ export default function PriceFilter({slug}) {
                             {...register("max")}
                             type='number'
                             id="input-max"
-                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5'
+                            className='bg-gray-50 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5'
                             placeholder='max'
                         />
                     </div>
@@ -105,7 +105,7 @@ export default function PriceFilter({slug}) {
                 <div className='mt-4 w-full'>
                     <button 
                         type="submit" 
-                        className='text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-3 focus:ring-cyan-400 font-medium rounded-lg text-sm px-5 py-2.5 w-full'>
+                        className='text-white bg-pink-500 hover:bg-pink-600 focus:ring-3 focus:ring-pink-400 font-medium rounded-lg text-sm px-5 py-2.5 w-full'>
                         Apply
                     </button>
                 </div>

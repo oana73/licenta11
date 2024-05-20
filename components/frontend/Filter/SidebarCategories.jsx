@@ -17,7 +17,7 @@ export default async function SidebarCategories() {
           categories.map((category,i)=>{
             return(
               <div>
-                <Link key={i} href={`/category/${category.slug}`} className='flex items-center hover:text-cyan-700 duration-500 transition-all text-neutral-700 dark:text-neutral-300 '>
+                <Link key={i} href={`/category/${category.slug}`} className='flex items-center hover:text-pink-700 duration-500 transition-all text-neutral-700 dark:text-neutral-300 '>
                   <span className=''>{category.title}</span>
                 </Link>
               </div>

@@ -8,7 +8,7 @@ export default function Login() {
   return (
     <section className="bg-neutral-50 dark:bg-neutral-900">
       <div className="min-h-screen flex justify-center items-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className=" bg-white flex rounded-lg shadow-2xl dark:border max-w-4xl dark:bg-neutral-800 dark:border-neutral-700">
+        <div className=" flex rounded-lg shadow-2xl dark:border max-w-4xl dark:bg-neutral-800 dark:border-neutral-700">
           <div className="w-1/2 sm:block hidden">
             <Image src={photo1} alt="Photo 1" className="rounded-l-lg object-cover h-full"/>
             <div className="absolute top-1/2 pl-8 text-white">

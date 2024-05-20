@@ -6,7 +6,7 @@ import photo1 from "../../../public/photo1.jpg"
 
 export default function page() {
   return (
-    <section className=" dark:bg-black ">
+    <section className=" dark:bg-neutral-900 ">
       <div className="min-h-screen flex justify-center items-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className=" bg-white flex rounded-lg shadow-2xl dark:border max-w-4xl dark:bg-neutral-800 dark:border-neutral-700">
           <div className="w-1/2 sm:block hidden">

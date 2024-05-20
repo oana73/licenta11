@@ -27,7 +27,7 @@ export default function BlogCart({training}) {
     </p>
     <div className="mt-6">
       <Link href={`blogs/${training.slug}`} 
-        className="inline-flex items-center pb-2 text-xs font-bold tracking-widest text-neutral-700 dark:text-neutral-300 uppercase border-b border-gray-900 group">
+        className="inline-flex items-center pb-2 text-xs font-bold tracking-widest text-neutral-700 dark:text-neutral-300 uppercase border-b border-neutral-900 group">
         Continue Reading
         <MoveRight className='w-4 h-4 ml-2 transition-all duration-200 transform group-hover:translate-x-1'/>
       </Link>

@@ -8,7 +8,7 @@ import BlogCart from './BlogCart'
 export default async function CommunityList({trainings}) {
   return (
     
-<section className="py-12 bg-neutral-50 dark:bg-neutral-900 sm:py-16 rounded-md">
+<section className="py-12 bg-neutral-50 dark:bg-neutral-950 sm:py-16 rounded-md">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className=" mx-auto md:mx-0">
           <div className="flex items-center justify-between">          

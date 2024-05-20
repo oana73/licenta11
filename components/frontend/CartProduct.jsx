@@ -23,26 +23,26 @@ export default function CartProduct({cartItem}) {
     dispatch(decrementQty(cartId))
   }
   return (
-    <div className='flex items-center justify-between border-b border-slate-400 pb-3 font-semibold text-slate-300 text-sm mb-4'>
-    <div className="flex items-center gap-3">
-      <Image src={cartItem.imageUrl} width={249} height={249} alt={cartItem.title} className='rounded-xl w-20 h-20'/>
+    <div className='flex items-center justify-between border-b border-neutral-300  dark:border-neutral-700 pb-3 px-5 font-semibold text-neutral-700 dark:text-neutral-300 text-sm mb-4'>
+    <div className="flex items-center gap-3 ">
+      <Image src={cartItem.imageUrl} width={249} height={249} alt={cartItem.title} className='rounded-md w-20 h-20'/>
       <div className="flex flex-col">
         <h2>{cartItem.title}</h2>
       </div>
     </div>
-    <div className='rounded-xl border flex gap-3 items-center '>
-      <button onClick={()=>handdleCartItemDecrement(cartItem.id)} className='border-r py-3 px-4'>
-        <FaMinus/>
+    <div className='rounded-lg border flex gap-3 items-center '>
+      <button onClick={()=>handdleCartItemDecrement(cartItem.id)} className='border-r py-1 px-2'>
+        <FaMinus className='w-3 h-3'/>
       </button>
-      <p className='flex-grow py-2 px-4'>{cartItem.qty}</p>
-      <button onClick={()=>handdleCartItemIncrement(cartItem.id)}className='border-l py-3 px-4'>
-        <FaPlus/>
+      <p className='flex-grow py-1 px-3 text-xs'>{cartItem.qty}</p>
+      <button onClick={()=>handdleCartItemIncrement(cartItem.id)}className='border-l py-1 px-2'>
+        <FaPlus className='w-3 h-3'/>
       </button>
    </div>
    <div className="flex items-center gap-2">
       <h4>${cartItem.discount}</h4>
       <button onClick={()=>handdleCartItemDelete(cartItem.id)}>
-        <IoTrashOutline className='text-slate-600 w-5 h-5'/>
+        <IoTrashOutline className='text-neutral-700 dark:text-neutral-300 w-5 h-5'/>
       </button>
    </div>
   </div>

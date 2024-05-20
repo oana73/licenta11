@@ -102,7 +102,7 @@ export default function RegisterForm({role = "USER"}) {
         isLoading={loading}
         buttonTitle="Register"
         loadingButton="Please Wait"
-        customClass="py-2 mb-3 bg-black bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 w-full  text-white rounded-md"
+        customClass="py-2 mb-3 bg-black bg-gradient-to-r from-pink-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 w-full  text-white rounded-md"
       />
 
     <div className="flex justify-between gap-2">
@@ -110,7 +110,7 @@ export default function RegisterForm({role = "USER"}) {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-medium text-cyan-500 hover:underline "
+            className="font-medium text-pink-500 hover:underline "
           >
             Login
           </Link>
@@ -120,7 +120,7 @@ export default function RegisterForm({role = "USER"}) {
           Vendor?{" "}
           <Link
             href="/register-supplier"
-            className="font-medium text-cyan-500 hover:underline "
+            className="font-medium text-pink-500 hover:underline "
           >
             Register here
           </Link>
@@ -129,7 +129,7 @@ export default function RegisterForm({role = "USER"}) {
         User?{" "}
         <Link
           href="/register"
-          className="font-medium text-cyan-500 hover:underline "
+          className="font-medium text-pink-500 hover:underline "
         >
           Register here
         </Link>

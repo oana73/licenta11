@@ -113,7 +113,7 @@ export default function SalesCharts() {
                        <button 
                        onClick={()=>setChatToDisplay(tab.type)} 
                        className={chartTodDisplay==tab.type? 
-                       "inline-block p-4 text-cyan-500 border-b-2 border-cyan-500 rounded-t-lg active "
+                       "inline-block p-4 text-pink-500 border-b-2 border-pink-500 rounded-t-lg active "
                        :"inline-block p-4 border-b-2 border-transparent rounded-t-lg text-neutral-500 hover:text-neutral-600 hover:border-neutral-600 dark:text-neutral-300 dark:hover:text-neutral-100 dark:hover:border-neutral-100"}>{tab.title}</button> 
                     </li>
                    ) 

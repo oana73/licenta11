@@ -18,20 +18,20 @@ export default function Navbar() {
     return <p> Loadinh </p>
   }
   return (
-    <div className='sticky top-0 z-50 dark:bg-neutral-900 bg-neutral-50 '>
+    <div className='sticky top-0 z-50 dark:bg-neutral-950 bg-neutral-50 '>
         <div className=" flex items-center justify-between py-1 mx-auto max-w-screen-2xl ">
         <Link className="flex items-center" href="/aboutUs">
           <Image src={logo} alt="logo" className="w-8" />
           <span className='text-neutral-600 font-semibold font-serif'>CraftCorner</span>
         </Link>
         <div className='flex items-center justify-between space-x-8'>
-        <Link href="/aboutUs" className='text-neutral-500 hover:text-cyan-600 text-sm'>
+        <Link href="/aboutUs" className='text-neutral-500 hover:text-pink-600 text-sm'>
             Home
         </Link>
-        <Link href="/" className='text-neutral-500 hover:text-cyan-600 text-sm'>
+        <Link href="/" className='text-neutral-500 hover:text-pink-600 text-sm'>
             Shop
         </Link>
-        <p className='text-neutral-500 hover:text-cyan-600 text-sm'>
+        <p className='text-neutral-500 hover:text-pink-600 text-sm'>
           <SearchForm />
         </p>
         
@@ -42,7 +42,7 @@ export default function Navbar() {
             {/* check if autentificated */}
             {
               status==='unauthenticated'?(
-                <Link href="/login" className='flex items-center text-neutral-500 hover:text-cyan-600'>
+                <Link href="/login" className='flex items-center text-neutral-500 hover:text-pink-600'>
                 <FiUser />
                 </Link>
               ):(

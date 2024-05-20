@@ -6,7 +6,7 @@ export default function CartSubtotal({subTotal}) {
   const tax = 0.00
   const totalPrice = (Number(subTotal) + Number(shipping)+ Number(tax)).toFixed(2)
   return (
-    <div className='sm:col-span-4 col-span-full sm:bock bg-slate-50 border border-gray-400 text-slate-700 overflow-hidden rounded-xl p-5 font-semibold'>
+    <div className='sm:col-span-4 col-span-full sm:bock  shadow-lg bg-neutral-50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 overflow-hidden rounded-xl p-5 font-semibold'>
     <h2 className='text-xl pb-3'>Cart Total</h2>
     <div className='flex items-center justify-between border-b pb-6'>
       <span>Subtotal</span>
@@ -25,7 +25,7 @@ export default function CartSubtotal({subTotal}) {
       <span>Total</span>
       <span>${totalPrice}</span>
     </div>
-    <Link href='/checkout' className='bg-slate-200 rounded-lg py-2 px-4 font-normal'>Continue to payment</Link>
+    <Link href='/checkout' className='block hover:shadow-sm dark:bg-black rounded-lg py-2 px-4 font-normal border-2 border-neutral-300 dark:border-neutral-700 text-center text-neutral-700 dark:text-neutral-300'>Continue to payment</Link>
   </div>
   )
 }

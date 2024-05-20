@@ -16,7 +16,7 @@ export default function ThemeSwitcher() {
     }
     return (
       <button
-        className={`dark: text-neutral-500 hover:text-cyan-600`}
+        className={`dark: text-neutral-500 hover:text-pink-600`}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
     {theme === "light" ? <FiMoon  /> : <FiSun   />}

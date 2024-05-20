@@ -37,7 +37,7 @@ export default function Sorting({title, slug, isSearch}) {
                 sortingLinks.map((link,i)=>{
                   //console.log(actualPathName, link.href)
                   return(
-                    <Link key={i} href={link.href} className={`${link.sort === sortParam? "border border-cyan-600 text-cyan-600 px-4 py-0.5 rounded-lg":"border border-neutral-500 px-4 py-0.5 rounded-lg text-neutral-700 dark:text-neutral-300"}`}>{link.title}</Link>
+                    <Link key={i} href={link.href} className={`${link.sort === sortParam? "border border-pink-600 text-pink-600 px-4 py-0.5 rounded-lg":"border border-neutral-500 px-4 py-0.5 rounded-lg text-neutral-700 dark:text-neutral-300"}`}>{link.title}</Link>
                   )
                 })
               }

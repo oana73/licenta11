@@ -18,6 +18,6 @@ export default function CategoryList({category}) {
       <div className='rounded-b-lg border border-t-0 border-neutral-200 dark:border-neutral-800'>
         <CategoryCarousel products={category.products}/>
       </div>
-  </div>
+    </div>
   )
 }

@@ -35,7 +35,7 @@ export default function LargeCards({sales}) {
     const orderStats=[{
         period: "Today Orders",
         sales: todaySales,
-        color: "bg-cyan-600"
+        color: "bg-pink-600"
     },
     {
         period: "Weekly Orders",

@@ -25,7 +25,7 @@ export default function UserAvatar({user={}}) {
   return (
     <DropdownMenu>
     <DropdownMenuTrigger>
-      <FiUser className='text-neutral-500 hover:text-cyan-600'/>
+      <FiUser className='text-neutral-500 hover:text-pink-600'/>
     </DropdownMenuTrigger>
     <DropdownMenuContent className='py-2 px-4 pr-8 text-neutral-700 dark:text-neutral-300 dark:bg-neutral-900'>
       <DropdownMenuLabel>{name}</DropdownMenuLabel>

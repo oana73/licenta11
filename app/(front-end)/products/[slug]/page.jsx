@@ -23,26 +23,26 @@ export default async function ProductDetailPage({params:{slug}}) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const urlToShare = `${baseUrl}/products/${slug}`
   return (
-    <div className='mx-auto max-w-screen-2xl mt-4'>
+    <div className='mx-auto max-w-screen-2xl '>
         <Breadcrumb/>
-        <div className="grid grid-cols-12 gap-12">
+        <div className="grid grid-cols-12 gap-6 border border-neutral-200 dark:border-neutral-800  rounded-2xl">
             <ProductImages productImages={product.productImages} thumbnail={product.imageUrl}/>
-            <div className='col-span-8 border border-gray-300 px-8 py-6'>
-                <div className="items-center justify-between mb-4 ">
+            <div className='col-span-8 px-12 py-16 '>
+                <div className="items-center justify-between mb-20">
                     <div className='flex items-center justify-between'>
-                        <h2 className='text-xl text-semibold lg:text-3xl'>{product.title}</h2>
+                        <h2 className='text-xl font-semibold lg:text-4xl text-neutral-700 dark:text-neutral-300 '>{product.title}</h2>
                         <div className="flex items-center">
-                            <p className='text-2xl font-bold text-black cursor-auto' >${product.discount}</p>
-                            <del>
-                                <p class="text-sm text-gray-600 cursor-auto ml-2">${product.price}</p>
+                            <p className='text-2xl font-bold text-neutral-700 dark:text-neutral-300 cursor-auto' >${product.discount}</p>
+                            <del className='text-neutral-500'>
+                                <p class="text-sm text-neutral-500 cursor-auto ml-2">${product.price}</p>
                             </del>
                         </div>
                     </div>
-                    <p className='text-sm text-gray-500'> {product.productStock>0 ? "Availble" : "Out Of Stock"}</p>
+                    <p className='text-sm text-neutral-500 font-normal uppercase'> {product.productStock>0 ? "Availble" : "Out Of Stock"}</p>
                     {/* <ProductShare urlToShare={urlToShare}/> */}
                 </div>
-                <div className='border-b'>
-                    <p className='py-2 text-justify'>{product.description}</p>
+                <div className='border-b mb-16'>
+                    <p className='py-2 text-justify text-neutral-700 dark:text-neutral-300'>{product.description}</p>
                 </div>
                 {/* <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
                     <p className='flex items-center'>
@@ -50,9 +50,9 @@ export default async function ProductDetailPage({params:{slug}}) {
                         <span> Save 50% now!</span>
                     </p>
                 </div> */}
-                <div className='flex justify-between items-center py-6 gap-6'>
+                <div className='grid grid-flow-col justify-stretch gap-8 mt-3 lg:mt-8 text-xs md:text-sm lg:text-xl text-center'>
                     <AddToCartButton product={product}/>
-                    <button className='items-center w-1/2 space-x-2 px-4 py-2 rounded-md bg-black text-white '>
+                    <button className='bg-black hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600  text-white rounded-lg py-2 '>
                         <span>Go to Store</span>
                     </button>
                 </div>
@@ -102,9 +102,15 @@ export default async function ProductDetailPage({params:{slug}}) {
 
             </div> */}
         </div>
-        <div className='my-8 rounded-xl bg-slate-100 mt-40'>
-            <h2 className='flex justify-between items-center py-3 px-6  bg-gray-200 bg-opacity-25 rounded-lg '>Similar Products</h2>
-            <CategoryCarousel products={products}/>
+        <div className='py-8 mt-40'>
+            <div className='flex justify-between items-center text-neutral-700 dark:text-neutral-300 py-3 px-6 rounded-t-lg border border-neutral-200 dark:border-neutral-800'>
+                <h2 className='font-bold text-lg'>
+                    Similar Products
+                </h2>
+            </div>
+            <div className='rounded-b-lg border border-t-0 border-neutral-200 dark:border-neutral-800'>
+                <CategoryCarousel products={products}/>
+            </div>
         </div>
     </div>
   )

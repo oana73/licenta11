@@ -20,7 +20,7 @@ export default function Cart() {
   },0).toFixed(2) ?? 0;
   console.log(cartItems)
   return (
-    <div className='mx-auto max-w-screen-2xl mt-4'>
+    <div className='mx-auto max-w-screen-2xl'>
         <Breadcrumb/>
         {cartItems.length>0?(
           <div className="grid grid-cols-12 gap-6 md:gap-14">

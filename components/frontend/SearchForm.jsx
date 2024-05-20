@@ -21,7 +21,7 @@ export default function SearchForm() {
   return (
     <form onSubmit={handleSubmit(handleSearch)} className="flex items-center">   
         <label htmlFor="voice-search" className="sr-only">Search</label>
-        <button type="button" onClick={toggleSearch} className="mr-2 text-neutral-500 hover:text-cyan-600">
+        <button type="button" onClick={toggleSearch} className="mr-2 text-neutral-500 hover:text-pink-600">
             Search
         </button>
         {isOpen && (
@@ -30,7 +30,7 @@ export default function SearchForm() {
               <button type='submit'>
                 <LuSearch className='mr-2'/>
               </button>
-              <input {...register("searchTerm")} type="text" id="voice-search" className=" bg-neutral-50 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 focus:ring-cyan-500 focus:border-cyan-500 dark:border-neutral-600 dark:focus:ring-cyan-500 dark:focus:border-cyan-500" placeholder="Find product"  required />
+              <input {...register("searchTerm")} type="text" id="voice-search" className=" bg-neutral-50 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 focus:ring-pink-500 focus:border-pink-500 dark:border-neutral-600 dark:focus:ring-pink-500 dark:focus:border-pink-500" placeholder="Find product"  required />
           </div>
           </>
         )}

@@ -10,11 +10,11 @@ export default function Breadcrumb() {
   pathArr.shift()
   console.log(pathArr)
 return (
-<div className='mx-auto max-w-screen-2xl mt-4'>
-<nav className="flex mb-4  " aria-label="Breadcrumb">
-  <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+<div className='mx-auto max-w-screen-2xl'>
+<nav className="flex mb-4 " aria-label="Breadcrumb">
+  <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse mt-4">
     <li className="inline-flex items-center">
-      <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+      <Link href="/" className="inline-flex items-center text-sm font-medium text-neutral-700 dark:text-neutral-300 ">
         Shop
       </Link>
     </li>
@@ -23,8 +23,8 @@ return (
         return(
           <li key={i}>
           <div className="flex items-center capitalize">
-            <ChevronRight className='w-3 h-3 mx-1 text-gray-400'/>
-            <span className="ms-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">{item}</span>
+            <ChevronRight className='w-3 h-3 mx-1 text-neutral-300'/>
+            <span className="ms-1 text-sm font-medium text-neutral-700 dark:text-neutral-300">{item}</span>
           </div>
         </li>
         )

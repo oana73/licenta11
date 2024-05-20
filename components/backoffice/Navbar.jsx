@@ -30,13 +30,13 @@ export default function Navbar({setSidebar,showSidebar}) {
     <div className='flex items-center justify-between bg-neutral-100 dark:bg-neutral-900 text-slate-50 h-14 py-4 fixed top-0 w-full px-8 z-50 sm:pr-[16rem] shadow-sm' >
         {/* Icon */}
         <button onClick={()=>setSidebar(!showSidebar)}>
-          <AlignJustify className='text-neutral-500 hover:text-cyan-600'/>
+          <AlignJustify className='text-neutral-500 hover:text-pink-600'/>
         </button>
         {/* 3Icons*/}
         <div className="flex space-x-6 p-4">
             <ThemeSwitcher />
             <Link href='/'>
-              <FiShoppingCart className='text-neutral-500 hover:text-cyan-600'/>
+              <FiShoppingCart className='text-neutral-500 hover:text-pink-600'/>
             </Link>
             {status==='authenticated'&&(
               <UserAvatar user= {session?.user} />

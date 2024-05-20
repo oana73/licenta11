@@ -16,7 +16,7 @@ export default async function Shop() {
   const session = await getServerSession(authOptions);
   console.log(session?.user)
   return (
-    <div className="min-h-screen mx-auto max-w-screen-2xl ">
+    <div className="min-h-screen mx-auto max-w-screen-2xl dark:bg-neutral-900 ">
     <MarketList/>
     {
       categories.map((category,i)=>{
