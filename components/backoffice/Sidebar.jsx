@@ -12,23 +12,23 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
  
 export default function Sidebar({showSidebar,setSidebar}) {
-   const{data:session, state} = useSession()
-   const  status   = session?.user.status;
-   if (state==='loading'){
-      return <p>loading</p>
-   }
+  const{data:session, state} = useSession()
+  const  status = session?.user.status;
+  if (state==='loading'){
+    return <p>loading</p>
+  }
 
-   const role = session?.user?.role;
-   let catalogLinks=[
-      {
-         title:"Products",
-         href: "/dashboard/products"
-      },
-      {
-         title:"Categories",
-         href: "/dashboard/categories"
-      },
-     ];
+  const role = session?.user?.role;
+  let catalogLinks=[
+   {
+      title:"Products",
+      href: "/dashboard/products"
+   },
+   {
+      title:"Categories",
+      href: "/dashboard/categories"
+   },
+   ];
   let sidebarLinks=[
    {
       title:"Customers",
@@ -96,13 +96,13 @@ export default function Sidebar({showSidebar,setSidebar}) {
          href: "/"
       },
      ]
-     catalogLinks=[
+   catalogLinks=[
       {
          title:"Products",
          href: "/dashboard/products"
       },
      ];
-    } 
+   } 
   if(role==='USER'){
    sidebarLinks=[
    {

@@ -41,7 +41,7 @@ export default function UserAvatar({user={}}) {
         <DropdownMenuItem>
         <Link href='/dashboard/orders' className='flex items-center space-x-2'>
           <UserCog className="mr-2 h-4 w-4"  />
-          <span>MY orders</span>
+          <span>My orders</span>
         </Link>
         </DropdownMenuItem>
       }
