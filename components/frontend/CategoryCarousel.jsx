@@ -46,7 +46,7 @@ const responsive = {
       removeArrowOnDeviceType={["tablet", "mobile"]}
       //deviceType={}
       dotListClass="custom-dot-list-style"
-      itemClass="p-6"
+      itemClass="p-4"
 >
 
   {products.map((product,i)=> {

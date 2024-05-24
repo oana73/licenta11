@@ -66,14 +66,14 @@ export default function Sidebar({showSidebar,setSidebar}) {
    return (
       <div className= {showSidebar?"lg:block mt-14 lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
      :" mt-20 hidden lg:block lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
-          <a className='mb-6 ' href="/dashboard">
+          <Link className='mb-6 ' href="/dashboard">
             <Image src="/logo.png"
             alt="logo"
             width={50}
             height={50}
             className='mt-3'
             />
-          </a>
+          </Link>
           <div className='space-y-6 flex flex-col'>
               <div className='flex items-center space-x-3 px-6 py-0.5 hover-pink-500'>
                 <Verified className='w-5 h-5'/>
@@ -121,14 +121,17 @@ export default function Sidebar({showSidebar,setSidebar}) {
   return (
     <div className= {showSidebar?"lg:block mt-14 lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"
    :" mt-20 hidden lg:block lg:mt-0 font-medium bg-neutral-50 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300 space-y-6 w-52 h-screen fixed left-0 top-0 shadow-md"} >
-        <a className='mb-6 ' href="/dashboard">
+        <Link className='flex items-center mb-6 mt-2 text-neutral-950 font-semibold font-serif' href="/dashboard">
           <Image src="/logo.png"
           alt="logo"
           width={50}
           height={50}
-          className='mt-3'
+          className='ml-2'
           />
-        </a>
+          <span className='text-lg'>
+            CraftCorner
+          </span>
+        </Link>
         <div className='space-y-6 flex flex-col  '>
             <Link onClick={() => setSidebar(false)}
             href="/dashboard" 
