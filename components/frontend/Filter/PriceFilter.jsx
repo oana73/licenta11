@@ -11,7 +11,7 @@ export default function PriceFilter({slug}) {
     const maxParam = searchParams.get("max")
     const priceRanges = [
         {
-            display:"under 200",
+            display:"Under 200",
             max:200
         },
         {

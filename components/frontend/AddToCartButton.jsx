@@ -13,7 +13,7 @@ export default function AddToCartButton({product}) {
         toast.success("Item added Successfully")
     }
   return (
-    <button onClick={()=>handdleAddToCart()} className='bg-black hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600  text-white rounded-lg py-2 '>
+    <button onClick={()=>handdleAddToCart()} className='bg-neutral-700 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-700  text-white rounded-lg py-2'>
         <span>Add to cart</span>
     </button>
   )

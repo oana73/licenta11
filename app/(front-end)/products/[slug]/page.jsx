@@ -25,7 +25,7 @@ export default async function ProductDetailPage({params:{slug}}) {
   return (
     <div className='mx-auto max-w-screen-2xl '>
         <Breadcrumb/>
-        <div className="grid grid-cols-12 gap-6 border border-neutral-200 dark:border-neutral-800  rounded-2xl">
+        <div className="grid grid-cols-12 gap-6 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
             <ProductImages productImages={product.productImages} thumbnail={product.imageUrl}/>
             <div className='col-span-8 px-12 py-16 '>
                 <div className="items-center justify-between mb-20">
@@ -44,63 +44,18 @@ export default async function ProductDetailPage({params:{slug}}) {
                 <div className='border-b mb-16'>
                     <p className='py-2 text-justify text-neutral-700 dark:text-neutral-300'>{product.description}</p>
                 </div>
-                {/* <div className="flex items-center justify-between border-b gap-4 pt-4 pb-4">
-                    <p className='flex items-center'>
-                        <CiShoppingTag className='text-neutral-600 me-2'/>
-                        <span> Save 50% now!</span>
-                    </p>
-                </div> */}
+                <div className="flex flex-wrap items-center mt-36">
+                {product.tags.map((tag, index) => (
+                    <span key={index} className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-sm mr-2 mb-2">{tag}</span>
+                ))}
+                </div>
                 <div className='grid grid-flow-col justify-stretch gap-8 mt-3 lg:mt-8 text-xs md:text-sm lg:text-xl text-center'>
                     <AddToCartButton product={product}/>
-                    <button className='bg-black hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600  text-white rounded-lg py-2 '>
+                    <button className='bg-neutral-700 hover:bg-gradient-to-r hover:from-pink-400 hover:to-pink-700  text-white rounded-lg py-2'>
                         <span>Go to Store</span>
                     </button>
                 </div>
             </div>
-            {/* <div className='col-span-2 hidden sm:block bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700'>
-                <h2 className='bg-slate-100 py-2 px-6 border-b border-gray-200'>
-                    Delivery 
-                </h2>
-                <div className='p-4'>
-                    <div className="flex rounded-lg py-2 px-4 bg-slate-100 items-center gap-3">
-                        <span>Express</span>
-                        < IoSendOutline />
-                    </div>
-                    <div className='py-3 border-b'>
-                        For free delivery 
-                        <Link href='#'> </Link>
-                    </div>
-                    <h2 className='py-2'> Choose location </h2>
-                    <div className='pb-3'>
-                        <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
-                        </select>
-                    </div>
-                    <div className='pb-3'>
-                        <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
-                        </select>
-                    </div>
-                    <div className='pb-3'>
-                        <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div> */}
         </div>
         <div className='py-8 mt-40'>
             <div className='flex justify-between items-center text-neutral-700 dark:text-neutral-300 py-3 px-6 rounded-t-lg border border-neutral-200 dark:border-neutral-800'>
