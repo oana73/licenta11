@@ -117,16 +117,16 @@ export default function RegisterForm({role = "USER"}) {
         </p>
         {role==='USER'?(        
         <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
-          Vendor?{" "}
+          Sell now{" "}
           <Link
             href="/register-supplier"
             className="font-medium text-pink-500 hover:underline "
           >
-            Register here
+            here
           </Link>
         </p>):(
         <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
-        User?{" "}
+        Nothing to sell?{" "}
         <Link
           href="/register"
           className="font-medium text-pink-500 hover:underline "

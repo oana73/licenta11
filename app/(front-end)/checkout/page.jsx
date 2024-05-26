@@ -23,11 +23,11 @@ export default function page() {
         },
       ];
   return (
-    <div className='mx-auto max-w-screen-2xl min-h-screen'>
-        <div className="max-w-3xl my-6 mx-auto  border border-slate-200 rounded-lg p-6">
+    <div className='mx-auto max-w-screen-2xl min-h-screen py-8'>
+        <div className="max-w-3xl mx-auto  border border-neutral-200 dark:border-neutral-700 rounded-lg p-6">
             {/* Steps */}
             <Steps steps={steps}/>
-            <div className='w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+            <div className='w-full p-4 border border-neutral-200 dark:border-neutral-700 rounded-lg shadow sm:p-6 md:p-8'>
                 {/* Banner */}
                 <CartBanner/>
                 {/* Form */}

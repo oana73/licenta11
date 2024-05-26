@@ -25,7 +25,7 @@ export default function CartSubtotal({subTotal}) {
       <span>Total</span>
       <span>${totalPrice}</span>
     </div>
-    <Link href='/checkout' className='block hover:shadow-sm dark:bg-black rounded-lg py-2 px-4 font-normal border-2 border-neutral-300 dark:border-neutral-700 text-center text-neutral-700 dark:text-neutral-300'>Continue to payment</Link>
+    <Link href='/checkout' className='block hover:shadow-sm bg-neutral-200 dark:bg-black rounded-lg py-2 px-4 font-normal border-2 border-neutral-300 dark:border-neutral-700 text-center text-neutral-700 dark:text-neutral-300'>Continue to payment</Link>
   </div>
   )
 }

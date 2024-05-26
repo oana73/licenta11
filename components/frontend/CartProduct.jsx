@@ -26,15 +26,13 @@ export default function CartProduct({cartItem}) {
     <div className='flex items-center justify-between border-b border-neutral-300  dark:border-neutral-700 pb-3 px-5 font-semibold text-neutral-700 dark:text-neutral-300 text-sm mb-4'>
     <div className="flex items-center gap-3 ">
       <Image src={cartItem.imageUrl} width={249} height={249} alt={cartItem.title} className='rounded-md w-20 h-20'/>
-      <div className="flex flex-col">
-        <h2>{cartItem.title}</h2>
-      </div>
+      <h2>{cartItem.title}</h2>
     </div>
     <div className='rounded-lg border flex gap-3 items-center '>
       <button onClick={()=>handdleCartItemDecrement(cartItem.id)} className='border-r py-1 px-2'>
         <FaMinus className='w-3 h-3'/>
       </button>
-      <p className='flex-grow py-1 px-3 text-xs'>{cartItem.qty}</p>
+      <p className='py-1 px-3 text-xs'>{cartItem.qty}</p>
       <button onClick={()=>handdleCartItemIncrement(cartItem.id)}className='border-l py-1 px-2'>
         <FaPlus className='w-3 h-3'/>
       </button>

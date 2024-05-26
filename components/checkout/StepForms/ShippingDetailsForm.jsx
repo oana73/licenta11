@@ -3,7 +3,7 @@ import TextInput from '@/components/Form/TextInput';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import NavButtons from '../NavButtons';
-import { Circle, Truck } from 'lucide-react';
+import { Circle, Package, Truck } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentStep, updateCheckoutFormData } from '@/redux/slices/checkoutSlice';
 
@@ -58,33 +58,25 @@ export default function ShippingDetailsForm() {
       </div>
       {/* Shipping cost */}
       <div className='col-span-full'>
-        <h3 class="mb-5 text-lg font-medium text-gray-900 dark:text-white">Shipping?</h3>
+        <h3 class=" mt-5 py-2 font-medium text-neutral-900 dark:text-neutral-50">Shipping type</h3>
         <ul class="grid w-full gap-6 md:grid-cols-2">
             <li>
                 <input type="radio" id="hosting-small" name="hosting" value="8" class="hidden peer" required onChange={(e)=>setShippingCost(e.target.value)}/>
-                <label for="hosting-small" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">                           
+                <label for="hosting-small" class="inline-flex items-center justify-between w-full p-5 text-neutral-500 bg-white border border-neutral-200 rounded-lg cursor-pointer dark:hover:text-neutral-300 dark:border-neutral-700 dark:peer-checked:text-pink-500 peer-checked:border-pink-600 peer-checked:text-pink-600 hover:text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700">                           
                   {/* Design */}
-                  <div className="flex gap-2 items-center">
+                  <div className="flex gap-3 items-center">
                     <Truck className='w-6 h-6 flex-shrink-0 ms-3'/>
-                    <div className=''>
-                      <p>ups</p>
-                      <p>Delivery Cost: $8</p>
-                    </div>
+                    <p>Delivery</p>
                   </div>
-                  <Circle className='w-5 h-5 flex-shrink-0  ms-3'/>
                 </label>
             </li>
             <li>
                 <input type="radio" id="hosting-big" name="hosting" value="10" class="hidden peer" onChange={(e)=>setShippingCost(e.target.value)}/>
-                <label for="hosting-big" class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                  <div className="flex gap-2 items-center">
-                    <Truck className='w-6 h-6 flex-shrink-0 ms-3'/>
-                    <div className=''>
-                      <p>ups</p>
-                      <p>Delivery Cost: $10</p>
-                    </div>
+                <label for="hosting-big" class="inline-flex items-center justify-between w-full p-5 text-neutral-500 bg-white border border-neutral-200 rounded-lg cursor-pointer dark:hover:text-neutral-300 dark:border-neutral-700 dark:peer-checked:text-pink-500 peer-checked:border-pink-600 peer-checked:text-pink-600 hover:text-neutral-600 hover:bg-neutral-100 dark:text-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700">
+                  <div className="flex gap-3 items-center">
+                    <Package className='w-6 h-6 flex-shrink-0 ms-3'/>
+                    <p>Post Office</p>
                   </div>
-                  <Circle className='w-5 h-5 flex-shrink-0  ms-3'/>
                 </label>
             </li>
         </ul>

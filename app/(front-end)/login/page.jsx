@@ -16,7 +16,7 @@ export default function Login() {
             </div>
             </div>  
             <div className="sm:w-1/2 p-16">
-            <div className="text-xl font-bold mb-2 text-neutral-600 dark:text-neutral-200">Login to your account</div>
+            <div className="text-xl font-bold mb-8 text-neutral-600 dark:text-neutral-200">Login</div>
             <LoginForm role="USER" className="flex flex-col"/>
             </div>
         </div>

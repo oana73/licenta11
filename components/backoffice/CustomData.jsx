@@ -18,13 +18,13 @@ export default function CustomData() {
         {/* Table */}            
         <div className="p-8">
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-sm text-left rtl:text-right text-neutral-500 dark:text-neutral-400">
+                <thead className="text-xs text-neutral-700 uppercase bg-neutral-50 dark:bg-neutral-700 dark:text-neutral-400">
                     <tr>
                         
                         <th scope="col" className="p-4">
                             <div className="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-neutral-100 border-neutral-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-neutral-800 dark:focus:ring-offset-neutral-800 focus:ring-2 dark:bg-neutral-700 dark:border-neutral-600"/>
                                 <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
                             </div>
                         </th>
@@ -52,17 +52,17 @@ export default function CustomData() {
                     {
                         currentDisplayedData.map((item,i)=>{
                           return(
-                            <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr key={i} className="bg-white border-b dark:bg-neutral-800 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-600">
                                 <td className="w-4 p-4">
                                     <div className="flex items-center">
-                                        <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                        <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-neutral-100 border-neutral-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-neutral-800 dark:focus:ring-offset-neutral-800 focus:ring-2 dark:bg-neutral-700 dark:border-neutral-600"/>
                                         <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
                                     </div>
                                 </td>
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white">
                                     {item.id}
                                 </th>
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <th scope="row" className="px-6 py-4 font-medium text-neutral-900 whitespace-nowrap dark:text-white">
                                     {item.first_name}
                                 </th>
                                 <td className="px-6 py-4">
@@ -84,13 +84,13 @@ export default function CustomData() {
                 </tbody>
             </table>
             <nav className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
-                <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-gray-400 dark:text-white">{itemStartIndex}-{itemEndIndex}</span> of <span className="font-semibold text-gray-400 dark:text-white">{data.length}</span></span>
+                <span className="text-sm font-normal text-neutral-500 dark:text-neutral-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-neutral-400 dark:text-white">{itemStartIndex}-{itemEndIndex}</span> of <span className="font-semibold text-neutral-400 dark:text-white">{data.length}</span></span>
                 <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-14">
                     <li>
                         <button  
                         onClick={()=> setCurrentPage(currentPage - 1)} 
                         disabled={currentPage == 1}
-                        className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                        className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-neutral-500 bg-white border border-neutral-300 rounded-s-lg hover:bg-neutral-100 hover:text-neutral-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white">Previous</button>
                     </li>
                     {
                         Array.from({length:numberOfPages}, (_, index)=>{
@@ -100,8 +100,8 @@ export default function CustomData() {
                                    onClick={()=>setCurrentPage(index+1)}
                                    disabled={currentPage == index+1}
                                    className={currentPage == index+1
-                                   ? "flex items-center justify-center px-3 h-8 leading-tight text-gray-100 bg-pink-500 border border-pink-100 dark:bg-pink-600 dark:border-pink-700 dark:text-gray-200 "
-                                   :"flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"}>{index+1}</button>
+                                   ? "flex items-center justify-center px-3 h-8 leading-tight text-neutral-100 bg-pink-500 border border-pink-100 dark:bg-pink-600 dark:border-pink-700 dark:text-neutral-200 "
+                                   :"flex items-center justify-center px-3 h-8 leading-tight text-neutral-500 bg-white border border-neutral-300 hover:bg-neutral-100 hover:text-neutral-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white"}>{index+1}</button>
                                 </li>
                             )
                         })
@@ -111,7 +111,7 @@ export default function CustomData() {
                         <button 
                         onClick={()=> setCurrentPage(currentPage + 1)} 
                         disabled={currentPage == numberOfPages}
-                        className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+                        className="flex items-center justify-center px-3 h-8 leading-tight text-neutral-500 bg-white border border-neutral-300 rounded-e-lg hover:bg-neutral-100 hover:text-neutral-700 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-white">Next</button>
                     </li>
                 </ul>
             </nav>
