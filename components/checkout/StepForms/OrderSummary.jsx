@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '@/redux/slices/cartSlice'
 
 export default function OrderSummaryForm() {
   const [loading, setLoading] = useState(false)
@@ -42,7 +43,10 @@ export default function OrderSummaryForm() {
       if (response.ok) {
         setLoading(false);
         toast.success("New Order Created Successfully");
+        console.log("About to clear cart");
+        dispatch(clearCart());
         router.push(`/order-confirmation/${responseData.id}`)
+        
       } else {
         setLoading(false);
         toast.error("Something Went wrong");
@@ -57,7 +61,7 @@ export default function OrderSummaryForm() {
       <h3 class="mb-5 text-lg font-medium text-neutral-900 dark:text-white">Order summary</h3>
       {cartItems.map((cartItem, i)=>{
         return(
-          <div className='flex items-center justify-between border-b border-neutral-400 pb-3 font-semibold text-neutral-300 text-sm mb-4'>
+          <div className='flex items-center justify-between border-b border-neutral-400 pb-3 font-semibold text-neutral-700 text-sm mb-4'>
           <div className="flex items-center gap-3">
             <Image src={cartItem.imageUrl} width={249} height={249} alt={cartItem.title} className='rounded-xl w-14 h-14'/>
             <div className="flex flex-col">

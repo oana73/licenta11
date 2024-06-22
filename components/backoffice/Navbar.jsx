@@ -35,12 +35,13 @@ export default function Navbar({setSidebar,showSidebar}) {
         {/* 3Icons*/}
         <div className="flex space-x-6 p-4">
             <ThemeSwitcher />
-            <Link href='/'>
-              <FiShoppingCart className='text-neutral-500 hover:text-pink-600'/>
-            </Link>
             {status==='authenticated'&&(
               <UserAvatar user= {session?.user} />
             )}
+            <Link href='/'>
+              <FiShoppingCart className='text-neutral-500 hover:text-pink-600'/>
+            </Link>
+
 
             
         </div>

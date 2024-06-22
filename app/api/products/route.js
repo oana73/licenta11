@@ -36,8 +36,6 @@ export async function GET(request) {
     const min =request.nextUrl.searchParams.get('min')
     const max =request.nextUrl.searchParams.get('max')
     const searchTerm =request.nextUrl.searchParams.get('search')
-    const page =request.nextUrl.searchParams.get('page') || 1
-    const pageSize = 3
     let where={
         categoryId
     }

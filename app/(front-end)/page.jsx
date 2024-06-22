@@ -10,7 +10,7 @@ import { authOptions } from "@/lib/authOptions";
 export default async function Shop() {
   const categoriesData = await getData('categories')
   const categories = categoriesData.filter((category)=>{
-    return category.products.length >0 
+    return category.products.length > 2
   })
   const trainings =  await getData("trainings")
   const session = await getServerSession(authOptions);

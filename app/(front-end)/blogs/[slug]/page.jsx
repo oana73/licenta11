@@ -17,7 +17,7 @@ export default async function page({ params: { slug } }) {
         <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-7 lg:gap-x-12">
           <div className="bg-neutral-100 dark:bg-neutral-800 lg:col-span-5 rounded-xl">
             <div className="">
-              <img className="object-cover w-full h-full rounded-t-xl" src={training.imageUrl} alt={training.title} />
+              <img className="object-cover w-full h-96 rounded-t-xl" src={training.imageUrl} alt={training.title} />
             </div>
             <div className="px-4 py-5 sm:p-6">
               <section>

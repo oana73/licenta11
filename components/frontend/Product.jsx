@@ -16,7 +16,7 @@ export default function Product({product}) {
         toast.success("Item added Successfully")
     }
   return (
-    <div className='mr-3 border border-neutral-400 overflow-hidden w-72 h-50 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl mb-6'>
+    <div className='border border-neutral-400 overflow-hidden w-72 h-50 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl mb-6'>
     <Link href={`/products/${product.slug}`}>
       <Image src={product.imageUrl} alt={product.title} width={500} height={500} className='h-45 w-72 object-cover rounded-t-xl'/>
     </Link>
