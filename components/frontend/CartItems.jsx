@@ -11,15 +11,15 @@ export default function CartItems({cartItems}) {
           <h2 className='uppercase text-neutral-700 dark:text-neutral-300'>Quantity</h2>
           <h2 className='uppercase text-neutral-700 dark:text-neutral-300'>Price</h2>
         </div>
-    </>}
-    <div>
-      {cartItems.length>0? cartItems.map((item,i)=>{
-        return <CartProduct cartItem={item}  key={i}/>
-      }):( 
-        <EmptyCart/>
-      )}
-    </div>
-    {/* Coupon */}
+      </>}
+      <div>
+        {cartItems.length > 0 ? 
+          cartItems.map((item, i) => {
+            return <CartProduct cartItem={item} key={i} />
+          }) : (
+          <EmptyCart />
+        )}
+      </div>
     </div>
   )
 }

@@ -1,8 +1,4 @@
-import Heading from '@/components/backoffice/Heading'
 import PageHeader from '@/components/backoffice/PageHeader'
-import TableActions from '@/components/backoffice/TableActions'
-import { ArrowDownToLine, Plus, Search, Trash } from 'lucide-react'
-import Link from 'next/link'
 import React from 'react'
 import { columns } from './columns'
 import { getData } from '@/lib/getData'

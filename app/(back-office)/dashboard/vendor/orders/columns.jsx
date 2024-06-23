@@ -1,8 +1,6 @@
 "use client"
 import DateColumn from "@/components/DataTableColumns/DateColumn"
-import ImageColumn from "@/components/DataTableColumns/ImageColumn"
 import SortColumn from "@/components/DataTableColumns/SortColumn"
-import ActionColumn from "@/components/DataTableColumns/ActionColumn"
 import { Checkbox } from "@radix-ui/react-checkbox"
 
 export const columns = [

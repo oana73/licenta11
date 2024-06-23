@@ -5,14 +5,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import { FaGoogle } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-import { getData } from "@/lib/getData";
 export default function LoginForm() {
   const router = useRouter();
-  // const token = searchParams.get('token')
   const {
     register,
     handleSubmit,

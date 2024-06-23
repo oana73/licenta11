@@ -4,7 +4,7 @@ import React from 'react'
 
 export default async function page({params:{slug}, searchParams }) {
     const {sort, min, max} = searchParams
-    //console.log(max)
+    
     const category = await getData(`categories/filter/${slug}`)
     let products;
     if(max && min){
@@ -18,7 +18,7 @@ export default async function page({params:{slug}, searchParams }) {
     }else{
       products = await getData(`products?catId=${category.id}`)
     }
-    // const { products } = categories;
+
   return (
     <div>
         <h2>

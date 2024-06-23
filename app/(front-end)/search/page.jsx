@@ -1,5 +1,3 @@
-import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
 import React from 'react'
 import { getData } from '@/lib/getData'
 import FilterComponent from '@/components/frontend/Filter/FilterComponent'

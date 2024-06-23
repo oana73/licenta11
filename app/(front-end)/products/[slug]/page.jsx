@@ -1,16 +1,8 @@
 import Breadcrumb from '@/components/frontend/Breadcrumb'
-import { IoShareSocialOutline } from "react-icons/io5";
-import { CiShoppingTag } from "react-icons/ci";
-import { FaMinus,FaPlus } from "react-icons/fa6";
-import Image from 'next/image'
 import React from 'react'
-import { Minus, Plus, ShoppingBag } from 'lucide-react';
 import CategoryCarousel from '@/components/frontend/CategoryCarousel';
 import { getData } from '@/lib/getData';
-import Link from 'next/link';
-import { IoSendOutline } from "react-icons/io5";
 import AddToCartButton from '@/components/frontend/AddToCartButton';
-import { ProductShare } from '@/components/frontend/ProductShareButton';
 import ProductImages from '@/components/frontend/ProductImages';
 
 export default async function ProductDetailPage({params:{slug}}) {
@@ -20,8 +12,6 @@ export default async function ProductDetailPage({params:{slug}}) {
     const category = await getData(`/categories/${catId}`)
     const categoryProducts = category.products
     const products = categoryProducts.filter((product)=> product.id !== id)
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-    const urlToShare = `${baseUrl}/products/${slug}`
   return (
     <div className='mx-auto max-w-screen-2xl '>
         <Breadcrumb/>

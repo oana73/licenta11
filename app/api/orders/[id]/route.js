@@ -50,30 +50,3 @@ export async function DELETE(request,{params:{id}}) {
     },{status:500})
     }
 }
-// export async function PUT(request,{params:{id}}) {
-
-//     try{
-//         const{title, name, content, slug, imageUrl} = await request.json();
-//         const existingTraining = await db.training.findUnique({
-//             where: {
-//                 id,
-//             }}
-//         )
-//         if(!existingTraining){
-//             return NextResponse.json({
-//                 data:null,
-//                 message: "Training not found",
-//             },{status:404}
-//             )
-//         }
-//         const updatedTraining = await db.training.update({
-//             where:{id},
-//             data: {title, name, content, slug, imageUrl},
-//         }) 
-//         return NextResponse.json(updatedTraining)
-//     } catch(error){
-//         console.log(error)
-//         return NextResponse.json({
-//             message: "Updating Training failed",
-//         },{status:500})
-//     }}

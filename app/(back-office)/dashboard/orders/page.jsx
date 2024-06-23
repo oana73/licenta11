@@ -3,7 +3,6 @@ import { authOptions } from '@/lib/authOptions'
 import { getData } from '@/lib/getData'
 import { getServerSession } from 'next-auth'
 import React from 'react'
-import { get } from 'react-hook-form'
 
 export default async function page() {
   //fetch all orders
@@ -18,7 +17,7 @@ export default async function page() {
   }
   //filter by userId
   const userOrders = orders.filter((order)=>order.userId===userId)
-//   console.log(userOrders)
+  
   return (
     <div className="px-4 m-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-6xl mx-auto">

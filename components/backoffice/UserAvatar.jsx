@@ -24,34 +24,35 @@ export default function UserAvatar({user={}}) {
   }
   return (
     <DropdownMenu>
-    <DropdownMenuTrigger>
-      <FiUser className='text-neutral-500 hover:text-pink-600'/>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent className='py-2 px-4 pr-8 text-neutral-700 dark:text-neutral-300 dark:bg-neutral-900'>
-      <DropdownMenuLabel>{name}</DropdownMenuLabel>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem>
-        <Link href='/dashboard' className='flex items-center space-x-2'>
-          <Airplay className="mr-2 h-4 w-4" />
-          <span>Dashboard</span>
-        </Link>
-      </DropdownMenuItem>
-      {
-        role==='USER'&&
+      <DropdownMenuTrigger>
+        <FiUser className='text-neutral-500 hover:text-pink-600'/>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className='py-2 px-4 pr-8 text-neutral-700 dark:text-neutral-300 dark:bg-neutral-900'>
+        <DropdownMenuLabel>{name}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
         <DropdownMenuItem>
-        <Link href='/dashboard/orders' className='flex items-center space-x-2'>
-          <UserCog className="mr-2 h-4 w-4"  />
-          <span>My orders</span>
-        </Link>
+          <Link href='/dashboard' className='flex items-center space-x-2'>
+            <Airplay className="mr-2 h-4 w-4" />
+            <span>Dashboard</span>
+          </Link>
         </DropdownMenuItem>
-      }
-      <DropdownMenuItem>
-        <button onClick={handdleLogout} className='flex items-center space-x-2'>
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Logout</span>
-        </button>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
-  )
+        {
+          role==='USER' &&
+          <DropdownMenuItem>
+            <Link href='/dashboard/orders' className='flex items-center space-x-2'>
+              <UserCog className="mr-2 h-4 w-4" />
+              <span>My orders</span>
+            </Link>
+          </DropdownMenuItem>
+        }
+        <DropdownMenuItem>
+          <button onClick={handdleLogout} className='flex items-center space-x-2'>
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Logout</span>
+          </button>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+  
 }

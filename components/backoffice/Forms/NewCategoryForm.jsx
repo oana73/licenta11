@@ -3,8 +3,6 @@ import ImageInput from '@/components/Form/ImageInput'
 import SubmitButton from '@/components/Form/SubmitButon'
 import TextArea from '@/components/Form/TextArea'
 import TextInput from '@/components/Form/TextInput'
-import MultipleChoiceMarkets from '@/components/Form/MultipleChoiceMarkets'
-import HeaderForm from '@/components/backoffice/HeaderForm'
 import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
 import { generateSlug } from '@/lib/generateSlug'
 import React, { useState } from 'react'
@@ -46,14 +44,6 @@ export default function NewCategoryForm({updateData={}}) {
         register={register}
         errors={errors}
       />
-      {/* <MultipleChoiceMarkets
-        label="Select markets"
-        name="marketID"
-        options={markets}
-        multiple={false}
-        register={register}
-        errors={errors}
-        className='w-full'/> */}
       <TextArea
         label="Category Description"
         name="description"

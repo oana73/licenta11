@@ -15,20 +15,20 @@ import EditBtn from '../Actions/EditBtn'
 export default function ActionColumn({row, title, endpoint, editEndpoint}) {
     //const title = row.title
     return (
-    <DropdownMenu>
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="h-8 w-8 p-0">
+          <Button variant="ghost" className="h-8 w-8 p-0">
             <span className="sr-only">Open menu</span>
             <MoreHorizontal className="h-4 w-4" />
-        </Button>
+          </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-        <DropdownMenuLabel className="text-neutral-700 dark:text-neutral-50">Actions</DropdownMenuLabel>
-        <DropdownMenuSeparator className='bg-neutral-400 dark:bg-neutral-50'/>
-        <DropdownMenuItem><EditBtn title={title} editEndpoint={editEndpoint} /></DropdownMenuItem>
-        <DropdownMenuItem><DeleteBtn title={title} endpoint={endpoint} /></DropdownMenuItem>
-
+          <DropdownMenuLabel className="text-neutral-700 dark:text-neutral-50">Actions</DropdownMenuLabel>
+          <DropdownMenuSeparator className='bg-neutral-400 dark:bg-neutral-50'/>
+          <DropdownMenuItem><EditBtn title={title} editEndpoint={editEndpoint} /></DropdownMenuItem>
+          <DropdownMenuItem><DeleteBtn title={title} endpoint={endpoint} /></DropdownMenuItem>
         </DropdownMenuContent>
-    </DropdownMenu>
-    )
-}
+      </DropdownMenu>
+    );
+  }
+  

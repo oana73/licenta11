@@ -9,6 +9,7 @@ export default function layout({children}) {
     <div className='flex'>
         {/* sideBar */}
         <Sidebar showSidebar={showSidebar} setSidebar={setSidebar}/>
+        
         <div className='lg:ml-52 ml-0 flex-grow min-h-screen'>
             {/* Header */}  
             <Navbar showSidebar={showSidebar} setSidebar={setSidebar}/>

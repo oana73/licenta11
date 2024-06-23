@@ -1,5 +1,4 @@
 'use client'
-import TextInput from '@/components/Form/TextInput';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import NavButtons from '../NavButtons';
@@ -30,8 +29,6 @@ export default function PaymentMethodForm() {
   return (
     <form onSubmit={handleSubmit(processData)} >
       <h2 className='text-xl  mb-4'>Payment Method</h2>
-      <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
-      </div>
       {/* Payment cost */}
       <div className='col-span-full'>
         <ul class="grid w-full gap-6 md:grid-cols-2">

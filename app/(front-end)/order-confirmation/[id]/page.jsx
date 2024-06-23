@@ -1,5 +1,4 @@
 import { getData } from "@/lib/getData";
-import { Item } from "@radix-ui/react-dropdown-menu";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +10,7 @@ export default async function page({ params: { id } }) {
   const subTotal = orderItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
   const shipping = 10.00
   const totalPrice = (Number(subTotal) + Number(shipping)).toFixed(2)
+  
   return (
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-5xl">

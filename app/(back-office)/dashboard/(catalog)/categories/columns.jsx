@@ -48,18 +48,6 @@ export const columns = [
     header: "Category Image",
     cell: ({ row }) => (<ImageColumn row={row} accessorKey="imageUrl"/>)
   },
-//   {
-//     accessorKey: "description",
-//     header: "Description",
-//     cell: ({ row }) => {
-//         const description = row.getValue("description")
-//         return (
-//             <div className=" line-clamp-1">
-//                 {description}
-//             </div>
-//         )
-//       },
-//   },
   {
     accessorKey: "createdAt",
     header: "Create Date",

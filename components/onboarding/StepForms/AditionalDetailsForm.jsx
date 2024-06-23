@@ -30,19 +30,21 @@ export default function AditionalDetailsForm() {
     <form onSubmit={handleSubmit(processData)} >
       <h2 className='text-xl  mb-4'>Aditional Details</h2>
       <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
-            <ImageInput
-            label="Supplier Profile Image"
-            imageUrl={imageUrl}
-            setImageUrl={ setImageUrl}
-            endpoint='supplierProfileUploader'/>
-            <TextArea
-              label="Notes"
-              name="notes"
-              register={register}
-              errors={errors}
-              isRequired = {false}/>
-
+        <ImageInput
+          label="Supplier Profile Image"
+          imageUrl={imageUrl}
+          setImageUrl={ setImageUrl}
+          endpoint='supplierProfileUploader'
+        />
+        <TextArea
+          label="Notes"
+          name="notes"
+          register={register}
+          errors={errors}
+          isRequired = {false}
+        />
       </div>
+
       <NavButtons/>
     </form>
   )

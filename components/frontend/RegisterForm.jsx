@@ -104,38 +104,37 @@ export default function RegisterForm({role = "USER"}) {
         loadingButton="Please Wait"
         customClass="py-2 mb-3 bg-black bg-gradient-to-r from-pink-500 to-blue-500 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 w-full  text-white rounded-md"
       />
-
-    <div className="flex justify-between gap-2">
-      <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
-          Already have an account?{" "}
-          <Link
-            href="/login"
-            className="font-medium text-pink-500 hover:underline "
-          >
-            Login
-          </Link>
-        </p>
-        {role==='USER'?(        
+      <div className="flex justify-between gap-2">
         <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
-          Sell now{" "}
-          <Link
-            href="/register-supplier"
-            className="font-medium text-pink-500 hover:underline "
-          >
-            here
-          </Link>
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className="font-medium text-pink-500 hover:underline "
+            >
+              Login
+            </Link>
+        </p>
+          {role==='USER'?(        
+          <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
+            Sell now{" "}
+            <Link
+              href="/register-supplier"
+              className="font-medium text-pink-500 hover:underline "
+            >
+              here
+            </Link>
         </p>):(
         <p className="text-[0.75rem] font-light text-gray-500 dark:text-gray-400 mt-2">
-        Nothing to sell?{" "}
-        <Link
-          href="/register"
-          className="font-medium text-pink-500 hover:underline "
-        >
-          Register here
-        </Link>
-      </p>
-        )}
-    </div>
+          Nothing to sell?{" "}
+          <Link
+            href="/register"
+            className="font-medium text-pink-500 hover:underline "
+          >
+            Register here
+          </Link>
+        </p>
+          )}
+      </div>
     </form>
   );
 }
