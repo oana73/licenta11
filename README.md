@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# CRAFTCORNER: SISTEM INFORMATIC PENTRU ADMINISTRAREA UNUI MAGAZIN ONLINE CU VÂNZĂTORI MULTIPLI
 
-First, run the development server:
+## Scopul Proiectului
+
+Scopul principal al proiectului CRAFTCORNER este de a dezvolta un sistem informatic complet pentru administrarea eficientă a unui magazin online cu vânzători multipli, folosind tehnologii de actualitate.
+
+
+### Obiective Punctuale
+
+- **Crearea unei interfețe grafice cu design atrăgător și interacțiuni intuitive:**
+  Platforma va oferi o interfață modernă și funcțională, cu un design estetic și elemente grafice coerente.
+
+- **Dezvoltarea unei interfețe responsive pentru accesibilitate maximă:**
+  Interfața va fi responsive, adaptându-se la diferite dimensiuni de ecrane, pentru a oferi o experiență optimă utilizatorilor.
+
+- **Platformă specializată în vânzarea produselor handmade:**
+  CRAFTCORNER va servi ca un mediu dedicat exclusiv vânzării de produse handmade, susținând artiștii și promovând produsele lor într-un cadru profesional.
+
+- **Implementarea unui panou de administrare intuitiv și eficient pentru vânzători:**
+  Vânzătorii vor avea acces la un panou de control simplu și funcțional, unde își pot gestiona produsele.
+
+## Repository-ul Proiectului:
+
+Adresa repository-ului este:  https://github.com/oana73/licenta11
+
+
+## Pașii de instalare
+
+### 1. Cerințe Preliminare
+
+- Node.js >= 18.17 
+
+### 2. Clonarea repository-ului
+
+Pentru a obține o copie locală a proiectului, acesta trebuie clonat, utilizând comanda:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/oana73/licenta11.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Instalare Dependințe
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Proiectul utilizează un număr mare de pachete de care depinde funcționarea corespunzătoare a aplicației. Așadar, în directorul proiectului clonat, se va folosi următoarea comandă pentru a instala toate dependințele necesare:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm install
+```
+Aceste pachete, cât și versiunile lor, pot fi vizualizate în fișierul `package.json`.
 
-## Learn More
+### 4. Configurare Variabile de Mediu
 
-To learn more about Next.js, take a look at the following resources:
+Următorul pas este setarea variabilelor de mediu. Pentru acest pas se creează local un fișier `.env` care conține variabile precum:
+- NEXT_PUBLIC_BASE_URL - care definește URL-ul de bază al aplicației, folosit pentru a construi adresele URL în aplicație.
+- DATABASE_URL - care definește conexiunea la baza de date utilizată în aplicație.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 5. Rularea Aplicației
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Aplicația poate fi rulată utilizând comanda:
+```bash
+npm run dev
+```
+Vizualizarea aplicației se face prin intermediul browser-ului folosind URL-ul  [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
